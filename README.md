@@ -17,4 +17,4 @@ When the app recognised a BTLE device with a sufficiant signal strength, it will
 
 - dig deeper into the [BT SIG's registered numbers dir](https://bitbucket.org/bluetooth-SIG/public/src/main/assigned_numbers/).
 
-- fyi, it's not working yet on the repo nor is the code complete. I have a prototype app here running. As soon as I get some spare time and figure some last things out, I will push this app to google play, too. I still have some developer certificate around I could use for that. I will also pusblsh releases as APK here on github.
+- It's not working yet on the repo nor is the code complete. I have a prototype app here running and did not upload all code yet due to lack of time. As soon as I get some spare time and figure some last things out, I will push this app to google play, too. I still have some developer certificate around I could use for that. I will also pusblsh releases as APK here on GitHub and elsewhere.
