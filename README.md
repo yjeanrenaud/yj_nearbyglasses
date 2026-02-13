@@ -2,7 +2,7 @@
 attempting detect Meta Ray-Ban smart glasses nearby
 
 ## why?
-Because I consider Meta Ray-Bans a intolerable intrusion, consent neglecting, horrible piece of tech that is already used for making various and tons of equally truely disgusting 'content'. [1](https://www.404media.co/border-patrol-agent-recorded-raid-with-metas-ray-ban-smart-glasses/)[2](https://www.404media.co/metas-ray-ban-glasses-users-film-and-harass-massage-parlor-workers/)
+Because I consider Meta Ray-Bans a intolerable intrusion, consent neglecting, horrible piece of tech that is already used for making various and tons of equally truely disgusting 'content'. [1](https://www.404media.co/border-patrol-agent-recorded-raid-with-metas-ray-ban-smart-glasses/), [2](https://www.404media.co/metas-ray-ban-glasses-users-film-and-harass-massage-parlor-workers/)
 
 Their small LED signifing a recording is going on iseasily disabled, whilst Meta claims to prevent that. [3](https://www.404media.co/how-to-disable-meta-rayban-led-light/)
 
@@ -15,4 +15,6 @@ When the app recognised a BTLE device with a sufficiant signal strength, it will
 
 ## todo
 
-fyi, it's not working yet on the repo nor is the code complete. I have a prototype app here running. As soon as I get some spare time and figure some last things out, I will push this app to google play, too. I still have some developer certificate around I could use for that.
+- dig deeper into the [BT SIG's registered numbers dir](https://bitbucket.org/bluetooth-SIG/public/src/main/assigned_numbers/).
+
+- fyi, it's not working yet on the repo nor is the code complete. I have a prototype app here running. As soon as I get some spare time and figure some last things out, I will push this app to google play, too. I still have some developer certificate around I could use for that. I will also pusblsh releases as APK here on github.
