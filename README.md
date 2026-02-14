@@ -1,8 +1,8 @@
 # yj_nearbyglasses
-attempting to detect smart glasses nearby.
+attempting to detect smart glasses nearby and warn you.
 
 # Nearby Glasses 
-The app <i>Nearby Glasses</i> has one sole purpose: look for smart glasses nearby and warn you.
+The app, called *Nearby Glasses*, has one sole purpose: Look for smart glasses nearby and warn you.
 
 This app notifies you when smart glasses are nearby. It uses company identificators in the Bluetooth data sent out by these. Therefore, there likely are false positives (e.g. from VR headsets). Hence, please proceed with caution when approaching a person nearby wearing glasses. They might just be regular glasses, despite this app’s warning.
         
@@ -50,7 +50,9 @@ Service UUIDs:
 - According to [Bluetooth SIG assigned numbers repo](www.bluetooth.com/specifications/assigned-numbers/), we may use these company IDs:
   - `0x01AB` for `Meta Platforms, Inc. (formerly Facebook)`
   - `0x058E` for `Meta Platforms Technologies, LLC`
-  - `0x0D53` for `Luxottica Group S.p.A`
+  - `0x0D53` for `Luxottica Group S.p.A` (Who manufacturers the Meta Ray-Bans)
+  They are immutable and mandatory. Of course, Meta also has other products that come with Bluetooth and therefore their ID, e.g. VR Headsets. Therefore, using these company ID codes for the app's scanning process is prone to false positives. But if you can't see someone wearing an occulus rift around you and there are no buildings where they could hide, chances are good that it's smart glasses instead.
+- During pairing, the smart glasses usually emmit their product name, so we can scan for that, too. But it's rare we will see that in the field.
 - When the app recognised a BTLE device with a sufficiant signal strength, it will push an alert message.
 
 ## Features
@@ -85,4 +87,5 @@ RSSI drops roughly according to<br/>
 - I will push this app to Google Play, too. I still have some developer certificate around I could use for that. I will also always publish releases  here on GitHub and elsewhere for those that avoid the Play Store.
 - I am no BT or Android expert at all. For what I've learned, one could also dig deeper into the communication of the Meta Ray-Bans sniffing the BTLE traffic. By that, we would not need to rely on the device powering up or connecting bout could also use heurisitcs on the encrypted traffic transimssions without much false positives. But I haven't looked into BT traffic packets for more than ten years. I'm glad I remembered ADV frames...
 - move all hard-coded texts into `strings.xml` for easier localisation.
+- add more manufacturers IDs of smart glasses.
 - an iOS app would be easy to adapt, too. But I don't have the toolchain anymore.
