@@ -1,5 +1,5 @@
 # yj_nearbyglasses
-attempting detect smart glasses nearby.
+attempting to detect smart glasses nearby.
 
 # Nearby Glasses 
 The app <i>Nearby Glasses</i> has one sole purpose: look for smart glasses nearby and warn you.
