@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- for menu, settings, buttons -->
+    <string name="app_name" translatable="false">Brillen in de buurt</string>
+    <string name="settings">Instellingen</string>
+    <string name="notLogging">Loggen uitgeschakeld. U ziet alleen meldingen als er iets is gedetecteerd.</string>
+    <string name="startScanning">Start scannen</string>
+    <string name="stopScanning">Stop scannen</string>
+    <string name="notScanning">Niet aan het scannen</string>
+    <string name="textScanning">Scannen actief - U krijgt een melding als slimme brillen in de buurt worden gedetecteerd</string>
+    <string name="titleCategoryAbout">Over</string>
+    <string name="start_scanning">Start scannen</string>
+    <string name="stop_scanning">Stop scannen</string>
+    <string name="scanning">Zoeken naar apparaten…</string>
+    <string name="not_scanning">Niet aan het scannen</string>
+    <string name="clear">Wissen</string>
+    <string name="export">Exporteren</string>
+    <string name="clearLog">Log wissen</string>
+    <string name="exportLog">Log exporteren</string>
+    <string name="debug_log">Debug-log</string>
+    <string name="glasses_detected">👓 Waarschuwing: slimme brillen zijn waarschijnlijk in de buurt</string>
+    <string name="info_text">Deze app waarschuwt u wanneer slimme brillen in de buurt zijn. Het gebruikt bedrijfsidentificaties in de Bluetooth-gegevens die door deze apparaten worden verzonden. Daarom zijn er waarschijnlijk valse positieven (bijv. van VR-headsets). Wees voorzichtig wanneer u iemand met een bril nadert. Het kunnen gewone brillen zijn, ondanks de waarschuwing van deze app.</string>
+    <string name="titleCategoryScanningSettings">Scan-instellingen</string>
+    <string name="titleForeground">Foreground Service inschakelen</string>
+    <string name="summaryForeground">Voer scannen uit als foreground service om te voorkomen dat het door het systeem wordt gestopt.</string>
+    <string name="titleCooldown">Meldingscooldown (ms)</string>
+    <string name="summaryCooldown">Huidig: %1$s ms. Minimale tijd tussen meldingen in milliseconden (standaard: 10000ms = 10s)</string>
+    <string name="titleThreshold">RSSI-drempelwaarde (dBm)</string>
+    <string name="summaryThreshold">Huidig: %1$s dBm. Detecteer alleen apparaten met RSSI boven deze drempel (standaard: -75 dBm, ~3-10 m)</string>
+    <string name="titleCategoryNotifications">Meldingsinstellingen</string>
+    <string name="titleNotifications">Meldingen inschakelen</string>
+    <string name="summaryNotifications">Toon meldingen wanneer slimme brillen worden gedetecteerd</string>
+    <string name="titleCategoryLogging">Log-instellingen</string>
+    <string name="titleLogging">Logweergave inschakelen</string>
+    <string name="summaryLogging">Toon detectielog in het hoofdscherm. Log wordt altijd lokaal opgeslagen voor export.</string>
+    <string name="titleDebug">Debug</string>
+    <string name="summaryDebug">Schakel alle gevonden bedrijfs-ID\'s in het log in. Meld nog steeds alleen bij slimme brillen.</string>
+    <string name="titleDebugSize">Max. logregels</string>
+    <string name="summaryDebugSize">Huidig: %1$s. Maximaal aantal regels in debug-log.</string>
+    <string name="titleDebugAdvonly">Alleen BLE ADV</string>
+    <string name="summaryDebugAdvonly">Wanneer ingeschakeld, worden alleen BLE-advertisement (ADV)-regels getoond in de debug-log.</string>
+    <string name="nothing_to_export">Geen detecties om te exporteren</string>
+    <string name="titleDebugCompanyIds">Bedrijfs-ID\'s overschrijven</string>
+    <string name="summaryDebugCompanyIds">Huidig: %1$s. Als u een of meer ID\'s invoert om te detecteren, in little endian hex-notatie, worden deze gebruikt in plaats van de standaardwaarden (\"0x01AB,0x058E,0x0D53\"). Dit activeert ook meldingen voor de nieuwe ID\'s.</string>
+    <string name="none_in_parentheses">(geen)</string>
+    <string name="summaryApp">Detecteert slimme brillen via Bluetooth LE</string>
+    <string name="titleMethod">Detectiemethode</string>
+    <string name="summaryMethod">Detectie op basis van bedrijfs-ID\'s in BLE-advertisingframes en apparaatnaam-overeenkomsten.</string>
+    <string name="titleLiability">Aansprakelijkheid en licentie</string>
+    <string name="summaryLiability" formatted="false">"<![CDATA[
+         De app <i>Nearby Glasses</i> heeft één doel: zoeken naar slimme brillen in de buurt en u waarschuwen.<br/>
+         De auteur van de app (<a href="https://yves.app">Yves Jeanrenaud</a>) aanvaardt geen enkele aansprakelijkheid voor deze app of de functionaliteit. Gebruik op eigen risico. Door het technische ontwerp kan het detecteren van Bluetooth LE-apparaten soms niet werken zoals verwacht. Ik ben geen gediplomeerde ontwikkelaar. Dit is allemaal geschreven in mijn vrije tijd en met zelf aangeleerde kennis.<br/>
+         <b>Valse positieven zijn waarschijnlijk.</b> Dit betekent dat de app <i>Nearby Glasses</i> u kan waarschuwen voor slimme brillen in de buurt, terwijl het in werkelijkheid een VR-headset van dezelfde fabrikant of een ander product van dat bedrijf kan zijn. Het kan ook slimme brillen in de buurt missen. Om te zien welke merken momenteel worden gedetecteerd, raadpleeg de <a href="https://github.com/yjeanrenaud/yj_nearbyglasses/">code-repository op GitHub</a>. Nogmaals: ik ben geen professionele ontwikkelaar.<br/>
+         Deze app is en blijft echter altijd gratis en open source (foss). U kunt de code bekijken, wijzigen en hergebruiken (onder de licentie): <a href="https://github.com/yjeanrenaud/yj_nearbyglasses">https://github.com/yjeanrenaud/yj_nearbyglasses</a>.<br/>
+         <br/>
+         Gemaakt in de hoop dat het nuttig zou zijn.<br/>
+         De app <i>Nearby Glasses</i> slaat geen gegevens over u op en verzamelt geen informatie over u of uw telefoon. Er is geen telemetrie, geen reclame en geen andere overlast. Als u de app installeert via de Play Store, kan Google iets over u weten en statistieken verzamelen. Maar de app zelf doet dat niet. <br/>
+         Als u ervoor kiest om het logbestand op te slaan (te exporteren), is dat volledig uw verantwoordelijkheid waar deze gegevens terechtkomen. De logs worden alleen lokaal opgeslagen en niet automatisch met iemand gedeeld.<br/>
+         <br/>
+         <b>Gebruik met extreme voorzichtigheid!</b> Zoals eerder vermeld: er is geen garantie dat gedetecteerde slimme brillen echt in de buurt zijn. Het kan een ander apparaat zijn dat technisch (op BLE adv-niveau) lijkt op slimme brillen.<br/>
+         Handel niet overhaast. <b>Denk na voordat u handelt op basis van berichten</b> (niet alleen van deze app).<br/>
+         <br/>
+         <b>App-pictogram</b>: Het pictogram is gebaseerd op <a href="https://www.flaticon.com/free-icons/eyeglass" title="bril-pictogrammen">Bril-pictogrammen gemaakt door Freepik - Flaticon</a>.<br/><br/>
+         Deze app <i>Nearby Glasses</i> is gelicentieerd onder PolyForm Noncommercial License 1.0.0. Zie <a href="https://polyformproject.org/licenses/noncommercial/1.0.0">https://polyformproject.org/licenses/noncommercial/1.0.0</a>.<br/>
+         ✊🏼 verzet (Ai)<br/>
+         ]]>     "</string>
+    <string name="pref_language_title">Taal</string>
+    <string name="pref_language_summary">Kies de app-taal</string>
+
+    <string-array name="pref_language_entries">
+        <item>Systeemstandaard</item>
+        <item>Engels</item>
+        <item>Duits</item>
+        <item>Frans</item>
+        <item>Nederlands</item>
+    </string-array>
+    <!-- for notifications -->
+    <string name="notifyText">⚠️ Slimme brillen zijn waarschijnlijk in de buurt</string>
+    <!-- Notification channel names -->
+    <string name="channel_detection_name">Slimme brillen detectie-waarschuwingen</string>
+    <string name="channel_detection_description">Waarschuwingen wanneer slimme brillen worden gedetecteerd</string>
+
+    <string name="channel_service_name">Achtergrond-scan service</string>
+    <string name="channel_service_description">Toont wanneer de app op de achtergrond scant</string>
+
+    <!-- Detection notification -->
+    <string name="notification_detected_title">@string/notifyText</string>
+    <string name="notification_detected_text">%1$s gedetecteerd (RSSI: %2$d dBm)</string>
+    <string name="notification_bigtext"><![CDATA[
+Apparaat: %1$s
+RSSI: %2$d dBm
+Reden: %3$s
+Bedrijf: %4$s]]></string>
+    <string name="notification_unknown_device">Onbekend apparaat</string>
+
+    <!-- Foreground service notification -->
+    <string name="notification_service_title">Scannen naar slimme brillen in de buurt</string>
+    <string name="notification_service_text">Achtergrond-scan is actief</string>
+    <!-- for messages and log -->
+    <string name="reason_meta_company_id">Meta bedrijfs-ID (%1$s)</string>
+    <string name="reason_essilor_company_id">EssilorLuxottica bedrijfs-ID (%1$s)</string>
+    <string name="reason_snap_company_id">Snap bedrijfs-ID (%1$s)</string>
+    <string name="reason_name_contains">Apparaatnaam bevat \'%1$s\'</string>
+    <string name="company_meta">Meta Platforms, Inc.</string>
+    <string name="company_essilor">EssilorLuxottica S.A.</string>
+    <string name="company_snap">Snap, Inc.</string>
+    <string name="company_unknown">Onbekend (%1$s)</string>
+    <string name="unknown_device">Onbekend</string>
+
+    <!-- Clipboard -->
+    <string name="clipboard_copied">Gekopieerd: %1$s</string>
+    <string name="clipboard_label_log_line">NearbyGlassesLogLine</string>
+    <string name="clipboard_label_log">NearbyGlassesLog</string>
+
+    <!-- Bluetooth / permissions -->
+    <string name="toast_bluetooth_required">Bluetooth moet ingeschakeld zijn</string>
+    <string name="toast_bluetooth_not_supported">Bluetooth wordt niet ondersteund op dit apparaat</string>
+
+    <string name="dialog_permissions_title">Machtigingen vereist</string>
+    <string name="dialog_permissions_message">Deze app vereist Bluetooth en Locatie-machtigingen om apparaten te scannen. Verleen machtigingen in Instellingen.</string>
+    <string name="dialog_open_settings">Instellingen openen</string>
+    <string name="dialog_cancel">Annuleren</string>
+    <!-- Clear log dialog -->
+    <string name="dialog_clear_log_title">Log wissen</string>
+    <string name="dialog_clear_log_message">Weet u zeker dat u alle detectielogs wilt wissen?</string>
+    <string name="dialog_clear">Wissen</string>
+    <string name="toast_log_cleared">Log gewist</string>
+    <!-- Export -->
+    <string name="chooser_export_log">Detectielog exporteren</string>
+    <string name="toast_export_error">Fout bij exporteren log: %1$s</string>
+    <string name="dbg_export_error">Fout bij exporteren log</string>
+    <!-- Log formatting -->
+    <string name="log_unknown_device">Onbekend</string>
+    <string name="log_detection_line">[%1$s] %2$s (%3$d dBm) - %4$s</string>
+    <string name="log_debug_prefix">DEBUG</string>
+    <string name="log_debug_line">[%1$s] %2$s: %3$s</string>
+    <!-- Service logs -->
+    <string name="log_service_created">Service gemaakt</string>
+    <string name="log_already_scanning">Al aan het scannen</string>
+    <string name="log_scanning_started">Scannen succesvol gestart</string>
+    <string name="log_scanning_failed">Scannen starten mislukt</string>
+    <string name="log_notification_suppressed">Detectie binnen cooldown-periode, melding onderdrukt</string>
+    <string name="log_service_destroyed">Service beëindigd</string>
+    <string name="reason_debug_override_company_id">Debug-override: bedrijfs-ID %1$s gevonden</string>
+    <string name="company_unknown_plain">Onbekend</string>
+    <string name="placeholder_none">geen</string>
+    <!-- Debug / scanner logs -->
+    <string name="dbg_filtered_rssi">Gefilterde RSSI addr=%1$s rssi=%2$d</string>
+    <string name="dbg_scan_failed">Scan mislukt met foutcode: %1$d</string>
+    <string name="dbg_bluetooth_disabled">Bluetooth is niet ingeschakeld</string>
+    <string name="dbg_already_scanning">Al aan het scannen</string>
+    <string name="dbg_ble_not_available">BLE-scanner niet beschikbaar</string>
+    <string name="dbg_ble_started_verbose">BLE-scannen gestart. RSSI-drempel=%1$d, mode=LOW_LATENCY</string>
+    <string name="dbg_ble_started_simple">BLE-scannen gestart met RSSI-drempel: %1$d dBm</string>
+    <string name="dbg_ble_stopped">BLE-scannen gestopt</string>
+    <string name="dbg_ble_start_error">Fout bij starten BLE-scan</string>
+    <string name="dbg_ble_stop_error">Fout bij stoppen BLE-scan</string>
+    <string name="dbg_adv_short">ADV addr=%1$s name=%2$s rssi=%3$d companyId=%4$s len=%5$d</string>
+    <string name="dbg_adv_full">ADV addr=%1$s name=%2$s rssi=%3$d companyId=%4$s mfgLen=%5$d smartglasses=%6$b reason=%7$s</string>
+    <string name="dbg_smart_glasses_detected">slimme brillen gedetecteerd: %1$s (%2$d dBm)</string>
+    <string name="dbg_override_match">Debug-override: bedrijfs-ID %1$s komt overeen</string>
+    <string name="dbg_placeholder_unknown">?</string>
+    <string name="dbg_placeholder_none">geen</string>
+</resources>
