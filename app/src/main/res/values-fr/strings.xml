@@ -71,6 +71,7 @@
 	<item>Anglais</item>
 	<item>Allemand</item>
 	<item>Français</item>
+	<item>Néerlandais</item>
 	</string-array>
 	<!-- for notifications -->
 	<string name="notifyText">⚠️ Des lunettes intelligentes sont probablement à proximité</string>

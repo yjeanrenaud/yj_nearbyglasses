@@ -72,13 +72,15 @@
         <item>English</item>
         <item>Deutsch</item>
         <item>Français</item>
+        <item>Nederlands</item>
     </string-array>
     <string-array name="pref_language_values">
-        <item></item> <!-- empty string means “follow system” -->
+        <item></item> <!-- empty string means "follow system" -->
         <item>en</item> <!-- only BCP-47 tags;  -->
         <item>de</item>
         <item>de-CH</item>
         <item>fr</item>
+        <item>nl</item>
     </string-array>
     <!-- for notifications -->
     <string name="notifyText">⚠️ Smart Glasses are probably nearby</string>
