@@ -31,7 +31,7 @@ Please do not act rashly. **Think before you act upon any messages** (not only f
   
 ## How?
 - It's a simple rather heuristic approach. Because BLE uses randomised MAC and the OSSID are not stable, nor the UUID of the service announcements, you can't just scan for the bluetooth beacons. And, to make thinks even more dire, some like Meta, for instance, use proprietary Bluetooth services and UUIDs are not persistent, ~~we can only rely on the communicated device names for now~~.
-- The currently **most viable approach** comes from the [Bluetooth SIG assigned numbers repo](www.bluetooth.com/specifications/assigned-numbers/). Following this, the manufacturer company's name shows up as number codes in the packet advertising header (ADV) of BLE beacons.
+- The currently **most viable approach** comes from the [Bluetooth SIG assigned numbers repo](https://www.bluetooth.com/specifications/assigned-numbers). Following this, the manufacturer company's name shows up as number codes in the packet advertising header (ADV) of BLE beacons.
  - this is what BLE advertising frames look like:
 ```
 Frame 1: Advertising (ADV_IND)
