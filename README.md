@@ -106,6 +106,7 @@ RSSI drops roughly according to<br/>
    - German
    - Swiss German
    - French
+   - Spanish
    - more to come, eventually
 - Now the app icon's background is not transparent anymore
 - The edge-to-edge layout issue should be fixed with [v1.0.4](https://github.com/yjeanrenaud/yj_nearbyglasses/releases)

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- for menu, settings, buttons -->
+    <string name="app_name" translatable="false">Nearby Glasses</string>
+    <string name="settings">Configuración</string>
+    <string name="notLogging">Registro desactivado. Solo verás notificaciones si se detecta algo.</string>
+    <string name="startScanning">Iniciar escaneo</string>
+    <string name="stopScanning">Detener escaneo</string>
+    <string name="notScanning">Sin escaneo</string>
+    <string name="textScanning">Escaneo activo: recibirás una notificación si se detectan gafas inteligentes cerca</string>
+    <string name="titleCategoryAbout">Acerca de</string>
+    <string name="start_scanning">Iniciar escaneo</string>
+    <string name="stop_scanning">Detener escaneo</string>
+    <string name="scanning">Escaneando dispositivos…</string>
+    <string name="not_scanning">Sin escaneo</string>
+    <string name="clear">Limpiar</string>
+    <string name="export">Exportar</string>
+    <string name="clearLog">Borrar registro</string>
+    <string name="exportLog">Exportar registro</string>
+    <string name="debug_log">Registro de depuración</string>
+    <string name="glasses_detected">👓 Advertencia: puede que haya gafas inteligentes cerca</string>
+    <string name="info_text">Esta app te avisa cuando puede haber gafas inteligentes cerca. Usa identificadores de empresa en los datos Bluetooth emitidos por esos dispositivos. Por ello, puede haber falsos positivos (por ejemplo, visores de VR). Así que, por favor, actúa con cautela al acercarte a alguien con gafas. Pueden ser gafas normales pese a la advertencia de esta app.</string>
+    <string name="warning_title">⚠️ ¡ADVERTENCIA! ⚠️ </string>
+    <string name="warning_text">ACOSAR a alguien porque crees que lleva un dispositivo de vigilancia encubierto puede ser un delito. Incluso podría ser un delito más grave que usar dicho dispositivo. Busca asesoramiento legal sobre las leyes locales aplicables.
+⚠️ NO ACOSES A NADIE BAJO NINGÚN CONCEPTO. ⚠️</string>
+    <string name="titleCategoryScanningSettings">Ajustes de escaneo</string>
+    <string name="titleForeground">Activar servicio en primer plano</string>
+    <string name="summaryForeground">Ejecuta el escaneo como servicio en primer plano para evitar que el sistema lo detenga.</string>
+    <string name="titleCooldown">Enfriamiento de notificaciones (ms)</string>
+    <string name="summaryCooldown">Actual: %1$s ms. Tiempo mínimo entre notificaciones en milisegundos (predeterminado: 10000 ms = 10 s)</string>
+    <string name="titleThreshold">Umbral RSSI (dBm)</string>
+    <string name="summaryThreshold">Actual: %1$s dBm. Solo detecta dispositivos con RSSI por encima de este umbral (predeterminado: -75 dBm, ~3-10 m)</string>
+    <string name="titleCategoryNotifications">Ajustes de notificaciones</string>
+    <string name="titleNotifications">Activar notificaciones</string>
+    <string name="summaryNotifications">Mostrar notificaciones cuando se detecten dispositivos de gafas inteligentes</string>
+    <string name="titleCategoryLogging">Ajustes de registro</string>
+    <string name="titleLogging">Activar visualización del registro</string>
+    <string name="summaryLogging">Muestra el registro de detecciones en la pantalla principal. El registro siempre se guarda localmente para su exportación.</string>
+    <string name="titleDebug">Depuración</string>
+    <string name="summaryDebug">Activa todos los ID de empresa encontrados en el registro. Las notificaciones siguen enviándose solo para gafas inteligentes.</string>
+    <string name="titleDebugSize">Máximo de líneas del registro</string>
+    <string name="summaryDebugSize">Actual: %1$s. Número máximo de líneas conservadas en el registro de depuración.</string>
+    <string name="titleDebugAdvonly">Solo ADV BLE</string>
+    <string name="summaryDebugAdvonly">Si está activado, solo se muestran líneas de anuncios BLE (ADV) en el registro de depuración.</string>
+    <string name="nothing_to_export">No hay detecciones para exportar</string>
+    <string name="titleDebugCompanyIds">Sobrescribir ID de empresa</string>
+    <string name="summaryDebugCompanyIds">Actual: %1$s. Si introduces uno o varios ID a detectar en notación hexadecimal little endian, se usarán en lugar de los predeterminados ("0x01AB,0x058E,0x0D53"). Esto también activará notificaciones para los nuevos ID.</string>
+    <string name="none_in_parentheses">(ninguno)</string>
+    <string name="summaryApp">Detecta gafas inteligentes mediante Bluetooth LE</string>
+    <string name="titleMethod">Método de detección</string>
+    <string name="summaryMethod">Detección basada en ID de empresa en tramas de publicidad BLE y coincidencia del nombre del dispositivo.</string>
+    <string name="titleLiability">Responsabilidad y licencia</string>
+    <string name="summaryLiability" formatted="false"><![CDATA[
+         La app <i>Nearby Glasses</i> tiene un único propósito: buscar gafas inteligentes cercanas y avisarte.<br/>
+         El autor de la app (<a href="https://yves.app">Yves Jeanrenaud</a>) no asume ninguna responsabilidad por esta app ni por su funcionamiento. Úsala bajo tu propia responsabilidad. Por diseño técnico, la detección de dispositivos Bluetooth LE puede no funcionar siempre como se espera. No soy desarrollador titulado. Todo esto está hecho en mi tiempo libre y con conocimientos autodidactas.<br/>
+         <b>Es probable que haya falsos positivos.</b> Esto significa que la app <i>Nearby Glasses</i> puede avisarte de gafas inteligentes cercanas cuando en realidad podría tratarse de un visor VR del mismo fabricante u otro producto de esa empresa. También puede no detectar gafas inteligentes cercanas. Para ver qué marcas se detectan actualmente, consulta el <a href="https://github.com/yjeanrenaud/yj_nearbyglasses/">repositorio de código en GitHub</a>. De nuevo: no soy desarrollador profesional.<br/>
+         Sin embargo, esta app es y seguirá siendo siempre libre y de código abierto (FOSS); puedes revisar el código, modificarlo y reutilizarlo (según la licencia): <a href="https://github.com/yjeanrenaud/yj_nearbyglasses">https://github.com/yjeanrenaud/yj_nearbyglasses</a>.
+         <br/>
+         Hecha con la esperanza de que resulte útil.<br/>
+         La app <i>Nearby Glasses</i> no almacena ningún dato sobre ti ni recopila información sobre ti o tu teléfono. No hay telemetría, anuncios ni otras molestias. Si instalas la app desde Play Store, Google podría conocer algo sobre ti y recopilar estadísticas. Pero la app en sí no lo hace. <br/>
+         Si decides guardar (exportar) el archivo de registro, eso depende completamente de ti y de tu responsabilidad sobre adónde vayan esos datos. Los registros se guardan solo localmente y no se comparten automáticamente con nadie.<br/>
+         <br/>
+         <b>¡Úsala con extrema cautela!</b> Como se indicó antes: no hay garantía de que las gafas inteligentes detectadas estén realmente cerca. Podría ser otro dispositivo técnicamente (a nivel de anuncios BLE) similar a unas gafas inteligentes.<br/>
+         Por favor, no actúes de forma precipitada. <b>Piensa antes de actuar ante cualquier mensaje</b> (no solo de esta app).<br/>
+         <br/>
+         <b>⚠️ ¡ADVERTENCIA! ⚠️</b><br/>
+         <b>ACOSAR</b> a alguien porque <i>crees</i> que lleva un dispositivo de vigilancia encubierto puede ser un delito. Incluso puede ser un delito más grave que usar dicho dispositivo. Busca asesoramiento legal sobre las leyes locales aplicables.<br/>
+         ⚠️ <b>NO ACOSES A NADIE BAJO NINGÚN CONCEPTO</b> ⚠️<br/>
+         <br/>
+         <b>Icono de la app</b>: El icono está basado en <a href="https://www.flaticon.com/free-icons/eyeglass" title="eyeglass icons">Eyeglass icons created by Freepik - Flaticon</a>.<br/><br/>
+         <b>Licencias:</b><br/>
+         Esta app <i>Nearby Glasses</i> está licenciada bajo GNU Affero General Public License 3.0. Consulta <a href="https://www.gnu.org/licenses/agpl-3.0.html">https://www.gnu.org/licenses/agpl-3.0.html</a>.<br/>
+         <br/>
+         Este proyecto incluye bibliotecas de terceros:<br/>
+         <br/>
+         1. kotlinx.coroutines<br/>
+            Copyright 2016-2024 JetBrains<br/>
+            Licenciado bajo Apache License, Version 2.0<br/>
+         <a href="https://github.com/Kotlin/kotlinx.coroutines">https://github.com/Kotlin/kotlinx.coroutines</a><br/>
+         <br/>
+         2. Bibliotecas AndroidX<br/>
+            Copyright The Android Open Source Project<br/>
+            Licenciado bajo Apache License, Version 2.0<br/>
+         <a href="https://github.com/androidx/androidx">https://github.com/androidx/androidx</a><br/>
+         <br/>
+         Una copia de Apache License 2.0 está disponible en <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a><br/>
+         <br/>
+         3. El CLA está licenciado bajo Creative Commons Attribution 3.0 Unported License.<br/>
+            por Harmony Agreements <a href="https://www.harmonyagreements.org/agreements">http://www.apache.org/licenses/LICENSE-2.0</a><br/>
+         <br/>
+         Una copia de Creative Commons Attribution 3.0 Unported License está disponible en <a href="https://creativecommons.org/licenses/by/3.0/">https://creativecommons.org/licenses/by/3.0/</a><br/>
+         <br/>
+         ✊🏼 resist (Ai)<br/><br/><br/>]]></string>
+    <string name="pref_language_title">Idioma</string>
+    <string name="pref_language_summary">Elige el idioma de la app</string>
+
+    <string-array name="pref_language_entries">
+        <item>Predeterminado del sistema</item>
+        <item>Inglés</item>
+        <item>Alemán</item>
+        <item>Alemán suizo</item>
+        <item>Francés</item>
+		<item>Español</item>
+    </string-array>
+    <string-array name="pref_language_values">
+        <item></item>
+        <item>en</item>
+        <item>de</item>
+        <item>de-CH</item>
+        <item>fr</item>
+		<item>es</item>
+    </string-array>
+
+    <!-- for notifications -->
+    <string name="notifyText">⚠️ Puede que haya gafas inteligentes cerca</string>
+    <!-- Notification channel names -->
+    <string name="channel_detection_name">Alertas de detección de gafas inteligentes</string>
+    <string name="channel_detection_description">Alertas cuando se detectan gafas inteligentes</string>
+
+    <string name="channel_service_name">Servicio de escaneo en segundo plano</string>
+    <string name="channel_service_description">Muestra cuando la app está escaneando en segundo plano</string>
+
+    <!-- Detection notification -->
+    <string name="notification_detected_title">@string/notifyText</string>
+    <string name="notification_detected_text">%1$s detectado (RSSI: %2$d dBm)</string>
+    <string name="notification_bigtext"><![CDATA[
+Dispositivo: %1$s
+RSSI: %2$d dBm
+Motivo: %3$s
+Empresa: %4$s
+⚠️ ¡ADVERTENCIA! ACOSAR a alguien porque crees que lleva un dispositivo de vigilancia encubierto puede ser un delito. Incluso puede ser un delito más grave que usar dicho dispositivo.
+⚠️ NO ACOSES A NADIE BAJO NINGÚN CONCEPTO. ⚠️]]></string>
+    <string name="notification_unknown_device">Dispositivo desconocido</string>
+
+    <!-- Foreground service notification -->
+    <string name="notification_service_title">Escaneando gafas inteligentes cercanas</string>
+    <string name="notification_service_text">El escaneo en segundo plano está activo</string>
+    <!-- for messages and log -->
+    <string name="reason_meta_company_id">ID de empresa de Meta (%1$s)</string>
+    <string name="reason_essilor_company_id">ID de empresa de EssilorLuxottica (%1$s)</string>
+    <string name="reason_snap_company_id">ID de empresa de Snap (%1$s)</string>
+    <string name="reason_name_contains">El nombre del dispositivo contiene \'%1$s\'</string>
+    <string name="company_meta">Meta Platforms, Inc.</string>
+    <string name="company_essilor">EssilorLuxottica S.A.</string>
+    <string name="company_snap">Snap, Inc.</string>
+    <string name="company_unknown">Desconocido (%1$s)</string>
+    <string name="unknown_device">Desconocido</string>
+
+    <!-- Clipboard -->
+    <string name="clipboard_copied">Copiado: %1$s</string>
+    <string name="clipboard_label_log_line">NearbyGlassesLogLine</string>
+    <string name="clipboard_label_log">NearbyGlassesLog</string>
+
+    <!-- Bluetooth / permissions -->
+    <string name="toast_bluetooth_required">Bluetooth debe estar activado</string>
+    <string name="toast_bluetooth_not_supported">Bluetooth no es compatible con este dispositivo</string>
+
+    <string name="dialog_permissions_title">Permisos necesarios</string>
+    <string name="dialog_permissions_message">Esta app requiere permisos de Bluetooth y Ubicación para escanear dispositivos. Concede los permisos en Ajustes.</string>
+    <string name="dialog_open_settings">Abrir ajustes</string>
+    <string name="dialog_cancel">Cancelar</string>
+    <!-- Clear log dialog -->
+    <string name="dialog_clear_log_title">Borrar registro</string>
+    <string name="dialog_clear_log_message">¿Seguro que quieres borrar todos los registros de detección?</string>
+    <string name="dialog_clear">Borrar</string>
+    <string name="toast_log_cleared">Registro borrado</string>
+    <!-- Export -->
+    <string name="chooser_export_log">Exportar registro de detección</string>
+    <string name="toast_export_error">Error al exportar el registro: %1$s</string>
+    <string name="dbg_export_error">Error al exportar el registro</string>
+    <!-- Log formatting -->
+    <string name="log_unknown_device">Desconocido</string>
+    <string name="log_detection_line">[%1$s] %2$s (%3$d dBm) - %4$s</string>
+    <string name="log_debug_prefix">DEBUG</string>
+    <string name="log_debug_line">[%1$s] %2$s: %3$s</string>
+    <string name="log_startvalue">[14:30:45] Ray-Ban Meta (-65 dBm) - ID de empresa de Meta
+[14:31:20] Dispositivo desconocido (-72 dBm) - El nombre del dispositivo contiene \'rayban\'</string>
+    <!-- Service logs -->
+    <string name="log_service_created">Servicio creado</string>
+    <string name="log_already_scanning">Ya se está escaneando</string>
+    <string name="log_scanning_started">Escaneo iniciado correctamente</string>
+    <string name="log_scanning_failed">Error al iniciar el escaneo</string>
+    <string name="log_notification_suppressed">Detección dentro del periodo de enfriamiento; notificación suprimida</string>
+    <string name="log_service_destroyed">Servicio destruido</string>
+    <string name="reason_debug_override_company_id">Sobrescritura de depuración: ID de empresa %1$s coincidente</string>
+    <string name="company_unknown_plain">Desconocido</string>
+    <string name="placeholder_none">ninguno</string>
+    <!-- Debug / scanner logs -->
+    <string name="dbg_filtered_rssi">RSSI filtrado addr=%1$s rssi=%2$d</string>
+    <string name="dbg_scan_failed">Escaneo falló con código de error: %1$d</string>
+    <string name="dbg_bluetooth_disabled">Bluetooth no está activado</string>
+    <string name="dbg_already_scanning">Ya se está escaneando</string>
+    <string name="dbg_ble_not_available">Escáner BLE no disponible</string>
+    <string name="dbg_ble_started_verbose">Escaneo BLE iniciado. Umbral RSSI=%1$d, modo=LOW_LATENCY</string>
+    <string name="dbg_ble_started_simple">Escaneo BLE iniciado con umbral RSSI: %1$d dBm</string>
+    <string name="dbg_ble_stopped">Escaneo BLE detenido</string>
+    <string name="dbg_ble_start_error">Error al iniciar escaneo BLE</string>
+    <string name="dbg_ble_stop_error">Error al detener escaneo BLE</string>
+    <string name="dbg_adv_short">ADV addr=%1$s name=%2$s rssi=%3$d companyId=%4$s len=%5$d</string>
+    <string name="dbg_adv_full">ADV addr=%1$s name=%2$s rssi=%3$d companyId=%4$s mfgLen=%5$d smartglasses=%6$b reason=%7$s</string>
+    <string name="dbg_smart_glasses_detected">gafas inteligentes detectadas: %1$s (%2$d dBm)</string>
+    <string name="dbg_override_match">Sobrescritura de depuración: ID de empresa %1$s coincidente</string>
+    <string name="dbg_placeholder_unknown">?</string>
+    <string name="dbg_placeholder_none">ninguno</string>
+</resources>
