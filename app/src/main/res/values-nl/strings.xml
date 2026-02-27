@@ -20,6 +20,8 @@
     <string name="debug_log">Debug-log</string>
     <string name="glasses_detected">👓 Waarschuwing: slimme brillen zijn waarschijnlijk in de buurt</string>
     <string name="info_text">Deze app waarschuwt u wanneer slimme brillen in de buurt zijn. Het gebruikt bedrijfsidentificaties in de Bluetooth-gegevens die door deze apparaten worden verzonden. Daarom zijn er waarschijnlijk valse positieven (bijv. van VR-headsets). Wees voorzichtig wanneer u iemand met een bril nadert. Het kunnen gewone brillen zijn, ondanks de waarschuwing van deze app.</string>
+    <string name="warning_title">⚠️ WAARSCHUWING! ⚠️</string>
+    <string name="warning_text">IEMAND LASTIGVALLEN omdat u denkt dat ze een verborgen surveillance-apparaat dragen kan een strafbaar feit zijn. Het kan zelfs een ernstiger overtreding zijn dan het gebruik van zo\'n apparaat. Raadpleeg juridisch advies over de lokale wetgeving.\n⚠️ VAL NIEMAND LASTIG.⚠️</string>
     <string name="titleCategoryScanningSettings">Scan-instellingen</string>
     <string name="titleForeground">Foreground Service inschakelen</string>
     <string name="summaryForeground">Voer scannen uit als foreground service om te voorkomen dat het door het systeem wordt gestopt.</string>
@@ -71,8 +73,17 @@
         <item>Systeemstandaard</item>
         <item>Engels</item>
         <item>Duits</item>
+        <item>Duits (Zwitsers)</item>
         <item>Frans</item>
         <item>Nederlands</item>
+    </string-array>
+    <string-array name="pref_language_values">
+        <item></item>
+        <item>en</item>
+        <item>de</item>
+        <item>de-CH</item>
+        <item>fr</item>
+        <item>nl</item>
     </string-array>
     <!-- for notifications -->
     <string name="notifyText">⚠️ Slimme brillen zijn waarschijnlijk in de buurt</string>
@@ -90,7 +101,9 @@
 Apparaat: %1$s
 RSSI: %2$d dBm
 Reden: %3$s
-Bedrijf: %4$s]]></string>
+Bedrijf: %4$s
+⚠️ WAARSCHUWING! IEMAND LASTIGVALLEN omdat u denkt dat ze een verborgen surveillance-apparaat dragen kan een strafbaar feit zijn. Het kan zelfs een ernstiger overtreding zijn dan het gebruik van zo'n apparaat.
+⚠️ VAL NIEMAND LASTIG. ⚠️  ]]></string>
     <string name="notification_unknown_device">Onbekend apparaat</string>
 
     <!-- Foreground service notification -->
@@ -134,6 +147,7 @@ Bedrijf: %4$s]]></string>
     <string name="log_detection_line">[%1$s] %2$s (%3$d dBm) - %4$s</string>
     <string name="log_debug_prefix">DEBUG</string>
     <string name="log_debug_line">[%1$s] %2$s: %3$s</string>
+    <string name="log_startvalue">[14:30:45] Ray-Ban Meta (-65 dBm) - Meta Company ID\n[14:31:20] Onbekend apparaat (-72 dBm) - Apparaatnaam bevat \'rayban\'</string>
     <!-- Service logs -->
     <string name="log_service_created">Service gemaakt</string>
     <string name="log_already_scanning">Al aan het scannen</string>
