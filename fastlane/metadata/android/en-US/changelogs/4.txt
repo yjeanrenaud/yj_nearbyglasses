@@ -1,0 +1,8 @@
+fixed the layout issue (mostly for Google Pixels due to the Android 16 Feb 2026 updates) that messed with the WindowManager.
+moved many strings to string.xml
+some translation:
+- German
+- Swiss German
+- French
+includes a HUGE Warning.: HARASSING someone because you think they are wearing a covert surveillance device can be a criminal offence. It may even be a more serious offence than using such a device. Please seek legal advise regarding your local laws on this matter.
+some housekeeping

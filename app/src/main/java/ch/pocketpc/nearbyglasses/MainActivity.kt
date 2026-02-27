@@ -29,7 +29,9 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import android.graphics.Color
+import androidx.core.view.updatePadding
 import android.util.TypedValue
+import androidx.core.view.updateLayoutParams
 ///
 import ch.pocketpc.nearbyglasses.databinding.ActivityMainBinding
 import ch.pocketpc.nearbyglasses.model.DetectionEvent
@@ -140,14 +142,40 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         // Build the display text only when needed
         return logLines.joinToString(separator = "\n", postfix = if (logLines.isNotEmpty()) "\n" else "")
     }
-    //for material design
-    private fun setupEdgeToEdgeAppBar() {
-        window.statusBarColor = getColorFromAttr(com.google.android.material.R.attr.colorPrimary) // Make the status bar area blend with your toolbar
-        WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = false //primary colour is dark, so we need light icons
-        // Apply the status bar inset as top padding to the AppBarLayout
-        ViewCompat.setOnApplyWindowInsetsListener(binding.appbar) { v, insets ->
-            val top = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
-            v.setPadding(v.paddingLeft, top, v.paddingRight, v.paddingBottom)
+    //for material3 edge-to-edge design
+    private fun setupEdgeToEdge() {
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        window.statusBarColor = Color.TRANSPARENT
+
+        // 1) Toolbar: add top inset AND increase height so content is not clipped
+        ViewCompat.setOnApplyWindowInsetsListener(binding.toolbar) { v, insets ->
+            val topInset = insets.getInsets(
+                WindowInsetsCompat.Type.statusBars() or WindowInsetsCompat.Type.displayCutout()
+            ).top
+
+            // base height = actionBarSize
+            val baseHeight = resources.getDimensionPixelSize(
+                com.google.android.material.R.dimen.abc_action_bar_default_height_material
+            )
+
+            v.updateLayoutParams {
+                height = baseHeight + topInset
+            }
+            v.updatePadding(top = topInset)
+
+            insets
+        }
+
+        // 2) Content: keep it away from nav bar + side insets (gesture areas)
+        ViewCompat.setOnApplyWindowInsetsListener(binding.content) { v, insets ->
+            val sys = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+
+            // Keep your existing 16dp padding and add system insets on top of it
+            v.updatePadding(
+                left = sys.left + v.paddingLeft,
+                right = sys.right + v.paddingRight,
+                bottom = sys.bottom + v.paddingBottom
+            )
             insets
         }
     }
@@ -159,7 +187,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        WindowCompat.setDecorFitsSystemWindows(window, false) //material 4
+        //WindowCompat.setDecorFitsSystemWindows(window, false) //material3 edge2edge
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -167,7 +195,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         preferencesManager = PreferencesManager(this)
         preferencesManager.registerListener(this)
 
-        setupEdgeToEdgeAppBar()
+        setupEdgeToEdge()
         setupToolbar()
         setupUI()
         updateLogDisplay()
@@ -179,7 +207,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
     
     private fun setupUI() {
         // Make log TextView scrollable
-        binding.textLog.movementMethod = ScrollingMovementMethod()
+        //binding.textLog.movementMethod = ScrollingMovementMethod()
         // Tap a line to copy it (long-press copies full log)
         binding.textLog.setOnTouchListener(object : android.view.View.OnTouchListener {
         private var downX = 0f

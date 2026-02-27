@@ -1,37 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary">
-
-        <!-- <androidx.appcompat.widget.Toolbar-->
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@android:color/transparent"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:title="@string/app_name"
-            app:titleTextColor="?attr/colorOnPrimary" />
-
-    </com.google.android.material.appbar.AppBarLayout>
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:title="@string/app_name"
+        app:titleTextColor="?attr/colorOnPrimary"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
     <LinearLayout
+        android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:padding="16dp">
 
-        <!-- Start/Stop Button -->
+        <!-- Warning block -->
+        <TextView
+            android:id="@+id/warning_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:layout_gravity="center"
+            android:text="@string/warning_title"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/warning_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:justificationMode="inter_word"
+            android:text="@string/warning_text"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:textStyle="bold" />
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_toggle_scan"
             android:layout_width="match_parent"
@@ -43,7 +56,6 @@
             app:icon="@drawable/ic_bluetooth_searching"
             app:iconGravity="start" />
 
-        <!-- Status Text -->
         <TextView
             android:id="@+id/status_text"
             android:layout_width="match_parent"
@@ -53,30 +65,32 @@
             android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
             android:textStyle="bold" />
 
-        <!-- Info Text -->
         <TextView
+            android:id="@+id/info_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="10dp"
+            android:justificationMode="inter_word"
             android:text="@string/info_text"
             android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
             android:textColor="?attr/colorOnSurfaceVariant" />
 
-        <!-- Log Container -->
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/log_card"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            app:cardCornerRadius="8dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="6dp"
             app:cardElevation="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="12dp">
 
                 <TextView
+                    android:id="@+id/debug_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
@@ -84,29 +98,28 @@
                     android:textAppearance="@style/TextAppearance.Material3.TitleSmall"
                     android:textStyle="bold" />
 
-                <ScrollView
+                <androidx.core.widget.NestedScrollView
                     android:id="@+id/scroll_view"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="128dp"
                     android:background="?attr/colorSurfaceVariant"
-                    android:padding="8dp">
+                    android:padding="8dp"
+                    android:scrollbars="vertical"
+                    android:fillViewport="true">
 
                     <TextView
                         android:id="@+id/text_log"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="monospace"
-                        android:scrollbars="vertical"
                         android:textAppearance="@style/TextAppearance.Material3.BodySmall"
                         android:textIsSelectable="true"
-                        tools:text="[14:30:45] Ray-Ban Meta (-65 dBm) - Meta Company ID\n[14:31:20] Unknown Device (-72 dBm) - Device name contains 'rayban'" />
-
-                </ScrollView>
+                        tools:text="@string/log_startvalue" />
+                </androidx.core.widget.NestedScrollView>
 
             </LinearLayout>
-
         </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>

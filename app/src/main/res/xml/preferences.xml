@@ -28,6 +28,7 @@
             android:summary="@string/pref_language_summary"
             android:entries="@array/pref_language_entries"
             android:entryValues="@array/pref_language_values"
+            app:iconSpaceReserved="false"
             android:defaultValue="" />
     </PreferenceCategory>
 

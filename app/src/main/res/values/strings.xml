@@ -18,8 +18,10 @@
     <string name="clearLog">Clear Log</string>
     <string name="exportLog">Export Log</string>
     <string name="debug_log">Debug Log</string>
-    <string name="glasses_detected">👓 Warning: smart glasses are probably nearby</string>
-    <string name="info_text">This app notifies you when smart glasses are nearby. It uses company identificators in the Bluetooth data sent out by these. Therefore, there likely are false positives (e.g. from VR headsets). Hence, please proceed with caution when approaching a person nearby wearing glasses. They might just be regular glasses, despite this app’s warning.</string>
+    <string name="glasses_detected">👓 Warning: smart glasses are maybe nearby</string>
+    <string name="info_text">This app notifies you when smart glasses might be nearby. It uses company identificators in the Bluetooth data sent out by these. Therefore, there likely are false positives (e.g. from VR headsets). Hence, please proceed with caution when approaching a person nearby wearing glasses. They might just be regular glasses, despite this app’s warning.</string>
+    <string name="warning_title">⚠️ WARNING! ⚠️ </string>
+    <string name="warning_text">HARASSING someone because you think they are wearing a covert surveillance device can be a criminal offence. It may even be a more serious offence than using such a device. Please seek legal advise regarding your local laws on this matter.\n⚠️ DO NOT HARASS ANYONE AT ALL.⚠️  </string>
     <string name="titleCategoryScanningSettings">Scanning Settings</string>
     <string name="titleForeground">Enable Foreground Service</string>
     <string name="summaryForeground">Run scanning as a foreground service to prevent being stopped by the system.</string>
@@ -60,18 +62,43 @@
          <b>Use with extreme caution!</b> As stated before: There is no guarantee, detected smart glasses are really nearby. It might be another device looking technically (on the BLE adv level) similar to smart glasses.<br/>
          Please do not act rashly. <b>Think before you act upon any messages</b> (not only from this app).<br/>
          <br/>
+         <b>⚠️ WARNING! ⚠️</b><br/>
+         <b>HARASSING</b> someone because you <i>think</i> they are wearing a covert surveillance device can be a criminal offence. It may even be a more serious offence than using such a device. Please seek legal advise regarding your local laws on this matter.<br/>
+         ⚠️ <b>DO NOT HARASS ANYONE AT ALL</b> ⚠️<br/>
+         <br/>
          <b>App Icon</b>: The icon is based on <a href="https://www.flaticon.com/free-icons/eyeglass" title="eyeglass icons">Eyeglass icons created by Freepik - Flaticon</a>.<br/><br/>
-         This app <i>Nearby Glasses</i> is licensed under PolyForm Noncommercial License 1.0.0. See <a href="https://polyformproject.org/licenses/noncommercial/1.0.0">https://polyformproject.org/licenses/noncommercial/1.0.0</a>.<br/>
-         ✊🏼 resist (Ai)<br/>
-         ]]>     "</string>
+         <b>Licenses:</b><br/>
+         This app <i>Nearby Glasses</i> is licensed under the GNU Affero General Public License 3.0. See <a href="https://www.gnu.org/licenses/agpl-3.0.html">https://www.gnu.org/licenses/agpl-3.0.html</a>.<br/>
+         <br/>
+         This project includes third-party libraries:<br/>
+         <br/>
+         1. kotlinx.coroutines<br/>
+            Copyright 2016-2024 JetBrains<br/>
+            Licensed under the Apache License, Version 2.0<br/>
+         <a href="https://github.com/Kotlin/kotlinx.coroutines">https://github.com/Kotlin/kotlinx.coroutines</a><br/>
+         <br/>
+         2. AndroidX libraries<br/>
+            Copyright The Android Open Source Project<br/>
+            Licensed under the Apache License, Version 2.0<br/>
+         <a href="https://github.com/androidx/androidx">https://github.com/androidx/androidx</a><br/>
+         <br/>
+         A copy of the Apache License 2.0 is available under <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a><br/>
+         <br/>
+         3. The CLA is licensed under Creative Commons Attribution 3.0 Unported License.<br/>
+            by Harmony Agreements <a href="https://www.harmonyagreements.org/agreements">http://www.apache.org/licenses/LICENSE-2.0</a><br/>
+         <br/>
+         A copy of the Creative Commons Attribution 3.0 Unported License is available under <a href="https://creativecommons.org/licenses/by/3.0/">https://creativecommons.org/licenses/by/3.0/</a><br/>
+         <br/>
+         ✊🏼 resist (Ai)<br/><br/><br/>]]>     "</string>
     <string name="pref_language_title">Language</string>
     <string name="pref_language_summary">Choose the app language</string>
 
     <string-array name="pref_language_entries">
         <item>System default</item>
         <item>English</item>
-        <item>Deutsch</item>
-        <item>Français</item>
+        <item>German</item>
+        <item>Swiss German</item>
+        <item>French</item>
         <item>Nederlands</item>
     </string-array>
     <string-array name="pref_language_values">
@@ -83,7 +110,7 @@
         <item>nl</item>
     </string-array>
     <!-- for notifications -->
-    <string name="notifyText">⚠️ Smart Glasses are probably nearby</string>
+    <string name="notifyText">⚠️ Smart Glasses are maybe nearby</string>
     <!-- Notification channel names -->
     <string name="channel_detection_name">Smart glasses detection alerts</string>
     <string name="channel_detection_description">Alerts when smart glasses are detected</string>
@@ -98,7 +125,9 @@
 Device: %1$s
 RSSI: %2$d dBm
 Reason: %3$s
-Company: %4$s]]></string>
+Company: %4$s
+⚠️ WARNING! HARASSING someone because you think they are wearing a covert surveillance device can be a criminal offence. It may even be a more serious offence than using such a device.
+⚠️ DO NOT HARASS ANYONE AT ALL.⚠️  ]]></string>
     <string name="notification_unknown_device">Unknown device</string>
 
     <!-- Foreground service notification -->
@@ -142,6 +171,7 @@ Company: %4$s]]></string>
     <string name="log_detection_line">[%1$s] %2$s (%3$d dBm) - %4$s</string>
     <string name="log_debug_prefix">DEBUG</string>
     <string name="log_debug_line">[%1$s] %2$s: %3$s</string>
+    <string name="log_startvalue">[14:30:45] Ray-Ban Meta (-65 dBm) - Meta Company ID\n[14:31:20] Unknown Device (-72 dBm) - Device name contains \'rayban\'</string>
     <!-- Service logs -->
     <string name="log_service_created">Service created</string>
     <string name="log_already_scanning">Already scanning</string>

@@ -9,6 +9,9 @@ import androidx.preference.EditTextPreference
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
 import androidx.preference.ListPreference
+import android.os.Handler
+import android.os.Looper
+import androidx.preference.PreferenceManager
 
 class SettingsActivity : AppCompatActivity() {
     
@@ -127,13 +130,27 @@ class SettingsActivity : AppCompatActivity() {
             }
             // now get current language
             val languagePref = findPreference<ListPreference>("app_language")
-            val currentLang = AppCompatDelegate.getApplicationLocales().toLanguageTags() // Get current app language
-            languagePref?.value = currentLang // Set selected value, if emtpy, sets to system default)
+            //val currentLang = AppCompatDelegate.getApplicationLocales().toLanguageTags() // Get current app language
+            val tags = AppCompatDelegate.getApplicationLocales().toLanguageTags()
+            val normalized = if (tags.isBlank()) "" else tags.toString() // tags.substringBefore(',').substringBefore('-')  // "fr-FR" -> "fr"; make sure there is ""
+            languagePref?.value = normalized //= currentLang // Set selected value, if emtpy, sets to system default)
 
-            languagePref?.setOnPreferenceChangeListener { _, newValue ->
-                val langTag = newValue as String
+//            languagePref?.setOnPreferenceChangeListener { _, newValue ->
+//                val langTag = newValue as String
+//                applyAppLanguage(langTag)
+//                true
+//            }
+            languagePref?.setOnPreferenceChangeListener { pref, newValue ->
+                val langTag = (newValue as? String).orEmpty()
+                // Apply locales
                 applyAppLanguage(langTag)
-                true
+
+                // Recreate on next loop tick (lets preference UI finish closing cleanly)
+                Handler(Looper.getMainLooper()).post {
+                    requireActivity().recreate()
+                }
+
+                true // let ListPreference do the magic
             }
 
             // set initial summaries
@@ -147,7 +164,7 @@ class SettingsActivity : AppCompatActivity() {
                 LocaleListCompat.forLanguageTags(tag) // e.g. "de"
             }
             AppCompatDelegate.setApplicationLocales(locales)
-            requireActivity().recreate() // to make sure they update
+            //requireActivity().recreate() // to make sure they update
         }
     }
 }

@@ -1,0 +1,1 @@
+Smart Glasses are often hard to spot. This app scanns for their Bluetooth ID.

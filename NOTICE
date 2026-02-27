@@ -1,0 +1,19 @@
+This project includes third-party libraries:
+
+1. kotlinx.coroutines
+   Copyright 2016-2024 JetBrains
+   Licensed under the Apache License, Version 2.0
+https://github.com/Kotlin/kotlinx.coroutines
+
+2. AndroidX libraries
+   Copyright The Android Open Source Project
+   Licensed under the Apache License, Version 2.0
+https://github.com/androidx/androidx
+
+A copy of the Apache License 2.0 is included in Apache-2.0.txt.
+
+3. The CLa is licensed under Creative Commons Attribution 3.0 Unported License.
+   by Harmony Agreements https://www.harmonyagreements.org/agreements
+
+A copy of the  Creative Commons Attribution 3.0 Unported License is included in ccby3up.txt.
+

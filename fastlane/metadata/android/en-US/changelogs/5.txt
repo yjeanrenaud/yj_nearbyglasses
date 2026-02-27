@@ -1,0 +1,5 @@
+Fixed layout issue for Google Pixel devices
+App icon now with white background
+includes licenses for libraries used
+NEW: licensed under AGPL 3.0
+Housekeeping

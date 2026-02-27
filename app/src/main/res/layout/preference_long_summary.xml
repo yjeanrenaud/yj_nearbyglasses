@@ -11,12 +11,14 @@
             android:id="@android:id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
             android:textAppearance="?attr/textAppearanceListItem" />
 
         <TextView
             android:id="@android:id/summary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
             android:maxLines="20"
             android:ellipsize="none"
             android:textAppearance="?attr/textAppearanceBody2" />

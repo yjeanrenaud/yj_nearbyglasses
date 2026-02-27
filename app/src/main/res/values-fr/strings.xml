@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- for menu, settings, buttons -->
-	<string name="app_name" translatable="false">Lunettes à proximité</string>
+	<string name="app_name" translatable="false">Nearby Glasses</string>
 	<string name="settings">Paramètres</string>
 	<string name="notLogging">Journalisation désactivée. Vous ne verrez les notifications que si quelque chose a été détecté. </string>
 	<string name="startScanning">Démarrer la recherche</string>
@@ -20,6 +20,8 @@
 	<string name="debug_log">Journal de débogage</string>
 	<string name="glasses_detected">👓 Avertissement: des lunettes intelligentes se trouvent probablement à proximité</string>
 	<string name="info_text">Cette application vous avertit lorsque des lunettes intelligentes se trouvent à proximité. Elle utilise les identifiants d\'entreprise contenus dans les données Bluetooth envoyées par ces dernières. Il est donc possible qu\'il y ait des faux positifs (par exemple, provenant de casques VR). Par conséquent, veuillez faire preuve de prudence lorsque vous approchez une personne à proximité qui porte des lunettes. Il peut s\'agir de lunettes ordinaires, malgré l\'avertissement de cette application.</string>
+	<string name="warning_title">⚠️ AVERTISSEMENT! ⚠️ </string>
+	<string name="warning_text">HARCÉLER quelqu\'un parce que vous pensez qu\'il porte un dispositif de surveillance dissimulé peut constituer une infraction pénale. Cela peut même être une infraction plus grave que l\'utilisation d\'un tel dispositif. Veuillez consulter un conseiller juridique au sujet des lois locales en vigueur dans ce domaine.\n⚠️ NE HARCÉLEZ PERSONNE, JAMAIS! ⚠️ </string>
 	<string name="titleCategoryScanningSettings">Paramètres de scan</string>
 	<string name="titleForeground">Activer le service en avant-plan</string>
 	<string name="summaryForeground">Exécutez l\'analyse en tant que service en avant-plan pour éviter qu\'elle ne soit interrompue par le système.</string>
@@ -59,10 +61,35 @@
 	<b>À utiliser avec une extrême prudence !</b> Comme indiqué précédemment: rien ne garantit que les lunettes intelligentes détectées se trouvent réellement à proximité. Il peut s'agir d\'un autre appareil qui, d\'un point de vue technique (au niveau BLE adv), ressemble à des lunettes intelligentes.<br/>
 	Veuillez ne pas agir de manière irréfléchie. <b>Réfléchissez avant d\'agir sur la base de messages</b> (pas seulement ceux provenant de cette application).<br/>
 	<br/>
+	<b>⚠️ AVERTISSEMENT! ⚠️</b><br/>
+    <b>HARCÉLER</b> quelqu\'un parce que vous <i>pensez</i> qu\'il porte un dispositif de surveillance dissimulé peut constituer une infraction pénale. Cela peut même être une infraction plus grave que l\'utilisation d\'un tel dispositif. Veuillez consulter un conseiller juridique au sujet des lois locales en vigueur dans ce domaine.<br/>
+    ⚠️ <b>NE HARCÉLEZ PERSONNE, JAMAIS!</b> ⚠️<br/>
+    <br/>
 	<b>Icône de l\'application</b>: l\'icône est basée sur <a href="https://www.flaticon.com/free-icons/eyeglass" title="icônes de lunettes">les icônes de lunettes créées par Freepik - Flaticon</a>.<br/><br/>
-	Cette application <i>Nearby Glasses</i> est sous licence PolyForm Noncommercial License 1.0.0. Voir <a href="https://polyformproject.org/licenses/noncommercial/1.0.0">https://polyformproject.org/licenses/noncommercial/1.0.0</a>.<br/>
-	✊🏼 résister (Ai)<br/>
-	]]> "</string>
+	<br/>
+	<b>Licences</b>:<br/>
+	Cette application <i>Nearby Glasses</i> est sous licence GNU Affero General Public License 3.0. Voir <a href="https://www.gnu.org/licenses/agpl-3.0.html">https://www.gnu.org/licenses/agpl-3.0.html</a>.<br/>
+    <br/>
+    Ce projet inclut des bibliothèques tierces:<br/>
+	<br/>
+	1. kotlinx.coroutines<br/>
+   	Copyright 2016-2024 JetBrains<br/>
+   	Sous licence Apache, version 2.0<br/>
+	<a href="https://github.com/Kotlin/kotlinx.coroutines">https://github.com/Kotlin/kotlinx.coroutines</a><br/>
+	<br/>
+	2. Bibliothèques AndroidX<br/>
+	Copyright The Android Open Source Project<br/>
+	Sous licence Apache, version 2.0<br/>
+	<a href="https://github.com/androidx/androidx">https://github.com/androidx/androidx</a><br/>
+	<br/>
+	Une copie de la licence Apache 2.0 est disponible à l'adresse <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a><br/>
+	<br/>
+	3. Le CLA est sous licence Creative Commons Attribution 3.0 Unported License.<br/>
+	par Harmony Agreements <a href="https://www.harmonyagreements.org/agreements">http://www.apache.org/licenses/LICENSE-2.0</a><br/>
+	<br/>
+	Une copie de la licence Creative Commons Attribution 3.0 Unported License est disponible à l'adresse <a href="https://creativecommons.org/licenses/by/3.0/">https://creativecommons.org/licenses/by/3.0/</a><br/>
+    <br/>
+	✊🏼 résister (iA)<br/><br/><br/>	]]> "</string>
 	<string name="pref_language_title">Langue</string>
 	<string name="pref_language_summary">Choisissez la langue de l\'application</string>
 
@@ -70,11 +97,20 @@
 	<item>Par défaut du système</item>
 	<item>Anglais</item>
 	<item>Allemand</item>
+	<item>Suisse Allemand</item>
 	<item>Français</item>
 	<item>Néerlandais</item>
 	</string-array>
+	<string-array name="pref_language_values">
+		<item></item> <!-- empty string means "follow system" -->
+		<item>en</item> <!-- only BCP-47 tags;  -->
+		<item>de</item>
+		<item>de-CH</item>
+		<item>fr</item>
+		<item>nl</item>
+	</string-array>
 	<!-- for notifications -->
-	<string name="notifyText">⚠️ Des lunettes intelligentes sont probablement à proximité</string>
+	<string name="notifyText">⚠️ Des lunettes intelligentes sont peut-être à proximité</string>
 	<!-- Notification channel names -->
 	<string name="channel_detection_name">Alertes de détection de lunettes intelligentes</string>
 	<string name="channel_detection_description">Alerte lorsque des lunettes intelligentes sont détectées</string>
@@ -89,7 +125,9 @@
 Appareil: %1$s
 RSSI: %2$d dBm
 Raison: %3$s
-Entreprise: %4$s]]></string>
+Entreprise: %4$s
+⚠️ WARNING! HARASSING someone because you think they are wearing a covert surveillance device can be a criminal offence. It may even be a more serious offence than using such a device.
+⚠️ DO NOT HARASS ANYONE AT ALL.⚠️ ]]></string>
 	<string name="notification_unknown_device">Appareil inconnu</string>
 
 	<!-- Foreground service notification -->
@@ -131,6 +169,7 @@ Entreprise: %4$s]]></string>
 	<!-- Log formatting -->
 	<string name="log_unknown_device">Inconnu</string>
 	<string name="log_detection_line">[%1$s] %2$s (%3$d dBm) - %4$s</string>
+	<string name="log_startvalue">[14:30:45] Ray-Ban Meta (-65 dBm) - Meta ID de entreprise\n[14:31:20] Appareil inconnu (-72 dBm) - Nom de l\' appareil contenu \'rayban\'</string>
 	<string name="log_debug_prefix">DEBUG</string>
 	<string name="log_debug_line">[%1$s] %2$s: %3$s</string>
 	<!-- Service logs -->
@@ -140,7 +179,7 @@ Entreprise: %4$s]]></string>
 	<string name="log_scanning_failed">Échec du démarrage du scan</string>
 	<string name="log_notification_suppressed">Détection pendant la période de refroidissement, notification supprimée</string>
 	<string name="log_service_destroyed">Service détruit</string>
-	<string name="reason_debug_override_company_id">Remplacement de débogage: ID de société %1$s correspondant trouvé</string>
+	<string name="reason_debug_override_company_id">Remplacement de débogage: ID de entreprise %1$s correspondant trouvé</string>
 	<string name="company_unknown_plain">Inconnu</string>
 	<string name="placeholder_none">aucun</string>
 	<!-- Debug / scanner logs -->

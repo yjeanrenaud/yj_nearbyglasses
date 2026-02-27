@@ -2,91 +2,133 @@
 <resources>
     <!-- for menu, settings, buttons -->
     <string name="app_name">Nearby Glasses</string>
-    <string name="settings">Einstellungen</string>
-    <string name="notLogging">Protokoll deaktiviert. Nur Benachrichtigungen werden angezeigt, wenn etwas entdeckt wurde.</string>
-    <string name="startScanning">Scannen starten</string>
-    <string name="stopScanning">Scannen stoppen</string>
-    <string name="notScanning">Scannt nicht</string>
-    <string name="textScanning">Scannen aktiv - Eine Benachrichtigung zeigt an, wenn Smart Glasses in der Nähe gefunden werden</string>
-    <string name="titleCategoryAbout">Über</string>
-    <string name="start_scanning">Scannen starten</string>
-    <string name="stop_scanning">Scannen stoppen</string>
-    <string name="scanning">Scanne nach Geräten...</string>
-    <string name="not_scanning">Scanne nicht</string>
-    <string name="clear">Löschen</string>
-    <string name="export">Exportieren</string>
+    <string name="settings">Iistellige</string>
+    <string name="notLogging">Protokoll deaktiviert. Numme Benochrichtigunge wärde aazeigt, wenn öbbis entdeckt isch worde.</string>
+    <string name="startScanning">Scanne schtarte</string>
+    <string name="stopScanning">Scanne schtoppe</string>
+    <string name="notScanning">Scannt nid</string>
+    <string name="textScanning">Scannen aktiv - E Binochrichtigung zeigt a, wenn Smart Glasses in dr Neechei gfunde wärde.</string>
+    <string name="titleCategoryAbout">Iber</string>
+    <string name="start_scanning">Scanne schtarte</string>
+    <string name="stop_scanning">Scannen schtoppe</string>
+    <string name="scanning">Scanne nach Grät...</string>
+    <string name="not_scanning">Scannt nid</string>
+    <string name="clear">Lösche</string>
+    <string name="export">Exportiere</string>
     <string name="clearLog">Protokoll löschen</string>
-    <string name="exportLog">Protokoll exportieren</string>
+    <string name="exportLog">Protokoll exportiere</string>
     <string name="debug_log">Debug Protokoll</string>
-    <string name="glasses_detected">👓 Warnung: Smart Glasses sind vermutlich in der Nähe</string>
-    <string name="info_text">Diese App benachrichtigt, wenn sich Smart Glasses in der Nähe befinden. Sie nutzt dazu die Unternehmenskennungen in den von diesen Brillen gesendeten Bluetooth-Daten. Daher kann es zu Fehlalarmen kommen (z. B. durch VR-Headsets). Seien Sie daher bitte vorsichtig, wenn Sie sich einer Person nähern, die eine Brille trägt. Es könnte sich trotz der Warnung dieser App um eine normale Brille handeln.</string>
-    <string name="titleCategoryScanningSettings">Scan-Einstellungen</string>
-    <string name="titleForeground">Aktiviere Vordergrunddienst</string>
-    <string name="summaryForeground">Führt das Scannen als Vordergrunddienst aus, um zu verhindern, dass es vom System angehalten wird.</string>
-    <string name="titleCooldown">Benachrichtigungs-Cooldown (ms)</string>
-    <string name="summaryCooldown">Derzeit: %1$s ms. Mindestzeit zwischen Benachrichtigungen in Millisekunden (Standard: 10000 ms = 10 s)</string>
-    <string name="titleThreshold">RSSI-Schwellenwert (dBm)</string>
-    <string name="summaryThreshold">Derzeit: %1$s dBm. Nur Geräte mit einem RSSI-Wert über diesem Schwellenwert erkennen (Standard: -75 dBm, ~3–10 m)</string>
-    <string name="titleCategoryNotifications">Benachrichtigungseinstellungen</string>
-    <string name="titleNotifications">Benachrichtigungen aktivieren</string>
-    <string name="summaryNotifications">Benachrichtigungen anzeigen, wenn Smart Glasses-Geräte erkannt werden</string>
-    <string name="titleCategoryLogging">Protokolleinstellungen</string>
-    <string name="titleLogging">Protokoll anzeigen</string>
-    <string name="summaryLogging">Anzeige des Erkennungsprotokolls im Hauptbildschirm. Das Protokoll wird immer lokal gespeichert, um exportiert werden zu können.</string>
-    <string name="titleDebug">Fehlersuche</string>
-    <string name="summaryDebug">Alle gefundenen Unternehmens-IDs im Protokoll zeigen. Benachrichtigungen werden weiterhin nur für Smart Glasses angezeigt.</string>
-    <string name="titleDebugSize">Max. Protokollzeilen</string>
-    <string name="summaryDebugSize">Derzeit: %1$s. Maximale Anzahl der im Debug-Protokoll gespeicherten Zeilen.</string>
+    <string name="glasses_detected">👓 Warnig: Smart Glasses sind vermuetlig in dr Neechi</string>
+    <string name="info_text">Die App binochrichtigt dich, wenn sich Smart Glasses in dr Neechi befinde. Si binutzt drzue d Firmekennig in de vo dene Brille vrsändete Bluetooth-Date. Doorum chas zu Fählalarme ko (z. B. durch VR-Headsets). Siget Si dorum bitte voorsichtig, wenn Si sich enere Person nöchere, wo e Brille treit. Es chönt sich trotz dr Warnig vo dere App umene normali Brille handle.</string>
+    <string name="warning_title">⚠️ WARNIG! ⚠️ </string>
+    <string name="warning_text">ÖBBERT Z BELÄSCHTIGE, will me glaubt, si würde es vrdeckts Überwachigsgrät benutze, cha e Stroftat darstelle. Es cha sogar e schwereri Stroftat si, als sones Grät z benutze. Bitte lossed Si sich zu de örtliche Gsetz zu diem Thema rechtlich berote.\n⚠️ BELÄSCHTIGE SIE NIEMERTS - NIE ⚠️ </string>
+    <string name="titleCategoryScanningSettings">Scan-Instellunge</string>
+    <string name="titleForeground">Aktiviere Vordergrunddienscht</string>
+    <string name="summaryForeground">Fiert s Scanne als Vordergrunddienscht uus, zum z vrhinerde, as es vom Syschtem anghalte wird.</string>
+    <string name="titleCooldown">Binochrichtigungs-Cooldown (ms)</string>
+    <string name="summaryCooldown"> Derzyt: %1$s ms. Mindeschtzyt zwüsche Benochrichtigunge in Millisekunde (Standard: 10000 ms = 10 s)</string>
+    <string name="titleThreshold">RSSI-Schwellewärt (dBm)</string>
+    <string name="summaryThreshold"> Derzyt: %1$s dBm. Numme Grät mit emne RSSI-Wärt über däm Schwellenwärt erkenne (Standard: -75 dBm, ~3–10 m)</string>
+    <string name="titleCategoryNotifications">Binochrichtigungsinstellige</string>
+    <string name="titleNotifications">Binochrichtigunge aktiviere</string>
+    <string name="summaryNotifications">Binochrichtigunge aazeige, wenn Smart Glasses-Gräte erkannt werden</string>
+    <string name="titleCategoryLogging">Protokolliistellige</string>
+    <string name="titleLogging">Protokoll azeige</string>
+    <string name="summaryLogging">Azeige vom Erkennigsprotokoll im Hauptbildschirm. S Protokoll wird immer lokal gschpeichert, zum exportiert z werde z chöne.</string>
+    <string name="titleDebug">Fehlersuechi</string>
+    <string name="summaryDebug">Alli gefundene Firme-IDs im Protokoll zeige. Binochrichtigunge werden witerhi numme für Smart Glasses azeigt.</string>
+    <string name="titleDebugSize">Max. Protokollziile</string>
+    <string name="summaryDebugSize"> Derzyt: %1$s. Maximale Anzahl gschpeicherete Ziile im Debug-Protokoll.</string>
     <string name="titleDebugAdvonly">Nur BLE ADV</string>
-    <string name="summaryDebugAdvonly">Wenn diese Option aktiviert ist, werden im Protokoll nur BLE-Advertisement-Zeilen (ADV) angezeigt.</string>
-    <string name="nothing_to_export">Keine Funde zum Exportieren</string>
-    <string name="titleDebugCompanyIds">Derzeit: %1$s. Wird eine oder mehrere zu IDs in Little-Endian-Hexadezimalschreibweise angegeben, wird/werden diese anstelle der Standardwerte (0x01AB,0x058E,0x0D53) verwendet. Dadurch werden auch Benachrichtigungen für diese neuen IDs ausgelöst.</string>
-    <string name="none_in_parentheses">(keine)</string>
+    <string name="summaryDebugAdvonly">Wenn die Option aktiviert isch, werde im Protokoll numme BLE-Advertisement-Ziile (ADV) azeigt.</string>
+    <string name="nothing_to_export">Kei Fund zum Exportiere</string>
+    <string name="titleDebugCompanyIds">Überschryb Firme-IDs</string>
+    <string name="summaryDebugCompanyIds"> Derzyt: %1$s. Wird eini oder mehrerei IDs im Little-Endian-Hexadezimalschriibwiis  ageh, wird/werde die anstatt vo de Standardwärt (0x01AB,0x058E,0x0D53) gnoh. Dodurch werde au Binochrichtigunge für disi neui IDs usglöst.</string>
+    <string name="none_in_parentheses">(keini)</string>
     <string name="summaryApp">Entdeckt Smart Glasses mittels Bluetooth LE</string>
-    <string name="titleMethod">Entdeckungsverfahren</string>
-    <string name="summaryMethod">Erkennung basierend auf Unternehmens-IDs in BLE-Adv-Frames und Gerätenamenabgleich.</string>
-    <string name="titleLiability">Haftung und Lizenz</string>
+    <string name="titleMethod">Entdeckungsvrfahre</string>
+    <string name="summaryMethod">Erkennig basiert uf Firme-IDs in BLE-Adv-Frames und Grätnamevrglich.</string>
+    <string name="titleLiability">Haftig und Lizenz</string>
     <string name="summaryLiability"><![CDATA[
-	Die App <i>Nearby Glasses</i> hat nur einen einzigen Zweck: Die App sucht nach Smart Glasses in der Nähe und warnt. <br/>
-	Der Autor der App (<a href="https://yves.app">Yves Jeanrenaud</a>) übernimmt keinerlei Haftung für diese App oder ihre Funktionalität. Die Nutzung erfolgt auf eigene Gefahr. Aufgrund der technischen Konzeption funktioniert die Erkennung von Bluetooth-LE-Geräten manchmal nicht wie erwartet. Ich bin kein ausgebildeter Entwickler. All dies habe ich in meiner Freizeit und mit selbst erworbenem Wissen geschrieben. <b>Falsch-positive Ergebnisse sind wahrscheinlich.</b> Das bedeutet, dass die App <i>Nearby Glasses</i> möglicherweise über Smart Glasses in der Nähe benachrichtigt, obwohl es sich in Wirklichkeit um ein VR-Headset desselben Herstellers oder ein anderes Produkt dieses Unternehmens handelt. Es kann auch vorkommen, dass Smart Glasses in der Nähe nicht erkannt werden. Um zu sehen, welche Marken derzeit erkannt werden, sehen Sie bitte im <a href="https://github.com/yjeanrenaud/yj_nearbyglasses/">Code-Repository auf GitHub</a> nach. Nochmals: Ich bin kein professioneller Entwickler. Diese App ist und bleibt jedoch kostenlos und Open Source (FOSS). Sie können den Code überprüfen, ändern und wiederverwenden (unter der Lizenz): <a href="https://github.com/yjeanrenaud/yj_nearbyglasses">https://github.com/yjeanrenaud/yj_nearbyglasses</a>.<br/>
-	Erstellt in der Hoffnung, dass es nützlich sein möge.<br/>
-	Die App <i>Nearby Glasses</i> speichert keine Details über sie und sammelt keine Informationen über sie oder Ihr Telefon. Es gibt keine Telemetrie, keine Werbung und keine anderen Belästigungen. Wenn sie die App über den Play Store installieren, kann Google möglicherweise etwas über sie erfahren und einige Statistiken sammeln. Die App selbst tut dies jedoch nicht. <br/>
-	Wenn sie sich dafür entscheiden, die Logdatei zu speichern (zu exportieren), liegt es ganz bei ihnen und in ihrer Verantwortung, wohin diese Daten gelangen. Die Protokolle werden nur lokal aufgezeichnet und nicht automatisch mit anderen geteilt.<br/>
+	D App <i>Nearby Glasses</i> her numme ei einzige Zwäck: D App suecht noch Smart Glasses in dr Neechi und warnt.<br/>
+	Dr Autor vor dr App (<a href="https://yves.app">Yves Jeanrenaud</a>) übernimmt keinerlei Haftig für die App oder ihri Funktionalität. D Nutzig  erfolgt auf eigeni Gfoor. Wäge dr technische Konzeption funktioniert d Erkennig von Bluetooth-LE-Gräten mängisch nid wie erwartet. Ich bin kei ausbildete Software-Entwickler. All das hanni in minere Freizyt und mit säbler erworbenem Wüsse gschribe. <b>Falsch-positivi Ergäbnis sin worrschinlig.</b> Das bedüdet, dass d App <i>Nearby Glasses</i> möglicherwis über Smart Glasses in dr Neechi benoochrichtig, obscho s sich in Wirkligkeit um e VR-Headset vom gliiche Hersteller oder es anders Produkt vo dere Firma handlet. Es cha auch vorcho, dass Smart Glasses in dr Neechi nid erkennt werde. Zum gseh, welli Marke derzyt erkennt werde, luegt Si bitte im <a href="https://github.com/yjeanrenaud/yj_nearbyglasses/">Code-Repository uf GitHub</a> noche. Nonemol: Ich bin kei professionelle Software-Entwickler. D App isch und blibt abr gratis und Open Source (FOSS). Si chöne dr Code überpriefe, änder und wider bruuche (untr dr Lizenz): <a href="https://github.com/yjeanrenaud/yj_nearbyglasses">https://github.com/yjeanrenaud/yj_nearbyglasses</a>.<br/>
+	Gmacht in dr Hoffnung, dass es nützlig mög si.<br/>
+	D App <i>Nearby Glasses</i> schpeichert keini Detail über Si und sammlet keini Informatione über Si oder Ihres Telifon. Es git kei Telemetrie, kei Werbung und kei anderi Beläschtigunge. Wenn Si d App übere Play Store inschtalliere, cha Google möglicherwis öbbis über Si erfahre und einigi Schtatistigge sammle. D App säbler jedoch macht das nid. <br/>
+	Wenn Si sich entscheide, d Protokolldatei z schpeichere (z exportiere), ligt s ganz bi Ihne und in Ihrer Verantwortig, wohi die Date kömme. D Protokoll werde nur lokal ufzeichnet und nid automatisch mit andere teilt.<br/>
 	<br/>
-	<b>Verwenden sie die App mit äusserster Vorsicht!</b> Wie bereits erwähnt: Es gibt keine Garantie dafür, dass die erkannten Smart Glasses wirklich in der Nähe sind. Es könnte sich um ein anderes Gerät handeln, das technisch (auf BLE-Adv-Ebene) einer Smartbrille ähnelt. <br/>
-	Bitte handeln sie nicht voreilig. <b>Überlegen sie, bevor Sie auf Nachrichten reagieren</b> (nicht nur aus dieser App).<br/>
+	<b>Verwende Si die App mit üsseschter Vorsicht!</b> Wie bereits erwähnt: Es gibt kei Garantie drfür, dass d erkennte Smart Glasses wirklich in dr Neechi sin. Es cha sich um es anders Grät handle, wo technisch (uf BLE-Adv-Ebene) enere Smartbrille ähnlig isch. <br/>
+	Bitte handle Si nid voreilig. <b>Überlege Si, bevor Si auf Nochrichte reagiere</b> (nid nur vo dere App).<br/>
+    <br/>
+    <b>⚠️ WARNIG! ⚠️</b><br/>
+    <b>ÖBBERT Z BELÄSCHTIGE</b>, will me <i>glaubt</i>, si würde es vrdeckts Überwachigsgrät benutze, cha e Stroftat darstelle. Es cha sogar e schwereri Stroftat si, als sones Grät z benutze. Bitte lossed Si sich zu de örtliche Gsetz zu diem Thema rechtlich berote.<br/>
+    ⚠️ <b>BELÄSCHTIGE SIE NIEMERTS - NIE</b> ⚠️<br/>
+    <br/>
+	<b>App-Symbol</b>: S Symbol basiert auf <a href="https://www.flaticon.com/free-icons/eyeglass" title="Brillensymbole">Brillensymbolen, die von Freepik – Flaticon erstellt wurden</a>.<br/>
 	<br/>
-	<b>App-Symbol</b>: Das Symbol basiert auf <a href="https://www.flaticon.com/free-icons/eyeglass" title="Brillensymbole">Brillensymbolen, die von Freepik – Flaticon erstellt wurden</a>.<br/>
+	<b>Lizenze</b>:<br/>
+	D App <i>Nearby Glasses</i> unterligt dr GNU Affero General Public License 3.0. Lueged Si uf <a href="https://www.gnu.org/licenses/agpl-3.0.html">https://www.gnu.org/licenses/agpl-3.0.html</a>.<br/>
 	<br/>
-	Diese App <i>Nearby Glasses</i> unterliegt der PolyForm Noncommercial License 1.0.0. Siehe <a href="https://polyformproject.org/licenses/noncommercial/1.0.0">https://polyformproject.org/licenses/noncommercial/1.0.0</a>.<br/>
-	✊🏼 resist (Ai)
-	<br/> ]]></string>
-    <string name="pref_language_title">Sprache der App auswählen</string>
-	<!-- for notifications -->
-    <string name="notifyText">⚠️ Smart Glasses befinden sich wahrscheinlich in der Nähe</string>
+	Das Projekt enthaltet Bibliotheke von Drittanbieterinne:<br/>
+    <br/>
+    1. kotlinx.coroutines<br/>
+    Copyright 2016-2024 JetBrains<br/>
+    Lizenziert unter dr Apache-Lizenz, Version 2.0<br/>
+    <a href="https://github.com/Kotlin/kotlinx.coroutines">https://github.com/Kotlin/kotlinx.coroutines</a><br/>
+    <br/>
+    2. AndroidX-Bibliotheke<br/>
+    Copyright The Android Open Source Project<br/>
+    Lizenziert unter dr Apache-Lizenz, Version 2.0<br/>
+    <a href="https://github.com/androidx/androidx">https://github.com/androidx/androidx</a><br/>
+    <br/>
+    E Kopie vo dr Apache-Lizenz 2.0 isch verfiegbar unter <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a><br/>
+    <br/>
+    3. D CLA unterliegt dr Creative Commons Attribution 3.0 Unported License.<br/>
+    von Harmony Agreements <a href="https://www.harmonyagreements.org/agreements">http://www.apache.org/licenses/LICENSE-2.0</a><br/>
+    <br/>
+    E Kopie vo dr Creative Commons Attribution 3.0 Unported License isch verfiegbar unter <a href="https://creativecommons.org/licenses/by/3.0/">https://creativecommons.org/licenses/by/3.0/</a><br/>
+    <br/>
+    ✊🏼 resist (Ai)<br/><br/><br/>]]></string>
+    <string name="pref_language_title">Sproch</string>
+    <string name="pref_language_summary">D Sproch vo dr  App uswähle</string>
+    <string-array name="pref_language_entries">
+        <item>Syschtemsprooch</item>
+        <item>Änglisch</item>
+        <item>Dytisch</item>
+        <item>Mundart</item>
+        <item>Französisch</item>
+    </string-array>
+    <string-array name="pref_language_values">
+        <item></item> <!-- empty string means “follow system” -->
+        <item>en</item> <!-- only BCP-47 tags;  -->
+        <item>de</item>
+        <item>de-CH</item>
+        <item>fr</item>
+    </string-array>
+    <!-- for notifications -->
+    <string name="notifyText">⚠️ Smart Glasses sind villicht in dr Neechi</string>
 	<!-- Notification channel names -->
-    <string name="channel_detection_name">Warnmeldungen zur Erkennung von Smart Glasses</string>
-    <string name="channel_detection_description">Benachrichtigt, wenn Smart Glasses erkannt werden</string>
-    <string name="channel_service_name">Hintergrund-Scan-Dienst</string>
-    <string name="channel_service_description">Zeigt an, wenn die App im Hintergrund scannt.</string>
+    <string name="channel_detection_name">Warnmeldunge zur Erkennig von Smart Glasses</string>
+    <string name="channel_detection_description">Benochrichtigt, wenn Smart Glasses erkennt werde</string>
+    <string name="channel_service_name">Hintergrund-Scan-Dienscht</string>
+    <string name="channel_service_description">Zeigt a, wenn die App im Hintergrund scannt.</string>
 	<!-- Detection notification -->
     <string name="notification_detected_title">\@string/notifyText</string>
-    <string name="notification_detected_text">%1$s erkannt (RSSI: %2$d dBm)</string>
+    <string name="notification_detected_text">%1$s erkennt (RSSI: %2$d dBm)</string>
     <string name="notification_bigtext"><![CDATA[
-Gerät: %1$s
+Grät: %1$s
 RSSI: %2$d dBm
 Grund: %3$s
 Firma: %4$s]]></string>
-    <string name="notification_unknown_device">Unbekanntes Gerät</string>
+    <string name="notification_unknown_device">Unbekannts Grät</string>
 
 	<!-- Foreground service notification -->
-    <string name="notification_service_title">Scannen nach Smart Glasses  in der Nähe</string>
-    <string name="notification_service_text">Hintergrund-Scan ist aktiv</string>
+    <string name="notification_service_title">Scannen nach Smart Glasses in dr Nähe</string>
+    <string name="notification_service_text">Hintergrund-Scan isch aktiv</string>
 	<!-- for messages and log -->
-    <string name="reason_meta_company_id">Meta Unternehmens-ID (%1$s)</string>
-    <string name="reason_essilor_company_id">EssilorLuxottica Unternehmens-ID (%1$s)</string>
-    <string name="reason_snap_company_id">Snap Unternehmens-ID (%1$s)</string>
-    <string name="reason_name_contains">Gerätename enthält \'%1$s\'</string>
+    <string name="reason_meta_company_id">Meta Firme-ID (%1$s)</string>
+    <string name="reason_essilor_company_id">EssilorLuxottica Firme-ID (%1$s)</string>
+    <string name="reason_snap_company_id">Snap Firme-ID (%1$s)</string>
+    <string name="reason_name_contains">Grätename enthaltet \'%1$s\'</string>
     <string name="company_meta">Meta Platforms, Inc.</string>
     <string name="company_essilor">EssilorLuxottica S.A.</string>
     <string name="company_snap">Snap, Inc.</string>
@@ -99,52 +141,53 @@ Firma: %4$s]]></string>
     <string name="clipboard_label_log">NearbyGlassesLog</string>
 	
 	<!-- Bluetooth / permissions -->
-    <string name="toast_bluetooth_required">Bluetooth muss eingeschaltet sein</string>
-    <string name="toast_bluetooth_not_supported">Bluetooth wird auf diesem Gerät nicht unterstützt</string>
+    <string name="toast_bluetooth_required">Bluetooth mues iigschaltet si</string>
+    <string name="toast_bluetooth_not_supported">Bluetooth wird uf däm Grät nid unterschtützt</string>
     
-	<string name="dialog_permissions_title">Berechtigungen erforderlich</string>
-    <string name="dialog_permissions_message">Diese App benötigt Bluetooth- und Standortberechtigungen, um nach Geräten zu suchen. Bitte erteilen Sie die Berechtigungen in den Einstellungen.</string>
-    <string name="dialog_open_settings">Einstellungen öffnen</string>
-    <string name="dialog_cancel">Abbrechen</string>
+	<string name="dialog_permissions_title">Berächtigunge neetig</string>
+    <string name="dialog_permissions_message">Die App beneetigt Bluetooth- und Standortberächtigunge, zum nach Gräten z sueche. Bitte gnämige Si die Berächtigunge in de Iistellige.</string>
+    <string name="dialog_open_settings">Iistellige ufmache</string>
+    <string name="dialog_cancel">Abbräche</string>
 	<!-- Clear log dialog -->
-    <string name="dialog_clear_log_title">Protokoll löschen</string>
-    <string name="dialog_clear_log_message">Möchten Sie wirklich alle Erkennungsprotokolle löschen?</string>
-    <string name="dialog_clear">Löschen</string>
-    <string name="toast_log_cleared">Protokoll gelöscht</string>
+    <string name="dialog_clear_log_title">Protokoll lösche</string>
+    <string name="dialog_clear_log_message">Möchted Si wirklich alle Erkennigsprotokoll lösche?</string>
+    <string name="dialog_clear">Lösche</string>
+    <string name="toast_log_cleared">Protokoll glöscht</string>
 	<!-- Export -->
-    <string name="chooser_export_log">Erkennungsprotokoll exportieren</string>
-    <string name="toast_export_error">Fehler beim Exportieren des Protokolls: %1$s</string>
-    <string name="dbg_export_error">Fehler beim Exportieren des Protokolls</string>
+    <string name="chooser_export_log">Erkennigsprotokoll exportieren</string>
+    <string name="toast_export_error">Fehler bim Exportiere vom Protokoll: %1$s</string>
+    <string name="dbg_export_error">Fehler bim Exportiere vom Protokoll</string>
 	<!-- Log formatting -->
     <string name="log_unknown_device">Unbekannt</string>
     <string name="log_detection_line">[%1$s] %2$s (%3$d dBm) - %4$s</string>
+    <string name="log_startvalue">[14:30:45] Ray-Ban Meta (-65 dBm) - Meta Firme-ID\n[14:31:20] Unbekannts Grät (-72 dBm) - Grätename enthaltet \'rayban\'</string>
     <string name="log_debug_prefix">DEBUG</string>
     <string name="log_debug_line">[%1$s] %2$s: %3$s</string>
 	<!-- Service logs -->
-    <string name="log_service_created">Dienst erstellt</string>
-    <string name="log_already_scanning">Scannt bereits</string>
-    <string name="log_scanning_started">Der Scanvorgang wurde erfolgreich gestartet.</string>
-    <string name="log_scanning_failed">Start des Scanvorgangs fehlgeschlagen</string>
-    <string name="log_notification_suppressed">Erkennung innerhalb der Abkühlungsphase, Benachrichtigung unterdrückt</string>
-    <string name="log_service_destroyed">Dienst zerstört</string>
-    <string name="reason_debug_override_company_id">Debug überschrieben: Unternehmens-ID %1$s übereinstimmend</string>
+    <string name="log_service_created">Dienscht erstellt</string>
+    <string name="log_already_scanning">Scannt scho</string>
+    <string name="log_scanning_started">Dr Scanvorgang isch erfolgreich gschtartet.</string>
+    <string name="log_scanning_failed">Start vom Scanvorgang fählgschlage</string>
+    <string name="log_notification_suppressed">Erkennig innerhalb vor dr Abkühlungsphase, Binochrichtigung unterdrückt</string>
+    <string name="log_service_destroyed">Dienst zerschtört</string>
+    <string name="reason_debug_override_company_id">Debug überschriibe: Firme-ID %1$s stimme überi</string>
     <string name="company_unknown_plain">Unbekannt</string>
-    <string name="placeholder_none">keine</string>
+    <string name="placeholder_none">keini</string>
 	<!-- Debug / scanner logs -->
-    <string name="dbg_filtered_rssi">Gefilterter RSSI-Wert addr=%1$s rssi=%2$d</string>
-    <string name="dbg_scan_failed">Scan fehlgeschlagen mit Fehlercode: %1$d</string>
-    <string name="dbg_bluetooth_disabled">Bluetooth nicht eingeschaltet</string>
-    <string name="dbg_already_scanning">Scanne bereits</string>
-    <string name="dbg_ble_not_available">BLE-Scanner nicht verfügar</string>
-    <string name="dbg_ble_started_verbose">BLE-Scan gestartet. RSSI-Schwellenwert = %1$d, Modus = LOW_LATENCY</string>
-    <string name="dbg_ble_started_simple">BLE-Scan gestartet mit RSSI-Schwellenwert: %1$d dBm</string>
-    <string name="dbg_ble_stopped">BLE-Scan gestoppt</string>
-    <string name="dbg_ble_start_error">Fehler beim Starten des BLE-Scans</string>
-    <string name="dbg_ble_stop_error">Fehler beim Stoppen des BLE-Scans</string>
+    <string name="dbg_filtered_rssi">Gfilterete RSSI-Wärt addr=%1$s rssi=%2$d</string>
+    <string name="dbg_scan_failed">Scan fählgschlage mit Fehlercode: %1$d</string>
+    <string name="dbg_bluetooth_disabled">Bluetooth nid iigschalte</string>
+    <string name="dbg_already_scanning">Scanne scho</string>
+    <string name="dbg_ble_not_available">BLE-Scanner nid vrfiegbar</string>
+    <string name="dbg_ble_started_verbose">BLE-Scan gschtartet. RSSI-Schwellewärt = %1$d, Modus = LOW_LATENCY</string>
+    <string name="dbg_ble_started_simple">BLE-Scan gschtartet mit RSSI-Schwellewärt: %1$d dBm</string>
+    <string name="dbg_ble_stopped">BLE-Scan gschtopt</string>
+    <string name="dbg_ble_start_error">Fehler bim Starten des BLE-Scans</string>
+    <string name="dbg_ble_stop_error">Fehler bim Stoppen des BLE-Scans</string>
     <string name="dbg_adv_short">ADV addr=%1$s name=%2$s rssi=%3$d companyId=%4$s len=%5$d</string>
     <string name="dbg_adv_full">ADV addr=%1$s name=%2$s rssi=%3$d companyId=%4$s mfgLen=%5$d smartglasses=%6$b reason=%7$s</string>
-    <string name="dbg_smart_glasses_detected">Smart Glasses erkannt: %1$s (%2$d dBm)</string>
-    <string name="dbg_override_match">Debug überschrieben: Unternehmens-ID %1$s übereinstimmend</string>
+    <string name="dbg_smart_glasses_detected">Smart Glasses erkennt: %1$s (%2$d dBm)</string>
+    <string name="dbg_override_match">Debug überschrribe: Firme-ID %1$s stimme überi</string>
     <string name="dbg_placeholder_unknown">?</string>
-    <string name="dbg_placeholder_none">keine</string>
+    <string name="dbg_placeholder_none">keini</string>
 </resources>
