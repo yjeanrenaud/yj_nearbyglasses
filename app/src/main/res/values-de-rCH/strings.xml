@@ -21,7 +21,7 @@
     <string name="glasses_detected">👓 Warnig: Smart Glasses sind vermuetlig in dr Neechi</string>
     <string name="info_text">Die App binochrichtigt dich, wenn sich Smart Glasses in dr Neechi befinde. Si binutzt drzue d Firmekennig in de vo dene Brille vrsändete Bluetooth-Date. Doorum chas zu Fählalarme ko (z. B. durch VR-Headsets). Siget Si dorum bitte voorsichtig, wenn Si sich enere Person nöchere, wo e Brille treit. Es chönt sich trotz dr Warnig vo dere App umene normali Brille handle.</string>
     <string name="warning_title">⚠️ WARNIG! ⚠️ </string>
-    <string name="warning_text">ÖBBERT Z BELÄSCHTIGE, will me glaubt, si würde es vrdeckts Überwachigsgrät benutze, cha e Stroftat darstelle. Es cha sogar e schwereri Stroftat si, als sones Grät z benutze. Bitte lossed Si sich zu de örtliche Gsetz zu diem Thema rechtlich berote.\n⚠️ BELÄSCHTIGE SIE NIEMERTS - NIE ⚠️ </string>
+    <string name="warning_text">ÖBBERT Z BELÄSCHTIGE, will me glaubt, si würde es vrdeckts ÜberwachigsGrät benutze, cha e Stroftat darstelle. Es cha sogar e schwereri Stroftat si, als sones Grät z benutze. Bitte lossed Si sich zu de örtliche Gsetz zu diem Thema rechtlich berote.\n⚠️ BELÄSCHTIGE SIE NIEMERTS - NIE ⚠️ </string>
     <string name="titleCategoryScanningSettings">Scan-Instellunge</string>
     <string name="titleForeground">Aktiviere Vordergrunddienscht</string>
     <string name="summaryForeground">Fiert s Scanne als Vordergrunddienscht uus, zum z vrhinerde, as es vom Syschtem anghalte wird.</string>
@@ -47,7 +47,7 @@
     <string name="none_in_parentheses">(keini)</string>
     <string name="summaryApp">Entdeckt Smart Glasses mittels Bluetooth LE</string>
     <string name="titleMethod">Entdeckungsvrfahre</string>
-    <string name="summaryMethod">Erkennig basiert uf Firme-IDs in BLE-Adv-Frames und Grätnamevrglich.</string>
+    <string name="summaryMethod">Erkennig basiert uf Firme-IDs, Service-UUIDs, Grätnamevrglich und Herstellerdateanalyse mit Vertrauensbewärtig.</string>
     <string name="titleLiability">Haftig und Lizenz</string>
     <string name="summaryLiability"><![CDATA[
 	D App <i>Nearby Glasses</i> her numme ei einzige Zwäck: D App suecht noch Smart Glasses in dr Neechi und warnt.<br/>
@@ -60,7 +60,7 @@
 	Bitte handle Si nid voreilig. <b>Überlege Si, bevor Si auf Nochrichte reagiere</b> (nid nur vo dere App).<br/>
     <br/>
     <b>⚠️ WARNIG! ⚠️</b><br/>
-    <b>ÖBBERT Z BELÄSCHTIGE</b>, will me <i>glaubt</i>, si würde es vrdeckts Überwachigsgrät benutze, cha e Stroftat darstelle. Es cha sogar e schwereri Stroftat si, als sones Grät z benutze. Bitte lossed Si sich zu de örtliche Gsetz zu diem Thema rechtlich berote.<br/>
+    <b>ÖBBERT Z BELÄSCHTIGE</b>, will me <i>glaubt</i>, si würde es vrdeckts ÜberwachigsGrät benutze, cha e Stroftat darstelle. Es cha sogar e schwereri Stroftat si, als sones Grät z benutze. Bitte lossed Si sich zu de örtliche Gsetz zu diem Thema rechtlich berote.<br/>
     ⚠️ <b>BELÄSCHTIGE SIE NIEMERTS - NIE</b> ⚠️<br/>
     <br/>
 	<b>App-Symbol</b>: S Symbol basiert auf <a href="https://www.flaticon.com/free-icons/eyeglass" title="Brillensymbole">Brillensymbolen, die von Freepik – Flaticon erstellt wurden</a>.<br/>
@@ -98,8 +98,8 @@
         <item>Französisch</item>
     </string-array>
     <string-array name="pref_language_values">
-        <item></item> <!-- empty string means “follow system” -->
-        <item>en</item> <!-- only BCP-47 tags;  -->
+        <item></item>
+        <item>en</item>
         <item>de</item>
         <item>de-CH</item>
         <item>fr</item>
@@ -114,11 +114,18 @@
 	<!-- Detection notification -->
     <string name="notification_detected_title">\@string/notifyText</string>
     <string name="notification_detected_text">%1$s erkennt (RSSI: %2$d dBm)</string>
+    <string name="notification_detected_text_with_score">%1$s erkennt (RSSI: %2$d dBm, Vertroue: %3$d%%)</string>
     <string name="notification_bigtext"><![CDATA[
 Grät: %1$s
 RSSI: %2$d dBm
 Grund: %3$s
 Firma: %4$s]]></string>
+    <string name="notification_bigtext_with_score"><![CDATA[
+Grät: %1$s
+RSSI: %2$d dBm
+Grund: %3$s
+Firma: %4$s
+Vertroue: %5$d%%]]></string>
     <string name="notification_unknown_device">Unbekannts Grät</string>
 
 	<!-- Foreground service notification -->
@@ -129,6 +136,9 @@ Firma: %4$s]]></string>
     <string name="reason_essilor_company_id">EssilorLuxottica Firme-ID (%1$s)</string>
     <string name="reason_snap_company_id">Snap Firme-ID (%1$s)</string>
     <string name="reason_name_contains">Grätename enthaltet \'%1$s\'</string>
+    <string name="reason_service_uuid">Meta Service-UUID (%1$s)</string>
+    <string name="reason_short_payload">Churzi Nutzlascht (%1$d Bytes, typisch für Brille)</string>
+    <string name="reason_long_payload">Langi Nutzlascht (%1$d Bytes, villicht VR-Headset)</string>
     <string name="company_meta">Meta Platforms, Inc.</string>
     <string name="company_essilor">EssilorLuxottica S.A.</string>
     <string name="company_snap">Snap, Inc.</string>
@@ -190,4 +200,9 @@ Firma: %4$s]]></string>
     <string name="dbg_override_match">Debug überschrribe: Firme-ID %1$s stimme überi</string>
     <string name="dbg_placeholder_unknown">?</string>
     <string name="dbg_placeholder_none">keini</string>
+    <!-- New: confidence and battery saver preferences -->
+    <string name="titleConfidenceThreshold">Vertrouensschwelle</string>
+    <string name="summaryConfidenceThreshold">Derzyt: %1$s. Minimale Vertrouenswärt (0.0-1.0) zum Uslöse vomene Alarm (Standard: 0.50)</string>
+    <string name="titleBatterySaver">Batteriesparmodus</string>
+    <string name="summaryBatterySaver">Zyklischs Scanne (5s aa / 10s us) bruuche, zum dr Batterieverbruuch um ~60%% z reduziere.</string>
 </resources>
