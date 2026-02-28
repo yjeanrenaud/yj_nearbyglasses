@@ -47,7 +47,7 @@
     <string name="none_in_parentheses">(keine)</string>
     <string name="summaryApp">Entdeckt Smart Glasses mittels Bluetooth LE</string>
     <string name="titleMethod">Entdeckungsverfahren</string>
-    <string name="summaryMethod">Erkennung basierend auf Unternehmens-IDs in BLE-Adv-Frames und Gerätenamenabgleich.</string>
+    <string name="summaryMethod">Erkennung basierend auf Unternehmens-IDs, Service-UUIDs, Gerätenamenabgleich und Herstellerdatenanalyse mit Vertrauensbewertung.</string>
     <string name="titleLiability">Haftung und Lizenz</string>
     <string name="summaryLiability"><![CDATA[
 	Die App <i>Nearby Glasses</i> hat nur einen einzigen Zweck: Die App sucht nach Smart Glasses in der Nähe und warnt. <br/>
@@ -97,8 +97,8 @@
         <item>Französisch</item>
     </string-array>
     <string-array name="pref_language_values">
-        <item></item> <!-- empty string means “follow system” -->
-        <item>en</item> <!-- only BCP-47 tags;  -->
+        <item></item>
+        <item>en</item>
         <item>de</item>
         <item>de-CH</item>
         <item>fr</item>
@@ -113,11 +113,18 @@
 	<!-- Detection notification -->
     <string name="notification_detected_title">\@string/notifyText</string>
     <string name="notification_detected_text">%1$s erkannt (RSSI: %2$d dBm)</string>
+    <string name="notification_detected_text_with_score">%1$s erkannt (RSSI: %2$d dBm, Vertrauen: %3$d%%)</string>
     <string name="notification_bigtext"><![CDATA[
 Gerät: %1$s
 RSSI: %2$d dBm
 Grund: %3$s
 Firma: %4$s]]></string>
+    <string name="notification_bigtext_with_score"><![CDATA[
+Gerät: %1$s
+RSSI: %2$d dBm
+Grund: %3$s
+Firma: %4$s
+Vertrauen: %5$d%%]]></string>
     <string name="notification_unknown_device">Unbekanntes Gerät</string>
 
 	<!-- Foreground service notification -->
@@ -128,6 +135,9 @@ Firma: %4$s]]></string>
     <string name="reason_essilor_company_id">EssilorLuxottica Unternehmens-ID (%1$s)</string>
     <string name="reason_snap_company_id">Snap Unternehmens-ID (%1$s)</string>
     <string name="reason_name_contains">Gerätename enthält \'%1$s\'</string>
+    <string name="reason_service_uuid">Meta Service-UUID (%1$s)</string>
+    <string name="reason_short_payload">Kurze Nutzlast (%1$d Bytes, typisch für Brillen)</string>
+    <string name="reason_long_payload">Lange Nutzlast (%1$d Bytes, möglicherweise VR-Headset)</string>
     <string name="company_meta">Meta Platforms, Inc.</string>
     <string name="company_essilor">EssilorLuxottica S.A.</string>
     <string name="company_snap">Snap, Inc.</string>
@@ -189,4 +199,9 @@ Firma: %4$s]]></string>
     <string name="dbg_override_match">Debug überschrieben: Unternehmens-ID %1$s übereinstimmend</string>
     <string name="dbg_placeholder_unknown">?</string>
     <string name="dbg_placeholder_none">keine</string>
+    <!-- New: confidence and battery saver preferences -->
+    <string name="titleConfidenceThreshold">Vertrauensschwelle</string>
+    <string name="summaryConfidenceThreshold">Derzeit: %1$s. Minimaler Vertrauenswert (0.0-1.0) zum Auslösen einer Warnung (Standard: 0.50)</string>
+    <string name="titleBatterySaver">Batteriesparmodus</string>
+    <string name="summaryBatterySaver">Zyklisches Scannen (5s an / 10s aus) verwenden, um den Batterieverbrauch um ~60%% zu reduzieren.</string>
 </resources>
