@@ -1,0 +1,109 @@
+{
+  "version": 1,
+  "lastUpdated": "2026-02-28",
+  "source": "https://github.com/barclayslb/blb_nearbyglasses",
+  "signatures": [
+    {
+      "companyId": "0x01AB",
+      "companyName": "Meta Platforms, Inc. (Facebook)",
+      "serviceUuid": "0000fd5f-0000-1000-8000-00805f9b34fb",
+      "hasCamera": true,
+      "knownProducts": ["Ray-Ban Stories (Gen 1)", "Ray-Ban Meta (Gen 2)"],
+      "knownFalsePositives": ["Meta Quest 2", "Meta Quest 3", "Meta Quest Pro"],
+      "deviceNamePatterns": ["ray-ban", "rayban", "ray ban"],
+      "payloadHints": {
+        "typicalMinLength": 5,
+        "typicalMaxLength": 15,
+        "knownPrefixes": ["020102"]
+      },
+      "baseConfidence": 0.30,
+      "fccIds": ["2AYOA-4003", "2AYOA-4002"],
+      "notes": "Payload '020102102716e4' (7 bytes) captured at power-on by Ban-Rays project"
+    },
+    {
+      "companyId": "0x058E",
+      "companyName": "Meta Platforms Technologies, LLC",
+      "serviceUuid": "0000fd5f-0000-1000-8000-00805f9b34fb",
+      "hasCamera": true,
+      "knownProducts": ["Ray-Ban Meta (Gen 2)", "Meta Ray-Ban Display"],
+      "knownFalsePositives": ["Meta Quest 3", "Meta Quest 3S"],
+      "deviceNamePatterns": ["ray-ban", "rayban", "ray ban", "meta"],
+      "payloadHints": {
+        "typicalMinLength": 5,
+        "typicalMaxLength": 15
+      },
+      "baseConfidence": 0.30,
+      "fccIds": ["2AYOA-4003"],
+      "notes": "Second Meta company ID, used by newer products"
+    },
+    {
+      "companyId": "0x0D53",
+      "companyName": "EssilorLuxottica Group S.p.A",
+      "serviceUuid": null,
+      "hasCamera": true,
+      "knownProducts": ["Oakley Meta"],
+      "knownFalsePositives": [],
+      "deviceNamePatterns": ["oakley"],
+      "payloadHints": null,
+      "baseConfidence": 0.30,
+      "fccIds": ["2AYOA-4003"],
+      "notes": "Manufacturer of Meta Ray-Ban and Oakley Meta hardware"
+    },
+    {
+      "companyId": "0x03C2",
+      "companyName": "Snap Inc. (Snapchat)",
+      "serviceUuid": null,
+      "hasCamera": true,
+      "knownProducts": ["Spectacles (Gen 1-5)"],
+      "knownFalsePositives": [],
+      "deviceNamePatterns": ["spectacles", "snap"],
+      "payloadHints": null,
+      "baseConfidence": 0.35,
+      "fccIds": [],
+      "notes": "Snap has fewer BLE products so lower false positive risk"
+    }
+  ],
+  "watchlist": [
+    {
+      "companyId": "0x0157",
+      "companyName": "Anhui Huami / Xiaomi",
+      "serviceUuid": "0000fe95-0000-1000-8000-00805f9b34fb",
+      "reason": "Xiaomi AI Glasses (12MP camera) announced mid-2025",
+      "status": "PENDING_BLE_DATA",
+      "notes": "DO NOT ACTIVATE - massive false positives (Mi Band, phones, etc). Wait for glasses-specific BLE captures."
+    },
+    {
+      "companyId": "0x0075",
+      "companyName": "Samsung Electronics",
+      "reason": "Android XR glasses in development",
+      "status": "NOT_YET_RELEASED",
+      "notes": "DO NOT ACTIVATE - product not yet released"
+    },
+    {
+      "companyId": "0x00E0",
+      "companyName": "Google",
+      "reason": "Android XR glasses in development",
+      "status": "NOT_YET_RELEASED",
+      "notes": "DO NOT ACTIVATE - product not yet released"
+    }
+  ],
+  "excluded": [
+    {
+      "brand": "XREAL / Nreal",
+      "reason": "USB-C only connection, no BLE, no embedded camera"
+    },
+    {
+      "brand": "Bose Frames",
+      "companyId": "0x009E",
+      "reason": "Audio only, no camera - no privacy threat"
+    },
+    {
+      "brand": "Amazon Echo Frames",
+      "reason": "Audio only, no camera - no privacy threat"
+    },
+    {
+      "brand": "Huawei Eyewear",
+      "reason": "Audio only (current models), no camera"
+    }
+  ]
+}
