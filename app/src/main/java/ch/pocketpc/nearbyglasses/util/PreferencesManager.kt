@@ -6,9 +6,9 @@ import androidx.preference.PreferenceManager
 import java.util.Locale
 
 class PreferencesManager(context: Context) {
-    
+
     private val prefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
-    
+
     companion object {
         private const val KEY_RSSI_THRESHOLD = "rssi_threshold"
         private const val KEY_COOLDOWN_MS = "cooldown_ms"
@@ -17,51 +17,47 @@ class PreferencesManager(context: Context) {
         private const val KEY_LOGGING_ENABLED = "logging_enabled"
         private const val KEY_DEBUG_ENABLED = "debug_enabled"
         private const val KEY_DEBUG_MAX_LINES = "debug_max_lines"
-
         private const val KEY_DEBUG_ADVONLY = "debug_advonly"
         private const val KEY_DEBUG_COMPANY_IDS = "debug_company_ids"
+        private const val KEY_CONFIDENCE_THRESHOLD = "confidence_threshold"
+        private const val KEY_BATTERY_SAVER = "battery_saver"
 
-        //set default values
         private const val DEFAULT_RSSI_THRESHOLD = -75
-        private const val DEFAULT_COOLDOWN_MS = 10000L // 10 seconds
+        private const val DEFAULT_COOLDOWN_MS = 10000L
         private const val DEFAULT_FOREGROUND_SERVICE = true
         private const val DEFAULT_NOTIFICATIONS = true
         private const val DEFAULT_LOGGING_ENABLED = true
         private const val DEFAULT_DEBUG_ENABLED = false
         private const val DEFAULT_DEBUG_MAX_LINES = 200
         private const val DEFAULT_DEBUG_ADVONLY = true
+        private const val DEFAULT_CONFIDENCE_THRESHOLD = 0.50f
+        private const val DEFAULT_BATTERY_SAVER = true
     }
-    
+
     var rssiThreshold: Int
-        //get() = prefs.getInt(KEY_RSSI_THRESHOLD, DEFAULT_RSSI_THRESHOLD)
         get() {
-            val key = KEY_RSSI_THRESHOLD
-            val raw = prefs.getString(key, DEFAULT_RSSI_THRESHOLD.toString()) ?: DEFAULT_RSSI_THRESHOLD.toString()
+            val raw = prefs.getString(KEY_RSSI_THRESHOLD, DEFAULT_RSSI_THRESHOLD.toString()) ?: DEFAULT_RSSI_THRESHOLD.toString()
             return raw.toIntOrNull() ?: DEFAULT_RSSI_THRESHOLD
         }
         set(value) = prefs.edit().putInt(KEY_RSSI_THRESHOLD, value).apply()
-    
+
     var cooldownMs: Long
-        //get() = prefs.getLong(KEY_COOLDOWN_MS, DEFAULT_COOLDOWN_MS)
         get() {
-            val defaultValue = DEFAULT_COOLDOWN_MS // 10000L
-            // Prefer string because ListPreference/EditTextPreference store strings
+            val defaultValue = DEFAULT_COOLDOWN_MS
             val raw = prefs.getString(KEY_COOLDOWN_MS, defaultValue.toString())
             val parsed = raw?.toLongOrNull() ?: defaultValue
-            //return raw?.toLongOrNull() ?: defaultValue
-            // clamp between 0 and 10 minutes
             return parsed.coerceIn(0L, 600_000L)
         }
         set(value) = prefs.edit().putLong(KEY_COOLDOWN_MS, value).apply()
-    
+
     var foregroundServiceEnabled: Boolean
         get() = prefs.getBoolean(KEY_FOREGROUND_SERVICE, DEFAULT_FOREGROUND_SERVICE)
         set(value) = prefs.edit().putBoolean(KEY_FOREGROUND_SERVICE, value).apply()
-    
+
     var notificationsEnabled: Boolean
         get() = prefs.getBoolean(KEY_ENABLE_NOTIFICATIONS, DEFAULT_NOTIFICATIONS)
         set(value) = prefs.edit().putBoolean(KEY_ENABLE_NOTIFICATIONS, value).apply()
-    
+
     var loggingEnabled: Boolean
         get() = prefs.getBoolean(KEY_LOGGING_ENABLED, DEFAULT_LOGGING_ENABLED)
         set(value) = prefs.edit().putBoolean(KEY_LOGGING_ENABLED, value).apply()
@@ -87,21 +83,31 @@ class PreferencesManager(context: Context) {
                 .map { it.trim() }
                 .filter { it.isNotEmpty() }
                 .mapNotNull { token ->
-                    // Accept: "0x01AB", "01AB", "427" etc.
                     val t = token.lowercase(Locale.ROOT)
                     when {
                         t.startsWith("0x") -> t.removePrefix("0x").toIntOrNull(16)
                         t.all { it.isDigit() } -> t.toIntOrNull(10)
-                        else -> t.toIntOrNull(16) // allow "01AB" without 0x
+                        else -> t.toIntOrNull(16)
                     }
                 }
                 .toSet()
         }
 
+    var confidenceThreshold: Float
+        get() {
+            val raw = prefs.getString(KEY_CONFIDENCE_THRESHOLD, DEFAULT_CONFIDENCE_THRESHOLD.toString())
+            return raw?.toFloatOrNull()?.coerceIn(0.1f, 1.0f) ?: DEFAULT_CONFIDENCE_THRESHOLD
+        }
+        set(value) = prefs.edit().putString(KEY_CONFIDENCE_THRESHOLD, value.toString()).apply()
+
+    var batterySaverEnabled: Boolean
+        get() = prefs.getBoolean(KEY_BATTERY_SAVER, DEFAULT_BATTERY_SAVER)
+        set(value) = prefs.edit().putBoolean(KEY_BATTERY_SAVER, value).apply()
+
     fun registerListener(listener: SharedPreferences.OnSharedPreferenceChangeListener) {
         prefs.registerOnSharedPreferenceChangeListener(listener)
     }
-    
+
     fun unregisterListener(listener: SharedPreferences.OnSharedPreferenceChangeListener) {
         prefs.unregisterOnSharedPreferenceChangeListener(listener)
     }
