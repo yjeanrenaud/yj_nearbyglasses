@@ -13,54 +13,52 @@ import ch.pocketpc.nearbyglasses.R
 import ch.pocketpc.nearbyglasses.model.DetectionEvent
 
 class NotificationHelper(private val context: Context) {
-    
+
     private val notificationManager = NotificationManagerCompat.from(context)
-    
+
     companion object {
         const val CHANNEL_ID_DETECTION = "glasses_detection"
         const val CHANNEL_ID_SERVICE = "glasses_service"
         const val NOTIFICATION_ID_DETECTION = 1001
         const val NOTIFICATION_ID_SERVICE = 1002
     }
-    
+
     init {
         createNotificationChannels()
     }
-    
+
     private fun createNotificationChannels() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            // Detection channel (high priority)
             val detectionChannel = NotificationChannel(
                 CHANNEL_ID_DETECTION,
-                context.getString(R.string.channel_detection_name), //"Smart Glasses Detection Alerts",
+                context.getString(R.string.channel_detection_name),
                 NotificationManager.IMPORTANCE_HIGH
             ).apply {
-                description = context.getString(R.string.channel_detection_description) //description = "Alerts when smart glasses are detected"
+                description = context.getString(R.string.channel_detection_description)
                 enableVibration(true)
                 setShowBadge(true)
             }
-            
-            // Service channel (low priority)
+
             val serviceChannel = NotificationChannel(
                 CHANNEL_ID_SERVICE,
-                context.getString(R.string.channel_service_name), //"Background Scanning Service",
+                context.getString(R.string.channel_service_name),
                 NotificationManager.IMPORTANCE_LOW
             ).apply {
-                description = context.getString(R.string.channel_service_description) //description = "Shows when the app is scanning in the background"
+                description = context.getString(R.string.channel_service_description)
                 setShowBadge(false)
             }
-            
+
             val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             manager.createNotificationChannel(detectionChannel)
             manager.createNotificationChannel(serviceChannel)
         }
     }
-    
+
     fun showDetectionNotification(event: DetectionEvent) {
         val intent = Intent(context, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
         }
-        
+
         val pendingIntent = PendingIntent.getActivity(
             context,
             0,
@@ -70,32 +68,28 @@ class NotificationHelper(private val context: Context) {
         val deviceName = event.deviceName
             ?: context.getString(R.string.notification_unknown_device)
 
+        val confidencePct = (event.confidenceScore * 100).toInt()
+
         val notification = NotificationCompat.Builder(context, CHANNEL_ID_DETECTION)
             .setSmallIcon(R.drawable.ic_warning)
-
-            .setContentTitle(context.getString(R.string.notifyText)) //@string/notifyText
-            //.setContentText("${event.deviceName ?: "Unknown device"} detected (RSSI: ${event.rssi} dBm)")
+            .setContentTitle(context.getString(R.string.notifyText))
             .setContentText(
                 context.getString(
-                    R.string.notification_detected_text,
+                    R.string.notification_detected_text_with_score,
                     deviceName,
-                    event.rssi
+                    event.rssi,
+                    confidencePct
                 )
             )
             .setStyle(
                 NotificationCompat.BigTextStyle()
-                    /*.bigText(buildString {
-                        append("Device: ${event.deviceName ?: "Unknown"}\n")
-                        append("RSSI: ${event.rssi} dBm\n")
-                        append("Reason: ${event.detectionReason}\n")
-                        append("Company: ${event.companyName}")
-                    })*/
                     .bigText(context.getString(
-                            R.string.notification_bigtext,
+                            R.string.notification_bigtext_with_score,
                             deviceName,
                             event.rssi,
                             event.detectionReason,
-                            event.companyName
+                            event.companyName,
+                            confidencePct
                         )
                     )
             )
@@ -105,10 +99,10 @@ class NotificationHelper(private val context: Context) {
             .setContentIntent(pendingIntent)
             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
             .build()
-        
+
         notificationManager.notify(NOTIFICATION_ID_DETECTION, notification)
     }
-    
+
     fun createServiceNotification(): android.app.Notification {
         val intent = Intent(context, MainActivity::class.java)
         val pendingIntent = PendingIntent.getActivity(
@@ -117,11 +111,9 @@ class NotificationHelper(private val context: Context) {
             intent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
-        
+
         return NotificationCompat.Builder(context, CHANNEL_ID_SERVICE)
             .setSmallIcon(R.drawable.ic_bluetooth_searching)
-            //.setContentTitle("Scanning for smart glasses nearby")
-            //.setContentText("Background scanning is active")
             .setContentTitle(context.getString(R.string.notification_service_title))
             .setContentText(context.getString(R.string.notification_service_text))
             .setPriority(NotificationCompat.PRIORITY_LOW)

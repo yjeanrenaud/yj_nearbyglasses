@@ -47,18 +47,18 @@
 	<string name="none_in_parentheses">(aucun)</string>
 	<string name="summaryApp">Détecte les lunettes intelligentes via Bluetooth LE</string>
 	<string name="titleMethod">Méthode de détection</string>
-	<string name="summaryMethod">Détection basée sur les identifiants d\'entreprise dans les trames publicitaires BLE et la correspondance des noms d\'appareils.</string>
+	<string name="summaryMethod">Détection basée sur les identifiants d\'entreprise, les UUIDs de service, la correspondance des noms d\'appareils et l\'analyse des données fabricant avec scoring de confiance.</string>
 	<string name="titleLiability">Responsabilité et licence</string>
 	<string name="summaryLiability" formatted="false">"<![CDATA[
 	l\'application <i>Nearby Glasses</i> a un seul objectif: rechercher les lunettes intelligentes à proximité et vous avertir.<br/>
 	l\'auteur de l\'application (<a href="https://yves.app">Yves Jeanrenaud</a>) décline toute responsabilité quant à cette application et à son fonctionnement. Utilisez-la à vos propres risques. En raison de sa conception technique, la détection des appareils Bluetooth LE peut parfois ne pas fonctionner comme prévu. Je ne suis pas un développeur diplômé. Tout cela a été écrit pendant mon temps libre et avec les connaissances que j\'ai acquises par moi-même.<br/>
-	<b>Des faux positifs sont possibles.</b> Cela signifie que l\'application <i>Nearby Glasses</i> peut vous signaler la présence de lunettes intelligentes à proximité alors qu\'il s'agit en réalité d\'un casque VR du même fabricant ou d\'un autre produit de la même gamme. Elle peut également ne pas détecter certaines lunettes intelligentes à proximité. Pour voir quelles marques sont actuellement détectées, veuillez vous référer au <a href="https://github.com/yjeanrenaud/yj_nearbyglasses/">référentiel de code sur GitHub</a>. Encore une fois: je ne suis pas un développeur professionnel.<br/>
+	<b>Des faux positifs sont possibles.</b> Cela signifie que l\'application <i>Nearby Glasses</i> peut vous signaler la présence de lunettes intelligentes à proximité alors qu’il s’agit en réalité d\'un casque VR du même fabricant ou d\'un autre produit de la même gamme. Elle peut également ne pas détecter certaines lunettes intelligentes à proximité. Pour voir quelles marques sont actuellement détectées, veuillez vous référer au <a href="https://github.com/yjeanrenaud/yj_nearbyglasses/">référentiel de code sur GitHub</a>. Encore une fois: je ne suis pas un développeur professionnel.<br/>
 	Cependant, cette application est et restera toujours gratuite et open source (foss). Vous pouvez consulter le code, le modifier et le réutiliser (sous licence): <a href="https://github.com/yjeanrenaud/yj_nearbyglasses">https://github.com/yjeanrenaud/yj_nearbyglasses</a>.<br/>
 	<br/>
 	Conçue dans l\'espoir qu\'elle vous sera utile.<br/>
 	l\'application <i>Nearby Glasses</i> ne stocke aucune information vous concernant et ne collecte aucune information sur vous ou votre téléphone. Elle ne comporte aucune télémétrie, aucune publicité et aucun autre élément gênant. Si vous installez l\'application via le Play Store, Google peut obtenir certaines informations vous concernant et collecter certaines statistiques. Mais l\'application elle-même ne le fait pas. <br/>
 	Si vous choisissez de stocker (exporter) le fichier journal, vous êtes entièrement responsable de la destination de ces données. Les journaux sont enregistrés uniquement localement et ne sont pas automatiquement partagés avec qui que ce soit.<br/>
-	<b>À utiliser avec une extrême prudence !</b> Comme indiqué précédemment: rien ne garantit que les lunettes intelligentes détectées se trouvent réellement à proximité. Il peut s'agir d\'un autre appareil qui, d\'un point de vue technique (au niveau BLE adv), ressemble à des lunettes intelligentes.<br/>
+	<b>À utiliser avec une extrême prudence !</b> Comme indiqué précédemment: rien ne garantit que les lunettes intelligentes détectées se trouvent réellement à proximité. Il peut s’agir d\'un autre appareil qui, d\'un point de vue technique (au niveau BLE adv), ressemble à des lunettes intelligentes.<br/>
 	Veuillez ne pas agir de manière irréfléchie. <b>Réfléchissez avant d\'agir sur la base de messages</b> (pas seulement ceux provenant de cette application).<br/>
 	<br/>
 	<b>⚠️ AVERTISSEMENT! ⚠️</b><br/>
@@ -82,12 +82,12 @@
 	Sous licence Apache, version 2.0<br/>
 	<a href="https://github.com/androidx/androidx">https://github.com/androidx/androidx</a><br/>
 	<br/>
-	Une copie de la licence Apache 2.0 est disponible à l'adresse <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a><br/>
+	Une copie de la licence Apache 2.0 est disponible à l’adresse <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a><br/>
 	<br/>
 	3. Le CLA est sous licence Creative Commons Attribution 3.0 Unported License.<br/>
 	par Harmony Agreements <a href="https://www.harmonyagreements.org/agreements">http://www.apache.org/licenses/LICENSE-2.0</a><br/>
 	<br/>
-	Une copie de la licence Creative Commons Attribution 3.0 Unported License est disponible à l'adresse <a href="https://creativecommons.org/licenses/by/3.0/">https://creativecommons.org/licenses/by/3.0/</a><br/>
+	Une copie de la licence Creative Commons Attribution 3.0 Unported License est disponible à l’adresse <a href="https://creativecommons.org/licenses/by/3.0/">https://creativecommons.org/licenses/by/3.0/</a><br/>
     <br/>
 	✊🏼 résister (iA)<br/><br/><br/>	]]> "</string>
 	<string name="pref_language_title">Langue</string>
@@ -101,8 +101,8 @@
 	<item>Français</item>
 	</string-array>
 	<string-array name="pref_language_values">
-		<item></item> <!-- empty string means “follow system” -->
-		<item>en</item> <!-- only BCP-47 tags;  -->
+		<item></item>
+		<item>en</item>
 		<item>de</item>
 		<item>de-CH</item>
 		<item>fr</item>
@@ -119,11 +119,18 @@
 	    <!-- Detection notification -->
 	<string name="notification_detected_title">@string/notifyText</string>
 	<string name="notification_detected_text">%1$s détecté (RSSI: %2$d dBm)</string>
+	<string name="notification_detected_text_with_score">%1$s détecté (RSSI: %2$d dBm, confiance: %3$d%%)</string>
 	<string name="notification_bigtext"><![CDATA[
 Appareil: %1$s
 RSSI: %2$d dBm
 Raison: %3$s
 Entreprise: %4$s]]></string>
+	<string name="notification_bigtext_with_score"><![CDATA[
+Appareil: %1$s
+RSSI: %2$d dBm
+Raison: %3$s
+Entreprise: %4$s
+Confiance: %5$d%%]]></string>
 	<string name="notification_unknown_device">Appareil inconnu</string>
 
 	<!-- Foreground service notification -->
@@ -134,6 +141,9 @@ Entreprise: %4$s]]></string>
 	<string name="reason_essilor_company_id">ID EssilorLuxottica de l\'entreprise (%1$s)</string>
 	<string name="reason_snap_company_id">ID de l\'entreprise Snap (%1$s)</string>
 	<string name="reason_name_contains">Le nom de l\'appareil contient « %1$s »</string>
+	<string name="reason_service_uuid">UUID de service Meta (%1$s)</string>
+	<string name="reason_short_payload">Charge utile courte (%1$d octets, typique des lunettes)</string>
+	<string name="reason_long_payload">Charge utile longue (%1$d octets, probablement casque VR)</string>
 	<string name="company_meta">Meta Platforms, Inc.</string>
 	<string name="company_essilor">EssilorLuxottica S.A.</string>
 	<string name="company_snap">Snap, Inc.</string>
@@ -195,4 +205,9 @@ Entreprise: %4$s]]></string>
 	<string name="dbg_override_match">Remplacement de débogage: ID d\'entreprise %1$s correspondante</string>
 	<string name="dbg_placeholder_unknown">?</string>
 	<string name="dbg_placeholder_none">aucun</string>
+	<!-- New: confidence and battery saver preferences -->
+	<string name="titleConfidenceThreshold">Seuil de confiance</string>
+	<string name="summaryConfidenceThreshold">Actuellement: %1$s. Score de confiance minimum (0.0-1.0) pour déclencher une alerte (par défaut: 0.50)</string>
+	<string name="titleBatterySaver">Économie de batterie</string>
+	<string name="summaryBatterySaver">Utiliser le scan cyclique (5s actif / 10s pause) pour réduire la consommation batterie d\'environ 60%%.</string>
 </resources>

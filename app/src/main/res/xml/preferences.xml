@@ -22,6 +22,21 @@
             app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="false" />
 
+        <EditTextPreference
+            android:defaultValue="0.50"
+            android:inputType="numberDecimal"
+            android:key="confidence_threshold"
+            android:summary="@string/summaryConfidenceThreshold"
+            android:title="@string/titleConfidenceThreshold"
+            app:iconSpaceReserved="false" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="battery_saver"
+            android:summary="@string/summaryBatterySaver"
+            android:title="@string/titleBatterySaver"
+            app:iconSpaceReserved="false" />
+
         <ListPreference
             android:key="app_language"
             android:title="@string/pref_language_title"
