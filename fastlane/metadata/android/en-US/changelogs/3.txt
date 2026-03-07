@@ -1,5 +1,0 @@
-Snap Spectacles (from Snapchat).
-updated to API 35 (Vanilla Ice Cream) as it's required for Play Store submission. But the App should work on older phones, too, so don't worry
-housekeeping
-Android Tablet support
-support for old (really old) Android phones, like starting at Android 8 (Oreo), which is API 26, dating back to 2017. If you happen to have such an old phone, it's likely due to budget constraints. Maybe this is important for you., hence the app should work there as well

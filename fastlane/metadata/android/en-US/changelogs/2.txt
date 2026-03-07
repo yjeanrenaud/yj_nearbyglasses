@@ -1,2 +1,0 @@
-initial working release. Packed into APK (signed) for android installation.
-Full Changelog: https://github.com/yjeanrenaud/yj_nearbyglasses/commits/apk_signed

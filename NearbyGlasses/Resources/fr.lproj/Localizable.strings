@@ -1,0 +1,133 @@
+/* App */
+"app_name" = "Nearby Glasses";
+"settings" = "Paramètres";
+
+/* Main screen */
+"notLogging" = "Journalisation désactivée. Vous ne verrez les notifications que si quelque chose a été détecté.";
+"startScanning" = "Démarrer la recherche";
+"stopScanning" = "Arrêter la recherche";
+"notScanning" = "Recherche inactive";
+"textScanning" = "Scan actif - Vous serez averti si des lunettes intelligentes sont détectées à proximité";
+"start_scanning" = "Démarrer le scan";
+"stop_scanning" = "Arrêter le scan";
+"scanning" = "Recherche d'appareils...";
+"not_scanning" = "Pas de scan";
+"clear" = "Effacer";
+"export" = "Exporter";
+"clearLog" = "Effacer le journal";
+"exportLog" = "Exporter le journal";
+"debug_log" = "Journal de débogage";
+"glasses_detected" = "👓 Avertissement: des lunettes intelligentes se trouvent probablement à proximité";
+"info_text" = "Cette application vous avertit lorsque des lunettes intelligentes se trouvent à proximité. Elle utilise les identifiants d'entreprise contenus dans les données Bluetooth envoyées par ces dernières. Il est donc possible qu'il y ait des faux positifs (par exemple, provenant de casques VR). Par conséquent, veuillez faire preuve de prudence lorsque vous approchez une personne à proximité qui porte des lunettes. Il peut s'agir de lunettes ordinaires, malgré l'avertissement de cette application.";
+"warning_title" = "⚠️ AVERTISSEMENT! ⚠️ ";
+"warning_text" = "HARCÉLER quelqu'un parce que vous pensez qu'il porte un dispositif de surveillance dissimulé peut constituer une infraction pénale. Cela peut même être une infraction plus grave que l'utilisation d'un tel dispositif. Veuillez consulter un conseiller juridique au sujet des lois locales en vigueur dans ce domaine.\n⚠️ NE HARCÉLEZ PERSONNE, JAMAIS! ⚠️ ";
+
+/* Settings */
+"titleCategoryScanningSettings" = "Paramètres de scan";
+"titleForeground" = "Activer le scan en arrière-plan";
+"summaryForeground" = "Exécutez l'analyse en arrière-plan pour éviter qu'elle ne soit interrompue par le système.";
+"titleCooldown" = "Délai de notification (ms)";
+"summaryCooldown" = "Actuellement: %@ ms. Délai minimum entre les notifications en millisecondes (par défaut: 10000 ms = 10 s)";
+"titleThreshold" = "Seuil RSSI (dBm)";
+"summaryThreshold" = "Actuellement: %@ dBm. Détecter uniquement les appareils dont le RSSI est supérieur à ce seuil (par défaut: -75 dBm, ~3-10 m)";
+"titleCategoryNotifications" = "Paramètres de notification";
+"titleNotifications" = "Activer les notifications";
+"summaryNotifications" = "Afficher les notifications lorsque des appareils à lunettes intelligentes sont détectés";
+"titleCategoryLogging" = "Paramètres de journalisation";
+"titleLogging" = "Activer l'affichage du journal";
+"summaryLogging" = "Afficher le journal de détection dans l'écran principal. Le journal est toujours stocké localement pour être exporté.";
+"titleDebug" = "Débogage";
+"summaryDebug" = "Activer tous les identifiants d'entreprise trouvés dans le journal. Notifier uniquement sur les lunettes intelligentes.";
+"titleDebugSize" = "Nombre maximal de lignes de journal";
+"summaryDebugSize" = "Actuellement: %@. Nombre maximal de lignes conservées dans le journal de débogage.";
+"titleDebugAdvonly" = "BLE ADV uniquement";
+"summaryDebugAdvonly" = "Lorsque cette option est activée, seules les lignes de publicité BLE (ADV) sont affichées dans le journal de débogage.";
+"nothing_to_export" = "Aucune détection à exporter";
+"titleDebugCompanyIds" = "Remplacer les identifiants d'entreprise";
+"summaryDebugCompanyIds" = "Actuellement: %@. Si vous entrez un ou plusieurs identifiants à détecter, en notation hexadécimale little endian, ils sont utilisés à la place des identifiants par défaut (« 0x01AB,0x058E,0x0D53 »). Cela déclenche également des notifications pour les nouveaux identifiants.";
+"none_in_parentheses" = "(aucun)";
+"summaryApp" = "Détecte les lunettes intelligentes via Bluetooth LE";
+"titleMethod" = "Méthode de détection";
+"summaryMethod" = "Détection basée sur les identifiants d'entreprise dans les trames publicitaires BLE et la correspondance des noms d'appareils.";
+"titleLiability" = "Responsabilité et licence";
+"titleCategoryAbout" = "À propos";
+
+/* Notifications */
+"notifyText" = "⚠️ Des lunettes intelligentes sont peut-être à proximité";
+"channel_detection_name" = "Alertes de détection de lunettes intelligentes";
+"channel_detection_description" = "Alerte lorsque des lunettes intelligentes sont détectées";
+"channel_service_name" = "Service de scan en arrière-plan";
+"channel_service_description" = "Indique lorsque l'application effectue un scan en arrière-plan";
+"notification_detected_text" = "%@ détecté (RSSI: %d dBm)";
+"notification_unknown_device" = "Appareil inconnu";
+"notification_service_title" = "Recherche de lunettes intelligentes à proximité";
+"notification_service_text" = "La recherche en arrière-plan est active";
+
+/* Detection reasons */
+"reason_meta_company_id" = "ID méta de l'entreprise (%@)";
+"reason_essilor_company_id" = "ID EssilorLuxottica de l'entreprise (%@)";
+"reason_snap_company_id" = "ID de l'entreprise Snap (%@)";
+"reason_name_contains" = "Le nom de l'appareil contient « %@ »";
+"reason_debug_override_company_id" = "Remplacement de débogage: ID de entreprise %@ correspondant trouvé";
+
+/* Company names */
+"company_meta" = "Meta Platforms, Inc.";
+"company_essilor" = "EssilorLuxottica S.A.";
+"company_snap" = "Snap, Inc.";
+"company_unknown" = "Inconnu (%@)";
+"company_unknown_plain" = "Inconnu";
+"unknown_device" = "Inconnu";
+
+/* Clipboard */
+"clipboard_copied" = "Copié: %@";
+"clipboard_label_log_line" = "NearbyGlassesLogLine";
+"clipboard_label_log" = "NearbyGlassesLog";
+
+/* Bluetooth / permissions */
+"toast_bluetooth_required" = "Le Bluetooth doit être activé";
+"toast_bluetooth_not_supported" = "Le Bluetooth n'est pas pris en charge sur cet appareil";
+
+/* Dialogs */
+"dialog_permissions_title" = "Autorisations requises";
+"dialog_permissions_message" = "Cette application nécessite l'autorisation Bluetooth pour rechercher des appareils. Veuillez accorder ces autorisations dans les Paramètres.";
+"dialog_open_settings" = "Ouvrir les paramètres";
+"dialog_cancel" = "Annuler";
+"dialog_clear_log_title" = "Effacer le journal";
+"dialog_clear_log_message" = "Êtes-vous sûr de vouloir effacer tous les journaux de détection ?";
+"dialog_clear" = "Effacer";
+"toast_log_cleared" = "Journal effacé";
+
+/* Export */
+"chooser_export_log" = "Exporter le journal de détection";
+"toast_export_error" = "Erreur lors de l'exportation du journal: %@";
+
+/* Log formatting */
+"log_unknown_device" = "Inconnu";
+"log_detection_line" = "[%@] %@ (%d dBm) - %@";
+"log_debug_prefix" = "DEBUG";
+"log_debug_line" = "[%@] %@: %@";
+
+/* Service logs */
+"log_service_created" = "Service créé";
+"log_already_scanning" = "Déjà en cours de scan";
+"log_scanning_started" = "Scan démarré avec succès";
+"log_scanning_failed" = "Échec du démarrage du scan";
+"log_notification_suppressed" = "Détection pendant la période de refroidissement, notification supprimée";
+"log_service_destroyed" = "Service détruit";
+
+/* Debug / scanner logs */
+"dbg_filtered_rssi" = "RSSI filtré addr=%@ rssi=%d";
+"dbg_scan_failed" = "Échec du scan avec code d'erreur: %d";
+"dbg_bluetooth_disabled" = "Le Bluetooth n'est pas activé";
+"dbg_already_scanning" = "Scan en cours";
+"dbg_ble_not_available" = "Scanner BLE indisponible";
+"dbg_ble_started_verbose" = "Scan BLE démarré. Seuil RSSI=%d, mode=LOW_LATENCY";
+"dbg_ble_started_simple" = "Scan BLE démarré avec seuil RSSI: %d dBm";
+"dbg_ble_stopped" = "Scan BLE arrêté";
+"dbg_ble_start_error" = "Erreur lors du démarrage du scan BLE";
+"dbg_ble_stop_error" = "Erreur lors de l'arrêt du scan BLE";
+"dbg_adv_short" = "ADV addr=%@ name=%@ rssi=%d companyId=%@ len=%d";
+"dbg_adv_full" = "ADV addr=%@ name=%@ rssi=%d companyId=%@ mfgLen=%d smartglasses=%d reason=%@";
+"dbg_smart_glasses_detected" = "lunettes intelligentes détectées: %@ (%d dBm)";
+"dbg_placeholder_unknown" = "?";
+"dbg_placeholder_none" = "aucun";

@@ -1,0 +1,133 @@
+/* App */
+"app_name" = "Nearby Glasses";
+"settings" = "Settings";
+
+/* Main screen */
+"notLogging" = "Logging disabled. You will only see notifications if something has been spotted.";
+"startScanning" = "Start Scanning";
+"stopScanning" = "Stop Scanning";
+"notScanning" = "Not scanning";
+"textScanning" = "Scanning active - You will be notified if smart glasses are detected nearby";
+"start_scanning" = "Start Scanning";
+"stop_scanning" = "Stop Scanning";
+"scanning" = "Scanning for devices…";
+"not_scanning" = "Not scanning";
+"clear" = "Clear";
+"export" = "Export";
+"clearLog" = "Clear Log";
+"exportLog" = "Export Log";
+"debug_log" = "Debug Log";
+"glasses_detected" = "👓 Warning: smart glasses are maybe nearby";
+"info_text" = "This app notifies you when smart glasses might be nearby. It uses company identificators in the Bluetooth data sent out by these. Therefore, there likely are false positives (e.g. from VR headsets). Hence, please proceed with caution when approaching a person nearby wearing glasses. They might just be regular glasses, despite this app's warning.";
+"warning_title" = "⚠️ WARNING! ⚠️ ";
+"warning_text" = "HARASSING someone because you think they are wearing a covert surveillance device can be a criminal offence. It may even be a more serious offence than using such a device. Please seek legal advise regarding your local laws on this matter.\n⚠️ DO NOT HARASS ANYONE AT ALL.⚠️  ";
+
+/* Settings */
+"titleCategoryScanningSettings" = "Scanning Settings";
+"titleForeground" = "Enable Background Scanning";
+"summaryForeground" = "Continue scanning when the app is in the background to detect devices at all times.";
+"titleCooldown" = "Notification Cooldown (ms)";
+"summaryCooldown" = "Currently: %@ ms. Minimum time between notifications in milliseconds (default: 10000ms = 10s)";
+"titleThreshold" = "RSSI Threshold (dBm)";
+"summaryThreshold" = "Currently: %@ dBm. Only detect devices with RSSI above this threshold (default: -75 dBm, ~3-10 m)";
+"titleCategoryNotifications" = "Notification Settings";
+"titleNotifications" = "Enable Notifications";
+"summaryNotifications" = "Show notifications when smart glasses-devices are detected";
+"titleCategoryLogging" = "Logging Settings";
+"titleLogging" = "Enable Log Display";
+"summaryLogging" = "Display detection log in the main screen. Log is always stored locally for export.";
+"titleDebug" = "Debug";
+"summaryDebug" = "Enable all Company IDs found in log. Notify still only on smart glasses.";
+"titleDebugSize" = "Max log lines";
+"summaryDebugSize" = "Currently: %@. Maximum number of lines kept in debug log.";
+"titleDebugAdvonly" = "BLE ADV only";
+"summaryDebugAdvonly" = "When enabled, only BLE advertisement (ADV) lines are shown in the debug log.";
+"nothing_to_export" = "No detections to export";
+"titleDebugCompanyIds" = "Override Company IDs";
+"summaryDebugCompanyIds" = "Currently: %@. If you enter one or multiple IDs to detect, in little endian, hex notation, they are used instead of the defaults (\"0x01AB,0x058E,0x0D53\"). This also triggers notifications for the new IDs.";
+"none_in_parentheses" = "(none)";
+"summaryApp" = "Detects smart glasses via Bluetooth LE";
+"titleMethod" = "Detection Method";
+"summaryMethod" = "Detection based on Company IDs in BLE advertising frames and device name matching.";
+"titleLiability" = "Liability and License";
+"titleCategoryAbout" = "About";
+
+/* Notifications */
+"notifyText" = "⚠️ Smart Glasses are maybe nearby";
+"channel_detection_name" = "Smart glasses detection alerts";
+"channel_detection_description" = "Alerts when smart glasses are detected";
+"channel_service_name" = "Background scanning service";
+"channel_service_description" = "Shows when the app is scanning in the background";
+"notification_detected_text" = "%@ detected (RSSI: %d dBm)";
+"notification_unknown_device" = "Unknown device";
+"notification_service_title" = "Scanning for smart glasses nearby";
+"notification_service_text" = "Background scanning is active";
+
+/* Detection reasons */
+"reason_meta_company_id" = "Meta Company ID (%@)";
+"reason_essilor_company_id" = "EssilorLuxottica Company ID (%@)";
+"reason_snap_company_id" = "Snap Company ID (%@)";
+"reason_name_contains" = "Device name contains '%@'";
+"reason_debug_override_company_id" = "Debug override: Company ID %@ matched";
+
+/* Company names */
+"company_meta" = "Meta Platforms, Inc.";
+"company_essilor" = "EssilorLuxottica S.A.";
+"company_snap" = "Snap, Inc.";
+"company_unknown" = "Unknown (%@)";
+"company_unknown_plain" = "Unknown";
+"unknown_device" = "Unknown";
+
+/* Clipboard */
+"clipboard_copied" = "Copied: %@";
+"clipboard_label_log_line" = "NearbyGlassesLogLine";
+"clipboard_label_log" = "NearbyGlassesLog";
+
+/* Bluetooth / permissions */
+"toast_bluetooth_required" = "Bluetooth must be enabled";
+"toast_bluetooth_not_supported" = "Bluetooth is not supported on this device";
+
+/* Dialogs */
+"dialog_permissions_title" = "Permissions required";
+"dialog_permissions_message" = "This app requires Bluetooth permission to scan for devices. Please grant permissions in Settings.";
+"dialog_open_settings" = "Open settings";
+"dialog_cancel" = "Cancel";
+"dialog_clear_log_title" = "Clear log";
+"dialog_clear_log_message" = "Are you sure you want to clear all detection logs?";
+"dialog_clear" = "Clear";
+"toast_log_cleared" = "Log cleared";
+
+/* Export */
+"chooser_export_log" = "Export detection log";
+"toast_export_error" = "Error exporting log: %@";
+
+/* Log formatting */
+"log_unknown_device" = "Unknown";
+"log_detection_line" = "[%@] %@ (%d dBm) - %@";
+"log_debug_prefix" = "DEBUG";
+"log_debug_line" = "[%@] %@: %@";
+
+/* Service logs */
+"log_service_created" = "Service created";
+"log_already_scanning" = "Already scanning";
+"log_scanning_started" = "Scanning started successfully";
+"log_scanning_failed" = "Failed to start scanning";
+"log_notification_suppressed" = "Detection within cooldown period, notification suppressed";
+"log_service_destroyed" = "Service destroyed";
+
+/* Debug / scanner logs */
+"dbg_filtered_rssi" = "Filtered RSSI addr=%@ rssi=%d";
+"dbg_scan_failed" = "Scan failed with error code: %d";
+"dbg_bluetooth_disabled" = "Bluetooth is not enabled";
+"dbg_already_scanning" = "Already scanning";
+"dbg_ble_not_available" = "BLE scanner not available";
+"dbg_ble_started_verbose" = "BLE scanning started. RSSI threshold=%d, mode=LOW_LATENCY";
+"dbg_ble_started_simple" = "BLE scanning started with RSSI threshold: %d dBm";
+"dbg_ble_stopped" = "BLE scanning stopped";
+"dbg_ble_start_error" = "Error starting BLE scan";
+"dbg_ble_stop_error" = "Error stopping BLE scan";
+"dbg_adv_short" = "ADV addr=%@ name=%@ rssi=%d companyId=%@ len=%d";
+"dbg_adv_full" = "ADV addr=%@ name=%@ rssi=%d companyId=%@ mfgLen=%d smartglasses=%d reason=%@";
+"dbg_smart_glasses_detected" = "smart glasses detected: %@ (%d dBm)";
+"dbg_placeholder_unknown" = "?";
+"dbg_placeholder_none" = "none";
