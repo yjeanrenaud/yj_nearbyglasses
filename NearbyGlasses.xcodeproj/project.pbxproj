@@ -16,9 +16,6 @@
 		A10007 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10007; };
 		A10008 /* PreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10008; };
 		A10009 /* Localizable.strings (en) in Resources */ = {isa = PBXBuildFile; fileRef = B10009; };
-		A10010 /* Localizable.strings (de) in Resources */ = {isa = PBXBuildFile; fileRef = B10010; };
-		A10011 /* Localizable.strings (fr) in Resources */ = {isa = PBXBuildFile; fileRef = B10011; };
-		A10012 /* Localizable.strings (de-CH) in Resources */ = {isa = PBXBuildFile; fileRef = B10012; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,9 +28,6 @@
 		B10007 /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		B10008 /* PreferencesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesManager.swift; sourceTree = "<group>"; };
 		B10009 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		B10010 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		B10011 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		B10012 /* de-CH */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "de-CH"; path = "de-CH.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		B10013 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B10099 /* NearbyGlasses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearbyGlasses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -118,9 +112,6 @@
 			isa = PBXGroup;
 			children = (
 				B10009 /* en */,
-				B10010 /* de */,
-				B10011 /* fr */,
-				B10012 /* de-CH */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -182,9 +173,6 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				de,
-				fr,
-				"de-CH",
 				Base,
 			);
 			mainGroup = D10001 /* Root */;
@@ -203,9 +191,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A10009 /* Localizable.strings (en) in Resources */,
-				A10010 /* Localizable.strings (de) in Resources */,
-				A10011 /* Localizable.strings (fr) in Resources */,
-				A10012 /* Localizable.strings (de-CH) in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
