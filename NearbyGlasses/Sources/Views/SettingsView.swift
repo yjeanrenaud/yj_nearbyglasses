@@ -27,7 +27,7 @@ struct SettingsView: View {
                         Text(NSLocalizedString("titleThreshold", comment: ""))
                         TextField("-75", text: $rssiText)
                             .keyboardType(.numbersAndPunctuation)
-                            .onChange(of: rssiText) { _, newValue in
+                            .onChange(of: rssiText) { newValue in
                                 if let v = Int(newValue), (-120...0).contains(v) {
                                     preferences.rssiThreshold = v
                                 }
@@ -53,7 +53,7 @@ struct SettingsView: View {
                         Text(NSLocalizedString("titleCooldown", comment: ""))
                         TextField("10000", text: $cooldownText)
                             .keyboardType(.numberPad)
-                            .onChange(of: cooldownText) { _, newValue in
+                            .onChange(of: cooldownText) { newValue in
                                 if let v = Int(newValue), (0...600_000).contains(v) {
                                     preferences.cooldownMs = v
                                 }
@@ -89,7 +89,7 @@ struct SettingsView: View {
                             Text(NSLocalizedString("titleDebugSize", comment: ""))
                             TextField("200", text: $debugMaxLinesText)
                                 .keyboardType(.numberPad)
-                                .onChange(of: debugMaxLinesText) { _, newValue in
+                                .onChange(of: debugMaxLinesText) { newValue in
                                     if let v = Int(newValue), (50...5000).contains(v) {
                                         preferences.debugMaxLines = v
                                     }
@@ -112,8 +112,8 @@ struct SettingsView: View {
                             Text(NSLocalizedString("titleDebugCompanyIds", comment: ""))
                             TextField("0x01AB,0x01AC,...", text: $debugCompanyIdsText)
                                 .keyboardType(.asciiCapable)
-                                .autocapitalization(.none)
-                                .onChange(of: debugCompanyIdsText) { _, newValue in
+                                .textInputAutocapitalization(.never)
+                                .onChange(of: debugCompanyIdsText) { newValue in
                                     preferences.debugCompanyIdsString = newValue
                                 }
                             let display = debugCompanyIdsText.trimmingCharacters(in: .whitespaces).isEmpty

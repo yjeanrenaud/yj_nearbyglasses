@@ -6,6 +6,7 @@ import os.log
 /// Manages Bluetooth scanning lifecycle, replaces Android's BluetoothScanService.
 /// On iOS there is no foreground service concept — background BLE scanning is handled
 /// via CoreBluetooth background modes declared in Info.plist.
+@MainActor
 class ScanManager: ObservableObject {
     static let shared = ScanManager()
 

@@ -1,6 +1,7 @@
 import Foundation
 import Combine
 
+@MainActor
 class PreferencesManager: ObservableObject {
     static let shared = PreferencesManager()
 
@@ -42,6 +43,18 @@ class PreferencesManager: ObservableObject {
             Keys.debugCompanyIds: ""
         ]
         defaults.register(defaults: defaultValues)
+
+        _rssiThreshold = Published(wrappedValue: defaults.integer(forKey: Keys.rssiThreshold))
+        let storedCooldown = defaults.integer(forKey: Keys.cooldownMs)
+        _cooldownMs = Published(wrappedValue: max(0, min(storedCooldown, 600_000)))
+        _foregroundServiceEnabled = Published(wrappedValue: defaults.bool(forKey: Keys.foregroundService))
+        _notificationsEnabled = Published(wrappedValue: defaults.bool(forKey: Keys.enableNotifications))
+        _loggingEnabled = Published(wrappedValue: defaults.bool(forKey: Keys.loggingEnabled))
+        _debugEnabled = Published(wrappedValue: defaults.bool(forKey: Keys.debugEnabled))
+        let storedMaxLines = defaults.integer(forKey: Keys.debugMaxLines)
+        _debugMaxLines = Published(wrappedValue: max(50, min(storedMaxLines == 0 ? Self.defaultDebugMaxLines : storedMaxLines, 5000)))
+        _debugAdvOnly = Published(wrappedValue: defaults.bool(forKey: Keys.debugAdvOnly))
+        _debugCompanyIdsString = Published(wrappedValue: defaults.string(forKey: Keys.debugCompanyIds) ?? "")
     }
 
     @Published var rssiThreshold: Int {
@@ -99,31 +112,4 @@ class PreferencesManager: ObservableObject {
         )
     }
 
-    // Load stored values — call this to hydrate @Published properties from UserDefaults
-    func load() {
-        rssiThreshold = defaults.integer(forKey: Keys.rssiThreshold)
-        if rssiThreshold == 0 && !defaults.contains(key: Keys.rssiThreshold) {
-            rssiThreshold = Self.defaultRssiThreshold
-        }
-        cooldownMs = defaults.integer(forKey: Keys.cooldownMs)
-        if cooldownMs == 0 && !defaults.contains(key: Keys.cooldownMs) {
-            cooldownMs = Self.defaultCooldownMs
-        }
-        cooldownMs = max(0, min(cooldownMs, 600_000))
-        foregroundServiceEnabled = defaults.bool(forKey: Keys.foregroundService)
-        notificationsEnabled = defaults.bool(forKey: Keys.enableNotifications)
-        loggingEnabled = defaults.bool(forKey: Keys.loggingEnabled)
-        debugEnabled = defaults.bool(forKey: Keys.debugEnabled)
-        debugMaxLines = defaults.integer(forKey: Keys.debugMaxLines)
-        if debugMaxLines == 0 { debugMaxLines = Self.defaultDebugMaxLines }
-        debugMaxLines = max(50, min(debugMaxLines, 5000))
-        debugAdvOnly = defaults.bool(forKey: Keys.debugAdvOnly)
-        debugCompanyIdsString = defaults.string(forKey: Keys.debugCompanyIds) ?? ""
-    }
-}
-
-private extension UserDefaults {
-    func contains(key: String) -> Bool {
-        return object(forKey: key) != nil
-    }
 }

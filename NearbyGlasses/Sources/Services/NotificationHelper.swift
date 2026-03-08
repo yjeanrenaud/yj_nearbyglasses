@@ -2,7 +2,7 @@ import Foundation
 import UserNotifications
 import os.log
 
-class NotificationHelper {
+final class NotificationHelper: Sendable {
     static let shared = NotificationHelper()
 
     private let logger = Logger(subsystem: "ch.pocketpc.nearbyglasses", category: "NotificationHelper")
@@ -11,7 +11,7 @@ class NotificationHelper {
         static let detection = "GLASSES_DETECTION"
     }
 
-    func requestAuthorization(completion: @escaping (Bool) -> Void) {
+    func requestAuthorization(completion: @escaping @Sendable (Bool) -> Void) {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             if let error = error {
                 self.logger.error("Notification authorization error: \(error.localizedDescription)")
