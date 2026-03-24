@@ -1,25 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- HackDroid Theme: Single Dark Theme -->
     <style name="Theme.NearbyGlasses" parent="Theme.Material3.Dark.NoActionBar">
-        <item name="colorPrimary">@color/red_500</item>
-        <item name="colorPrimaryVariant">@color/red_700</item>
-        <item name="colorOnPrimary">@color/black</item>
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <!-- Brand Colors -->
+        <item name="colorPrimary">@color/cyan_accent</item>
+        <item name="colorOnPrimary">@color/text_inverted</item>
+        <item name="colorPrimaryContainer">@color/inset_surface</item>
+        <item name="colorOnPrimaryContainer">@color/cyan_accent</item>
+        
+        <item name="colorSecondary">@color/cyan_accent</item>
+        <item name="colorOnSecondary">@color/text_inverted</item>
+        <item name="colorSecondaryContainer">@color/slate_card</item>
+        <item name="colorOnSecondaryContainer">@color/text_secondary</item>
+
+        <item name="colorTertiary">@color/text_tertiary</item>
+        <item name="colorOnTertiary">@color/text_inverted</item>
+        <item name="colorTertiaryContainer">@color/slate_card</item>
+        <item name="colorOnTertiaryContainer">@color/text_tertiary</item>
+
+        <!-- Background & Surface -->
+        <item name="android:colorBackground">@color/navy_background</item>
+        <item name="colorSurface">@color/slate_card</item>
+        <item name="colorSurfaceVariant">@color/inset_surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary</item>
+        <item name="colorOutline">@color/text_muted</item>
+
+        <!-- Status & Nav Bars -->
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
-        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightStatusBar">false</item> <!-- Dark background, light icons -->
         <item name="android:windowLightNavigationBar">false</item>
-        <item name="android:colorBackground">@color/background</item>
-        <item name="colorSurface">@color/surface</item>
-        <item name="android:textColorPrimary">@color/on_surface</item>
-        <item name="android:textColorSecondary">@color/on_surface_variant</item>
-        <item name="colorPrimaryContainer">@color/red_700</item>
-        <item name="colorOnPrimaryContainer">@color/red_200</item>
-        <item name="colorSecondaryContainer">@color/teal_700</item>
-        <item name="colorOnSecondaryContainer">@color/teal_100</item>
-        <item name="colorSurfaceVariant">@color/surface_variant</item>
-        <item name="colorOnSurfaceVariant">@color/on_surface_variant</item>
+        
+        <!-- Text Colors -->
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:textColorTertiary">@color/text_tertiary</item>
+
+        <!-- Error Colors -->
+        <item name="colorError">@color/danger_red</item>
+        <item name="colorOnError">@color/text_inverted</item>
+        <item name="colorErrorContainer">@color/slate_card</item>
+        <item name="colorOnErrorContainer">@color/danger_red</item>
     </style>
 </resources>

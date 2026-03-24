@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_100">#FF7DEDE2</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
+    <!-- HackDroid Cyberpunk Palette -->
+    <color name="navy_background">#0A0F1C</color>
+    <color name="slate_card">#1E293B</color>
+    <color name="inset_surface">#0F172A</color>
+    <color name="cyan_accent">#22D3EE</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#94A3B8</color>
+    <color name="text_tertiary">#64748B</color>
+    <color name="text_muted">#475569</color>
+    <color name="text_inverted">#0A0F1C</color>
+    <color name="danger_red">#FF6B6B</color>
+    <color name="warn_amber">#F59E0B</color>
+    <color name="success_green">#22D3EE</color> <!-- Same as cyan -->
+    <color name="terminal_black">#040810</color>
+
+    <!-- Legacy mappings for compatibility if needed, but Theme will use new names -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="red_200">#FFF8A39B</color>
-    <color name="red_500">#FFF44336</color>
-    <color name="red_700">#FFD32F2F</color>
-
-    <color name="surface">#FFFFFBFE</color>
-    <color name="surface_variant">#FFE7E0EC</color>
-    <color name="on_surface">#FF1C1B1F</color>
-    <color name="on_surface_variant">#FF49454F</color>
-    <color name="background">#FFFFFBFE</color>
-    <color name="on_background">#FF1C1B1F</color>
 </resources>

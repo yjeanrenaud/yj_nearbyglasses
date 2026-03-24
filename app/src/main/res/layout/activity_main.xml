@@ -1,139 +1,226 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="@color/navy_background">
 
+    <!-- Header / Toolbar -->
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="@android:color/transparent"
         app:title="@string/app_name"
-        app:titleTextColor="?attr/colorOnPrimary" />
-        <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light"-->
+        app:titleTextColor="@color/text_primary"
+        app:titleCentered="false"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Main Content Container (Must be LinearLayout for MainActivity logic) -->
     <LinearLayout
         android:id="@+id/content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:paddingHorizontal="24dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="80dp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Warning block -->
-        <TextView
-            android:id="@+id/warning_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp"
-            android:layout_gravity="center"
-            android:text="@string/warning_title"
-            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/warning_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:justificationMode="inter_word"
-            android:text="@string/warning_text"
-            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
-            android:textColor="?attr/colorOnSurfaceVariant"
-            android:textStyle="bold" />
-
+        <!-- Status / Scan Button -->
+        <!-- Moved button to top for prominent access in this layout flow -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_toggle_scan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="24dp"
             android:minHeight="56dp"
             android:text="@string/start_scanning"
-            android:textSize="16sp"
+            android:textColor="@color/text_inverted"
+            android:textSize="14sp"
+            android:letterSpacing="0.1"
+            android:textStyle="bold"
+            app:backgroundTint="@color/cyan_accent"
+            app:cornerRadius="32dp"
             app:icon="@drawable/ic_bluetooth_searching"
-            app:iconGravity="start" />
+            app:iconTint="@color/text_inverted"
+            app:iconGravity="textStart" />
 
+        <!-- Status Text (No glasses detected...) -->
         <TextView
             android:id="@+id/status_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:text="@string/not_scanning"
-            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
+        <!-- Info Text (Dynamic position) -->
         <TextView
             android:id="@+id/info_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="16dp"
             android:justificationMode="inter_word"
             android:text="@string/info_text"
-            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
-            android:textColor="?attr/colorOnSurfaceVariant" />
+            android:textColor="@color/text_muted"
+            android:textSize="12sp" />
 
+        <!-- Card: Canary & Logs -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/log_card"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            app:cardCornerRadius="6dp"
-            app:cardElevation="2dp"
-            android:background="@drawable/canary_canvas_bg">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/inset_surface"
+            app:cardBackgroundColor="@color/slate_card">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:padding="12dp">
+                android:padding="20dp">
 
-                <TextView
-                    android:id="@+id/debug_title"
+                <!-- Log Header Row -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:text="@string/debug_log"
-                    android:textAppearance="@style/TextAppearance.Material3.TitleSmall"
-                    android:textStyle="bold" />
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+                    
+                    <!-- Accent Line -->
+                    <View
+                        android:layout_width="24dp"
+                        android:layout_height="2dp"
+                        android:background="@color/cyan_accent"
+                        android:layout_marginEnd="12dp"/>
+
+                    <TextView
+                        android:id="@+id/debug_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/debug_log"
+                        android:textColor="@color/text_primary"
+                        android:textSize="11sp"
+                        android:letterSpacing="0.15"
+                        android:textStyle="bold"
+                        android:textAllCaps="true" />
+                </LinearLayout>
 
                 <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="128dp">
-                <androidx.core.widget.NestedScrollView
-                    android:id="@+id/scroll_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="128dp"
-                    android:background="?attr/colorSurfaceVariant"
-                    android:padding="8dp"
-                    android:scrollbars="vertical"
-                    android:fillViewport="true">
-
-                    <TextView
-                        android:id="@+id/text_log"
+                    android:layout_height="match_parent">
+                    
+                    <androidx.core.widget.NestedScrollView
+                        android:id="@+id/scroll_view"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="monospace"
-                        android:textAppearance="@style/TextAppearance.Material3.BodySmall"
-                        android:textIsSelectable="true"
-                        tools:text="@string/log_startvalue" />
-                </androidx.core.widget.NestedScrollView>
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:scrollbars="vertical"
+                        android:fillViewport="true">
+
+                        <TextView
+                            android:id="@+id/text_log"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="monospace"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="12sp"
+                            android:lineSpacingMultiplier="1.2"
+                            android:textIsSelectable="true"
+                            tools:text="[14:30:45] Ray-Ban Meta detected (-65 dBm)\n[14:31:20] Unknown device (-72 dBm)" />
+                    </androidx.core.widget.NestedScrollView>
+
                     <ImageView
                         android:id="@+id/canary_canvas"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="?attr/colorSurfaceVariant"
                         android:contentDescription="@null"
-                        android:padding="8dp"
                         android:scaleType="centerInside"
-                        android:visibility="gone" />
+                        android:visibility="gone"
+                        app:tint="@color/success_green"/>
                 </FrameLayout>
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
+        <!-- Warnings (Collapsible/Small) -->
+        <TextView
+            android:id="@+id/warning_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/warning_title"
+            android:textColor="@color/danger_red"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/warning_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/warning_text"
+            android:textColor="@color/text_muted"
+            android:textSize="10sp"
+            android:maxLines="2"
+            android:ellipsize="end" />
+
     </LinearLayout>
 
-</LinearLayout>
+    <!-- Visual Bottom Nav (Fake) -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:background="@drawable/canary_canvas_bg"
+        android:backgroundTint="@color/slate_card"
+        android:paddingVertical="16dp"
+        android:paddingHorizontal="32dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        
+        <!-- Home Icon -->
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_launcher_transparent"
+            app:tint="@color/cyan_accent"
+            android:layout_weight="1"/>
+            
+        <!-- History Icon (Settings reused) -->
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_settings"
+            app:tint="@color/text_muted"
+            android:layout_weight="1"/>
+            
+        <!-- Info Icon (Warning reused) -->
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_warning"
+            app:tint="@color/text_muted"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
