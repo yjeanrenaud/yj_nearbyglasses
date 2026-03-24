@@ -4,8 +4,7 @@ attempting to detect smart glasses nearby and warn you.
 *nearby-glasses-alert.pages.dev* is NOT RELATED TO MY PROJECT. They seem to hijack the name and try to make a quick profit from it. I do not endorse this.
 ---
 
-<img width="135" height="300" align ="right" alt="Screenshot Nearby Glasses classic" src="img/old/Screenshot%20Nearby%20Glasses%20(2).png" />
-<img width="135" height="300" align ="right" alt="Screenshot Nearby Glasses canary mode" src="img/Screenshot%20Nearby%20Glasses%20(2).png" />
+<img width="200" align ="right" alt="Nearby Glasses Swiss Cyberpunk Design" src="img/screenshot_main_screen.png" />
 
 # ⚠ WARNING! ⚠ 
 **HARASSING someone because you think they are wearing a covert surveillance device can be a criminal offence. It may even be a more serious offence than using such a device. Please seek legal advise regarding your local laws on this matter.**
@@ -15,6 +14,8 @@ attempting to detect smart glasses nearby and warn you.
 
 # Nearby Glasses 
 The app, called *Nearby Glasses*, has one sole purpose: Look for smart glasses nearby and warn you.
+
+**New in v1.1:** A complete redesign featuring a **Swiss-inspired Cyberpunk** aesthetic. Dark navy backgrounds, electric cyan accents, and bold typography for a professional, privacy-focused experience.
 
 <a href="https://play.google.com/store/apps/details?id=ch.pocketpc.nearbyglasses" target="_blank"><img width="239" height="71" alt="Get It On Google Play" src="https://github.com/user-attachments/assets/0feb46d1-969e-4f83-8fc7-c18d1bbed8ad" /></a> <a href="https://apt.izzysoft.de/packages/ch.pocketpc.nearbyglasses" taget="_blank"><img height="71" src="https://github.com/user-attachments/assets/9a711c51-6bce-43b3-af4f-4f198a94970f" alt="Get it at IzzyOnDroid" /></a>
 
@@ -128,7 +129,6 @@ RSSI drops roughly according to<br/>
 ## Usage
 
 - See [Releases](https://github.com/yjeanrenaud/yj_nearbyglasses/releases) for APK to download or use Google Play Store. F-Droid and/or Accrescent may follow.
-<img width="135" height="300" align ="right" alt="Screenshot Nearby Glasses: Settings" src="img/Screenshot%20Nearby%20Glasses%20(4).png" />
 
 <a href="https://play.google.com/store/apps/details?id=ch.pocketpc.nearbyglasses" target="_blank"><img width="239" height="71" alt="Get It On Google Play" src="https://github.com/user-attachments/assets/0feb46d1-969e-4f83-8fc7-c18d1bbed8ad" /></a>
 1. Install the app (from [Releases](https://github.com/yjeanrenaud/yj_nearbyglasses/releases) or from [Google Play](https://play.google.com/store/apps/details?id=ch.pocketpc.nearbyglasses), for now) and open it
@@ -140,7 +140,8 @@ RSSI drops roughly according to<br/>
    1. *Enable Foreground Service*: By this, you prevent Android from pausing the app thus preventing it from alerting you. I recommend leaving this enabled
    2. *RSSI threshold*: This negative number specifies how far away a device might be to be a reason for an alert by *Nearby Glasses*. Technically, it referes to how strong the signal is received. Closer to zero means better signal, hence fewer distance between your phone and the smart glasses. See [RSSI above for explanations and guidance](#how). I recommend leaving it on -75
    3. *Enable Notifications*: You would not want to disable that 
-   4. Canary Mode. This is the new default. With this, you will not get system notifications altering you of smart glasses nearby, but instead you will see a canary that indicates no smart glasses around. <img src="img/canary.svg" alt="Drawing of a canary" width="100" height="100" alignt="left"> 
+   4. Canary Mode. This is the new default. With this, you will not get system notifications altering you of smart glasses nearby, but instead you will see a canary that indicates no smart glasses around.
+      <br/><img src="img/screenshot_status_card.png" alt="Canary Status Card" width="300" />
    5. *Notification/Canary Cooldown*: Here, you specify, how many notifications about found smart glasses nearby you want to get or how long the canary should hide. I chose 10 seconds (10000 ms) as default value. Like this, you won't miss the notification while at the same time won't be bothered by it too much or drain your battery too fast
    6. *Enable Log Display*: Disabling this might spare you some battery. This is disabled in canary mode.
    7. *Debug*: Is needed to see more than just the matching BLE frames in the log display frame. It's useful to see if things are working. This is disabled in canary mode.
