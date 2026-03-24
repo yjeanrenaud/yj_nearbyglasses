@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "NearbyGlasses"
-include ':app'
+include(":app")
