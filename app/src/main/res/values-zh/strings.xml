@@ -102,8 +102,9 @@
         <item>德语</item>
         <item>瑞士德语</item>
         <item>法语</item>
-        <item>Spnish</item>
+        <item>西班牙语</item>
         <item>中文</item>
+        <item>葡萄牙语（巴西）</item>
     </string-array>
     <string-array name="pref_language_values">
         <item></item> <!-- empty string means “follow system” -->
@@ -113,6 +114,7 @@
         <item>fr</item>
         <item>es</item>
         <item>zh</item>
+        <item>pt-BR</item>
     </string-array>
     <!-- for notifications -->
     <string name="notifyText">⚠️ 附近可能有智能眼镜</string>
