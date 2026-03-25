@@ -7,34 +7,34 @@
     <string name="startScanning">开始扫描</string>
     <string name="stopScanning">停止扫描</string>
     <string name="notScanning">扫描不活跃</string>
-    <string name="notScanningCanary">扫描不活跃</string>
-    <string name="textScanning">扫描处于活跃状态—如果在附近检测到智能眼睛你会收到通知。</string>
-    <string name="textScanningCanary">扫描处于活跃状态— 𓅪 </string>
+    <string name="notScanningCanary">没在扫描</string>
+    <string name="textScanning">扫描处于活跃状态 — 如果在附近检测到智能眼镜你会收到通知。</string>
+    <string name="textScanningCanary">扫描处于活跃状态 𓅪 </string>
     <string name="titleCategoryAbout">关于</string>
     <string name="start_scanning">开始扫描</string>
     <string name="stop_scanning">停止扫描</string>
     <string name="scanning">正在扫描设备…</string>
-    <string name="not_scanning">扫描不活跃<br/></string>
+    <string name="not_scanning">没在扫描<br/></string>
     <string name="clear">清除</string>
     <string name="export">导出</string>
     <string name="clearLog">清除日志</string>
     <string name="exportLog">导出日志</string>
     <string name="debug_log">调试日志</string>
     <string name="glasses_detected">👓 警告：附近可能有智能眼镜</string>
-    <string name="info_text">本应用在附近可能有智能眼镜时通知您。 它使用智能眼镜所发送蓝牙数据中的公司标识符。因此可能有误报（比如，来自 VR 耳机）。因而，在靠近附近戴眼睛的人时请小心行事。虽然应用会示警，但也许这些眼镜并不智能。</string>
-    <string name="info_textCanary">This canary shows you when smart glasses might be nearby. It looks for Bluetooth identificators. False positives are likely (e.g. from VR headsets). Hence, please proceed with caution when approaching a person nearby wearing glasses. They might just be regular glasses.</string>
+    <string name="info_text">本应用在附近可能有智能眼镜时通知您。 它使用智能眼镜所发送蓝牙数据中的公司标识符。因此可能有误报（比如，标识符来自 VR 耳机）。因而，在靠近附近戴眼镜的人时请小心行事。虽然应用会示警，但也许这些眼镜并不智能。</string>
+    <string name="info_textCanary">附近可能有智能眼镜时会应用会示警。本应用搜索蓝牙标识符。可能有误报 (比如，标识符来自 VR 耳机)因而，在靠近附近戴眼镜的人时请小心行事。虽然应用会示警，但也许这些眼镜并不智能。</string>
     <string name="warning_title">⚠️ 警告！⚠️ </string>
     <string name="warning_text">因为某人可能佩戴了隐蔽的监视设备而进行骚扰也许是刑事犯罪。这么做比起使用这样的设备可能更加严重。就此问题请寻求所在地的法律咨询。\n⚠️ 别骚扰任何人⚠️  </string>
     <string name="titleCategoryScanningSettings">扫描设置</string>
     <string name="titleForeground">启用前台服务</string>
     <string name="summaryForeground">以前台服务形式运行扫描防止扫描被系统停止</string>
-    <string name="titleCooldown">Notification/Canary Cooldown (ms)</string>
-    <string name="summaryCooldown">Currently: %1$s ms. Minimum time between notifications or Canary changes in milliseconds (default: 10000ms = 10s)</string>
+    <string name="titleCooldown">通知/金丝雀图标间隔 （毫秒）</string>
+    <string name="summaryCooldown">当前： %1$s 毫秒。通知或金丝雀图标更改相隔的最短时间。（默认： 10000毫秒 = 10秒）</string>
     <string name="titleThreshold">RSSI 阈值 (dBm)</string>
     <string name="summaryThreshold">目前：%1$s dBm。只检测 RSSI 高于该阈值的设备。 (默认： -75 dBm, ~3-10 m)</string>
     <string name="titleCategoryNotifications">通知设置</string>
     <string name="titleNotifications">启用通知</string>
-    <string name="summaryNotifications">检测到智能眼睛设备时显示通知</string>
+    <string name="summaryNotifications">检测到智能眼镜设备时显示通知</string>
     <string name="titleCategoryLogging">日志记录设置</string>
     <string name="titleLogging">启用日志显示</string>
     <string name="summaryLogging">在主屏显示检测日志。始终在本地保存日志用于导出。</string>
@@ -52,17 +52,17 @@
     <string name="titleMethod">检测方法</string>
     <string name="summaryMethod">基于低功耗蓝牙广播帧中的公司 ID 和设备名匹配的检测</string>
     <string name="titleLiability">责任和许可证</string>
-    <string name="summaryLiability" formatted="false">"<![CDATA[
+    <string name="summaryLiability" formatted="false"><![CDATA[
          The app <i>Nearby Glasses</i> 目的只有一个：寻找附近的智能眼镜并通知你<br/>
          The app’s author (<a href="https://yves.app">Yves Jeanrenaud</a>) 不为本应用及其功能承担任何法律责任。使用风险自担。 根据技术设计，检测蓝牙 LE 设备有时可能无法按预期工作。我不是经验丰富的开发者。这个应用是在空闲时间用自学的知识写的。<br/>
-         <b>可能有误报。</b> 这表示，这个应用 <i>Nearby Glasses</i> 可能通知你附近有智能眼睛，但也许事实上附近存在的是同一生产商的 VR 耳机或者另一款产品。它也可能检测不到附近的智能眼镜。要查看当前检测的品牌，请参考 <a href="https://github.com/yjeanrenaud/yj_nearbyglasses/">GitHub 上的代码仓库</a>。再说一次：我不是专业开发者。<br/>
-         不过，本应用始终自由开源 (foss)。你可以查看代码，修改它并重新使用它（在许可证下）：<a href="https://github.com/yjeanrenaud/yj_nearbyglasses">https://github.com/yjeanrenaud/yj_nearbyglasses</a>.
+         <b>可能有误报。</b> 这表示，这个应用 <i>Nearby Glasses</i> 可能通知你附近有智能眼镜，但也许事实上附近存在的是同一生产商的 VR 耳机或者另一款产品。它也可能检测不到附近的智能眼镜。要查看当前检测的品牌，请参考 <a href="https://github.com/yjeanrenaud/yj_nearbyglasses/">GitHub 上的代码仓库</a>。再说一次：我不是专业开发者。<br/>
+         不过，本应用始终自由开源 (foss)。你可以查看代码，修改它并重新使用它（按照许可证）：<a href="https://github.com/yjeanrenaud/yj_nearbyglasses">https://github.com/yjeanrenaud/yj_nearbyglasses</a>.
          <br/>
          开发本应用是希望它会有用。<br/>
          本应用 <i>Nearby Glasses</i> 不存储任何关于您的详细信息或收集任何关于您或您手机的信息。 本应用没有遥测、广告或其他惹人讨厌的东西。如果通过 Play 商店安装本应用，Google 也许会知道关于你的一些信息并收集一些数据。但应用本身不会这么做。<br/>
         是否选择存储（导出）日志文件完全取决于你， 这些数据去向何处也是你的责任。 日志只在本地进行记录，不自动和任何人共享。<br/>
          <br/>
-         <b>使用时请极度小心！</b> 如前所述：不保证检测到的智能眼镜真在附近。它可能是另一种技术上（低功耗蓝牙广播层级）看上去类似智能眼镜的设备。<br/>
+         <b>使用时请极度小心！</b> 如前所述：不保证检测到的智能眼镜真在附近。它可能是另一种技术上（低功耗蓝牙广播层面）看上去类似智能眼镜的设备。<br/>
          请勿鲁莽行事。 <b>在根据任何消息采取行动前请三思</b> （不只是来自本应用的消息）<br/>
          <br/>
          <b>⚠️ 警告！ ⚠️</b><br/>
@@ -86,13 +86,8 @@
             Copyright The Android Open Source Project<br/>
             Licensed under the Apache License, Version 2.0<br/>
          <a href="https://github.com/androidx/androidx">https://github.com/androidx/androidx</a><br/>
+         GitHub 以外贡献者: Lena Radau, @pojntfx@mastodon.social, @vfrmedia@social.tchncs.de, @mewsleah@meow.social, Sarah-Jane B.<br/>
          <br/>
-         A copy of the Apache License 2.0 is available under <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a><br/>
-         <br/>
-         3. The CLA is licensed under Creative Commons Attribution 3.0 Unported License.<br/>
-            by Harmony Agreements <a href="https://www.harmonyagreements.org/agreements">http://www.apache.org/licenses/LICENSE-2.0</a><br/>
-         <br/>
-         A copy of the Creative Commons Attribution 3.0 Unported License is available under <a href="https://creativecommons.org/licenses/by/3.0/">https://creativecommons.org/licenses/by/3.0/</a><br/>
          <br/>
          ✊🏼 抵制 (Ai)<br/><br/><br/>]]>     "</string>
     <string name="pref_language_title">语言</string>
@@ -104,7 +99,7 @@
         <item>德语</item>
         <item>瑞士德语</item>
         <item>法语</item>
-        <item>Spnish</item>
+        <item>西班牙语</item>
         <item>中文</item>
     </string-array>
     <string-array name="pref_language_values">
@@ -133,8 +128,8 @@
 RSSI：%2$d dBm
 原因：%3$s
 公司：%4$s
-⚠️ 警告！骚扰某人因为你认为这人戴了隐蔽的监视设备可能是刑事犯罪。 这么做比起使用这样的设备可能更加严重。就此问题请寻求所在地的法律咨询。
-⚠️ 别骚扰任何人⚠️  ]]></string>
+警告！骚扰某人因为你认为这人戴了隐蔽的监视设备可能是刑事犯罪。 这么做比起使用这样的设备可能更加严重。就此问题请寻求所在地的法律咨询。
+别骚扰任何人]]></string>
     <string name="notification_unknown_device">未知设备</string>
 
     <!-- Foreground service notification -->
@@ -206,7 +201,8 @@ RSSI：%2$d dBm
     <string name="dbg_override_match">调试绕过： 匹配了公司 ID %1$s</string>
     <string name="dbg_placeholder_unknown">?</string>
     <string name="dbg_placeholder_none">无</string>
-    <string name="titleCategoryMode">Mode</string>
-    <string name="summaryCanaryMode">In Canary Mode you will not get system notifications, but you see a bird that signifies no smart glasses have been spotted nearby so far. In case of smart glasses nearby, the bird will change noticeably.</string>
-    <string name="titleCanaryMode">Canary Mode</string>
+    <string name="titleCategoryMode">模式</string>
+    <string name="summaryCanaryMode">在金丝雀模式下，你不会获得系统通知，但会看到一只鸟的图标，表示附近尚未检测到智能眼镜。如果附近有智能眼镜，那么图标的外观会有明显的改变。</string>
+    <string name="titleCanaryMode">金丝雀模式</string>
+
 </resources>
