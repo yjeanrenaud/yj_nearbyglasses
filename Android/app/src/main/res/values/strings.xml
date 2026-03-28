@@ -20,7 +20,7 @@
     <string name="clearLog">Clear Log</string>
     <string name="exportLog">Export Log</string>
     <string name="debug_log">Debug Log</string>
-    <string name="glasses_detected">👓 Warning: smart glasses are maybe nearby</string>
+    <string name="glasses_detected">👓 Warning: smart glasses may be nearby</string>
     <string name="info_text">This app notifies you when smart glasses might be nearby. It uses company identificators in the Bluetooth data sent out by these. Therefore, there likely are false positives (e.g. from VR headsets). Hence, please proceed with caution when approaching a person nearby wearing glasses. They might just be regular glasses, despite this app’s warning.</string>
     <string name="info_textCanary">This canary shows you when smart glasses might be nearby. It looks for Bluetooth identificators. False positives are likely (e.g. from VR headsets). Hence, please proceed with caution when approaching a person nearby wearing glasses. They might just be regular glasses.</string>
     <string name="warning_title">⚠️ WARNING! ⚠️ </string>
@@ -115,7 +115,7 @@
         <item>it</item>
     </string-array>
     <!-- for notifications -->
-    <string name="notifyText">⚠️ Smart Glasses are maybe nearby</string>
+    <string name="notifyText">⚠️ Smart Glasses may be nearby</string>
     <!-- Notification channel names -->
     <string name="channel_detection_name">Smart glasses detection alerts</string>
     <string name="channel_detection_description">Alerts when smart glasses are detected</string>
@@ -136,7 +136,7 @@ DO NOT HARASS ANYONE AT ALL.]]></string>
     <string name="notification_unknown_device">Unknown device</string>
 
     <!-- Foreground service notification -->
-    <string name="notification_service_title">Scanning for smart glasses nearby</string>
+    <string name="notification_service_title">Scanning for nearby smart glasses</string>
     <string name="notification_service_text">Background scanning is active</string>
     <!-- for messages and log -->
     <string name="reason_meta_company_id">Meta Company ID (%1$s)</string>
