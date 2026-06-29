@@ -32,6 +32,8 @@
     <string name="summaryCooldown">Currently: %1$s ms. Minimum time between notifications or Canary changes in milliseconds (default: 10000ms = 10s)</string>
     <string name="titleThreshold">RSSI Threshold (dBm)</string>
     <string name="summaryThreshold">Currently: %1$s dBm. Only detect devices with RSSI above this threshold (default: -75 dBm, ~3-10 m)</string>
+    <string name="titleIgnoredDetections">Ignored detections</string>
+    <string name="summaryIgnoredDetections">Currently: %1$s. Comma-separated company IDs, device addresses, or name fragments to ignore.</string>
     <string name="titleCategoryNotifications">Notification Settings</string>
     <string name="titleNotifications">Enable Notifications</string>
     <string name="summaryNotifications">Show notifications when smart glasses-devices are detected</string>
@@ -207,6 +209,7 @@ DO NOT HARASS ANYONE AT ALL.]]></string>
     <string name="dbg_adv_full">ADV addr=%1$s name=%2$s rssi=%3$d companyId=%4$s mfgLen=%5$d smartglasses=%6$b reason=%7$s</string>
     <string name="dbg_smart_glasses_detected">smart glasses detected: %1$s (%2$d dBm)</string>
     <string name="dbg_override_match">Debug override: Company ID %1$s matched</string>
+    <string name="dbg_ignored_detection">Ignored detection: %1$s</string>
     <string name="dbg_placeholder_unknown">?</string>
     <string name="dbg_placeholder_none">none</string>
     <string name="titleCategoryMode">Mode</string>
