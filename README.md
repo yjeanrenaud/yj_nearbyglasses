@@ -16,7 +16,7 @@ attempting to detect smart glasses nearby and warn you.
 # Nearby Glasses 
 The app, called *Nearby Glasses*, has one sole purpose: Look for smart glasses nearby and warn you.
 
-<a href="https://play.google.com/store/apps/details?id=ch.pocketpc.nearbyglasses" target="_blank"><img width="239" height="71" alt="Get It On Google Play" src="https://github.com/user-attachments/assets/0feb46d1-969e-4f83-8fc7-c18d1bbed8ad" /></a> <a href="https://apt.izzysoft.de/packages/ch.pocketpc.nearbyglasses" taget="_blank"><img height="71" src="https://github.com/user-attachments/assets/9a711c51-6bce-43b3-af4f-4f198a94970f" alt="Get it at IzzyOnDroid" /></a> <a href="https://apps.obtainium.imranr.dev/redirect.html?r=obtainium://add/https://github.com/yjeanrenaud/yj_nearbyglasses/"><img width="239" height="71" alt="Get it on Obtainium" src="./img/Download_with_Obtainium.png"/></a> <a href="https://apps.apple.com/us/app/nearby-glasses-original/id6761056896"><img width="213" height="71" alt="Download on the App Store" src="https://github.com/user-attachments/assets/c82c0c5b-c775-4754-8946-b76722c9e7cf" /></a>
+<a href="https://play.google.com/store/apps/details?id=ch.pocketpc.nearbyglasses" target="_blank"><img width="239" height="71" alt="Get It On Google Play" src="https://github.com/user-attachments/assets/0feb46d1-969e-4f83-8fc7-c18d1bbed8ad" /></a> <a href="https://apt.izzysoft.de/packages/ch.pocketpc.nearbyglasses" taget="_blank"><img height="71" src="https://github.com/user-attachments/assets/9a711c51-6bce-43b3-af4f-4f198a94970f" alt="Get it at IzzyOnDroid" /></a> <a href="https://f-droid.org/packages/ch.pocketpc.nearbyglasses"><img src="https://github.com/user-attachments/assets/468d8e5a-3027-4441-aed9-09130e8c44b0" alt="Get it on F-Droid" width="239" height="71"></a> <a href="https://apps.obtainium.imranr.dev/redirect.html?r=obtainium://add/https://github.com/yjeanrenaud/yj_nearbyglasses/"><img width="239" height="71" alt="Get it on Obtainium" src="./img/Download_with_Obtainium.png"/></a> <a href="https://apps.apple.com/us/app/nearby-glasses-original/id6761056896"><img width="213" height="71" alt="Download on the App Store" src="https://github.com/user-attachments/assets/c82c0c5b-c775-4754-8946-b76722c9e7cf" /></a>
 
 
 # Table of contents
@@ -122,7 +122,7 @@ RSSI drops roughly according to<br/>
    - Chinese (partially)
    - Italian
    - Portugese (Brazil)
-   - Russian (partially)
+   - Russian
    - more to come, eventually ([support this project by contributing in your language!](https://github.com/yjeanrenaud/yj_nearbyglasses/issues/3))
 - Now the app icon's background is not transparent anymore
 - Now we scan for UUIDs, too
@@ -137,7 +137,7 @@ RSSI drops roughly according to<br/>
 
 ## Usage
 
-- See [Releases](https://github.com/yjeanrenaud/yj_nearbyglasses/releases) for APK to download or use Google Play Store. F-Droid and/or Accrescent may follow.
+- See [Releases](https://github.com/yjeanrenaud/yj_nearbyglasses/releases) for APK to download or use Google Play Store. Accrescent may follow.
 <img width="135" height="300" align ="right" alt="Screenshot Nearby Glasses: Settings" src="img/Screenshot%20Nearby%20Glasses%20(4).png" />
 
 <a href="https://play.google.com/store/apps/details?id=ch.pocketpc.nearbyglasses" target="_blank"><img width="239" height="71" alt="Get It On Google Play" src="https://github.com/user-attachments/assets/0feb46d1-969e-4f83-8fc7-c18d1bbed8ad" /></a> <a href="https://apps.apple.com/us/app/nearby-glasses-original/id6761056896"><img width="213" height="71" alt="Download on the App Store" src="https://github.com/user-attachments/assets/c82c0c5b-c775-4754-8946-b76722c9e7cf" /></a>
