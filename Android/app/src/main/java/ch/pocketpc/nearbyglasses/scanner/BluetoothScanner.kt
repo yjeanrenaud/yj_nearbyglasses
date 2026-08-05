@@ -32,7 +32,7 @@ class BluetoothScanner(
     private val bluetoothManager = context.getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
     private val bluetoothAdapter: BluetoothAdapter? = bluetoothManager.adapter
     private var bleScanner: BluetoothLeScanner? = null
-    
+
     private val _isScanning = MutableStateFlow(false)
     val isScanning: StateFlow<Boolean> = _isScanning
 
@@ -93,16 +93,13 @@ class BluetoothScanner(
             bleScanner?.startScan(null, scanSettings, scanCallback)
             _isScanning.value = true
             if (debugEnabled) {
-                //Log.i(TAG, "BLE scanning started. RSSI threshold=$rssiThreshold, mode=LOW_LATENCY")
                 Log.i(TAG, context.getString(R.string.dbg_ble_started_verbose, rssiThreshold))
             } else {
-                //Log.i(TAG, "BLE scanning started with RSSI threshold: $rssiThreshold dBm")
                 Log.i(TAG, context.getString(R.string.dbg_ble_started_simple, rssiThreshold))
             }
             return true
         } catch (e: Exception) {
-            //Log.e(TAG, "Error starting BLE scan", e)
-            Log.e(TAG, context.getString(R.string.dbg_ble_start_error),e)
+            Log.e(TAG, context.getString(R.string.dbg_ble_start_error), e)
             return false
         }
     }
@@ -116,11 +113,9 @@ class BluetoothScanner(
         try {
             bleScanner?.stopScan(scanCallback)
             _isScanning.value = false
-            //Log.i(TAG, "BLE scanning stopped")
             Log.i(TAG, context.getString(R.string.dbg_ble_stopped))
         } catch (e: Exception) {
-            //Log.e(TAG, "Error stopping BLE scan", e)
-            Log.e(TAG, context.getString(R.string.dbg_ble_stop_error),e)
+            Log.e(TAG, context.getString(R.string.dbg_ble_stop_error), e)
         }
     }
     private var lastUiDebugAt = 0L
