@@ -3,7 +3,8 @@
 Product                , identification                                     , source(s)                                                              , notes
 Meta/RayBan            , manufacturer_ID=0x01AB                             , [BT SIG](https://www.bluetooth.com/specifications/assigned-numbers/)   , 
 Meta/RayBan            , manufacturer_ID=0x058E                             , [BT SIG](https://www.bluetooth.com/specifications/assigned-numbers/)   ,
-Snap                   , manufacturer_ID=0x0D53                             , [BT SIG](https://www.bluetooth.com/specifications/assigned-numbers/)   ,
+Snap                   , manufacturer_ID=0x03C2                             , [BT SIG](https://www.bluetooth.com/specifications/assigned-numbers/)   ,
+Oakley HSTN Meta       , manufacturer_ID=0x0D53                             , [BT SIG](https://www.bluetooth.com/specifications/assigned-numbers/)   , "Luxottica Group S.p.A. (Oakley parent); also triggers via 0x01AB/0x058E (Meta firmware); device name format: 'Oakley Meta XXXH'; confirmed on Oakley HSTN (productRegistry=265, codename hammerhead)"
 Nilox Smart AI Glasses , primary_UUID=7905FFF0-B5CE-4E99-A40F-4B1E122D00D0  , [HeyCyan SDK](https://github.com/ebowwa/HeyCyanSmartGlassesSDK)        , "There seems to be no fixed manufacturer ID"
 .                      , device_name=HeyCyan-WXYZ                           , [HeyCyan SDK](https://github.com/ebowwa/HeyCyanSmartGlassesSDK)        , "There seems to be no fixed manufacturer ID"
 Rogbird VisionPro      , manufacturer_ID=0x05D6                             , [BT SIG](https://www.bluetooth.com/specifications/assigned-numbers/)   , "Zhuhai Jieli Technology Co., but the VisionPro uses the Jieli JL7018 Bluetooth chipset"
