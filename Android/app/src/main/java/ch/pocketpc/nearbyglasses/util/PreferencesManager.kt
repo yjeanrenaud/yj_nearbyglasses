@@ -20,6 +20,7 @@ class PreferencesManager(context: Context) {
 
         private const val KEY_DEBUG_ADVONLY = "debug_advonly"
         private const val KEY_DEBUG_COMPANY_IDS = "debug_company_ids"
+        private const val KEY_IGNORED_DETECTIONS = "ignored_detections"
 
         //set default values
         private const val DEFAULT_RSSI_THRESHOLD = -75
@@ -89,20 +90,43 @@ class PreferencesManager(context: Context) {
     val debugCompanyIds: Set<Int>
         get() {
             val raw = prefs.getString(KEY_DEBUG_COMPANY_IDS, "") ?: ""
+            return parseCompanyIds(raw)
+        }
+
+    val ignoredDetectionCompanyIds: Set<Int>
+        get() {
+            val raw = prefs.getString(KEY_IGNORED_DETECTIONS, "") ?: ""
+            return parseCompanyIds(raw)
+        }
+
+    val ignoredDetectionTokens: Set<String>
+        get() {
+            val raw = prefs.getString(KEY_IGNORED_DETECTIONS, "") ?: ""
             return raw.split(",")
                 .map { it.trim() }
                 .filter { it.isNotEmpty() }
-                .mapNotNull { token ->
-                    // Accept: "0x01AB", "01AB", "427" etc.
-                    val t = token.lowercase(Locale.ROOT)
-                    when {
-                        t.startsWith("0x") -> t.removePrefix("0x").toIntOrNull(16)
-                        t.all { it.isDigit() } -> t.toIntOrNull(10)
-                        else -> t.toIntOrNull(16) // allow "01AB" without 0x
-                    }
-                }
+                .filter { parseCompanyId(it) == null }
+                .map { it.lowercase(Locale.ROOT) }
                 .toSet()
         }
+
+    private fun parseCompanyIds(raw: String): Set<Int> {
+        return raw.split(",")
+            .map { it.trim() }
+            .filter { it.isNotEmpty() }
+            .mapNotNull { parseCompanyId(it) }
+            .toSet()
+    }
+
+    private fun parseCompanyId(token: String): Int? {
+        val t = token.lowercase(Locale.ROOT)
+        return when {
+            t.startsWith("0x") -> t.removePrefix("0x").toIntOrNull(16)
+            t.all { it.isDigit() } -> t.toIntOrNull(10)
+            t.matches(Regex("[0-9a-f]+")) -> t.toIntOrNull(16)
+            else -> null
+        }
+    }
 
     fun registerListener(listener: SharedPreferences.OnSharedPreferenceChangeListener) {
         prefs.registerOnSharedPreferenceChangeListener(listener)

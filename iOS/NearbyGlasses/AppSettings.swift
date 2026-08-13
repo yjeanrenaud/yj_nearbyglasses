@@ -16,6 +16,7 @@ final class AppSettings: ObservableObject {
         static let debugAdvOnly = "debug_advonly"
         static let debugMaxLines = "debug_max_lines"
         static let debugCompanyIDs = "debug_company_ids"
+        static let ignoredDetections = "ignored_detections"
     }
 
     @Published var rssiThreshold: Int { didSet { save(Keys.rssiThreshold, value: rssiThreshold) } }
@@ -25,6 +26,7 @@ final class AppSettings: ObservableObject {
     @Published var debugAdvOnly: Bool { didSet { save(Keys.debugAdvOnly, value: debugAdvOnly) } }
     @Published var debugMaxLines: Int { didSet { save(Keys.debugMaxLines, value: debugMaxLines) } }
     @Published var debugCompanyIDsText: String { didSet { save(Keys.debugCompanyIDs, value: debugCompanyIDsText) } }
+    @Published var ignoredDetectionsText: String { didSet { save(Keys.ignoredDetections, value: ignoredDetectionsText) } }
 
     init(defaults: UserDefaults = .standard) {
         let storedRSSI = defaults.object(forKey: Keys.rssiThreshold) as? Int ?? Int(defaults.string(forKey: Keys.rssiThreshold) ?? "-75") ?? -75
@@ -38,6 +40,7 @@ final class AppSettings: ObservableObject {
         self.debugAdvOnly = defaults.object(forKey: Keys.debugAdvOnly) as? Bool ?? false
         self.debugMaxLines = min(5000, max(50, storedMaxLines))
         self.debugCompanyIDsText = defaults.string(forKey: Keys.debugCompanyIDs) ?? ""
+        self.ignoredDetectionsText = defaults.string(forKey: Keys.ignoredDetections) ?? ""
     }
 
     var selectedLanguage: AppLanguage {
@@ -46,21 +49,46 @@ final class AppSettings: ObservableObject {
     }
 
     var debugCompanyIDs: Set<Int> {
-        debugCompanyIDsText
+        parseCompanyIDs(debugCompanyIDsText)
+    }
+
+    var ignoredCompanyIDs: Set<Int> {
+        parseCompanyIDs(ignoredDetectionsText)
+    }
+
+    var ignoredTokens: Set<String> {
+        ignoredDetectionsText
+            .split(separator: ",")
+            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+            .filter { !$0.isEmpty && parseCompanyID($0) == nil }
+            .map { $0.lowercased() }
+            .reduce(into: Set<String>()) { $0.insert($1) }
+    }
+
+    private func parseCompanyIDs(_ text: String) -> Set<Int> {
+        text
             .split(separator: ",")
             .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
             .compactMap { token -> Int? in
-                guard !token.isEmpty else { return nil }
-                let lower = token.lowercased()
-                if lower.hasPrefix("0x") {
-                    return Int(lower.dropFirst(2), radix: 16)
-                }
-                if lower.allSatisfy({ $0.isNumber }) {
-                    return Int(lower, radix: 10)
-                }
-                return Int(lower, radix: 16)
+                parseCompanyID(token)
             }
             .reduce(into: Set<Int>()) { $0.insert($1) }
+    }
+
+    private func parseCompanyID(_ token: String) -> Int? {
+        guard !token.isEmpty else { return nil }
+        let lower = token.lowercased()
+        if lower.hasPrefix("0x") {
+            return Int(lower.dropFirst(2), radix: 16)
+        }
+        if lower.allSatisfy({ $0.isNumber }) {
+            return Int(lower, radix: 10)
+        }
+        let hexDigits = Set("0123456789abcdef")
+        if lower.allSatisfy({ hexDigits.contains($0) }) {
+            return Int(lower, radix: 16)
+        }
+        return nil
     }
 
     private func save(_ key: String, value: Any) {

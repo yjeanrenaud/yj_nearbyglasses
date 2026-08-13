@@ -42,6 +42,7 @@ class SettingsActivity : AppCompatActivity() {
             val cooldownPref = findPreference<EditTextPreference>("cooldown_ms")
             val rssiPref = findPreference<EditTextPreference>("rssi_threshold")
             val debugIdsPref = findPreference<EditTextPreference>("debug_company_ids")
+            val ignoredDetectionsPref = findPreference<EditTextPreference>("ignored_detections")
             val debugMaxLinesPref = findPreference<EditTextPreference>("debug_max_lines")
             val canaryPref = findPreference<SwitchPreferenceCompat>("canary_mode")
             val notificationsPref = findPreference<SwitchPreferenceCompat>("enable_notifications")
@@ -68,6 +69,12 @@ class SettingsActivity : AppCompatActivity() {
                     R.string.summaryDebugCompanyIds,
                     //if (ids.isBlank()) "(none)" else ids
                     if (ids.isBlank()) getString(R.string.none_in_parentheses) else ids
+                )
+
+                val ignored = ignoredDetectionsPref?.text?.trim().orEmpty()
+                ignoredDetectionsPref?.summary = getString(
+                    R.string.summaryIgnoredDetections,
+                    if (ignored.isBlank()) getString(R.string.none_in_parentheses) else ignored
                 )
             }
             fun refreshCanaryLocks(
@@ -103,6 +110,11 @@ class SettingsActivity : AppCompatActivity() {
             }
             debugIdsPref?.setOnBindEditTextListener { editText ->
                 editText.hint = "0x01AB,0x01AC,..."
+                editText.setSingleLine(true)
+                editText.post {editText.setSelection(editText.text.length)}
+            }
+            ignoredDetectionsPref?.setOnBindEditTextListener { editText ->
+                editText.hint = "0x058E, Meta, Ray-Ban"
                 editText.setSingleLine(true)
                 editText.post {editText.setSelection(editText.text.length)}
             }
@@ -157,6 +169,14 @@ class SettingsActivity : AppCompatActivity() {
                 pref.summary = getString(
                     R.string.summaryDebugCompanyIds,
                     //if (s.isBlank()) "(none)" else s
+                    if (s.isBlank()) getString(R.string.none_in_parentheses) else s
+                )
+                true
+            }
+            ignoredDetectionsPref?.setOnPreferenceChangeListener { pref, newValue ->
+                val s = (newValue as? String)?.trim().orEmpty()
+                pref.summary = getString(
+                    R.string.summaryIgnoredDetections,
                     if (s.isBlank()) getString(R.string.none_in_parentheses) else s
                 )
                 true

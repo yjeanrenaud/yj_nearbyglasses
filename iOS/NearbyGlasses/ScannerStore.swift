@@ -21,7 +21,9 @@ final class ScannerStore: ObservableObject {
             BLEScanner.Configuration(
                 rssiThreshold: self.settings.rssiThreshold,
                 debugEnabled: self.settings.debugEnabled,
-                debugCompanyIDs: self.settings.debugCompanyIDs
+                debugCompanyIDs: self.settings.debugCompanyIDs,
+                ignoredCompanyIDs: self.settings.ignoredCompanyIDs,
+                ignoredTokens: self.settings.ignoredTokens
             )
         },
         languageManager: languageManager,

@@ -57,6 +57,8 @@ final class BLEScanner: NSObject, CBCentralManagerDelegate {
         let rssiThreshold: Int
         let debugEnabled: Bool
         let debugCompanyIDs: Set<Int>
+        let ignoredCompanyIDs: Set<Int>
+        let ignoredTokens: Set<String>
     }
 
     private lazy var centralManager = CBCentralManager(delegate: self, queue: .main)
@@ -200,6 +202,12 @@ final class BLEScanner: NSObject, CBCentralManagerDelegate {
             reasonText = reasons.joined(separator: ", ")
         }
 
+        let companyName = companyID.map { SmartGlassesHeuristics.companyName(for: $0, l10n: languageManager) } ?? languageManager.text("company_unknown_plain")
+        if isSmartGlasses && isIgnored(companyID: companyID, deviceIdentifier: deviceIdentifier, deviceName: deviceName, companyName: companyName, config: config) {
+            onDebug(languageManager.text("dbg_ignored_detection", deviceName ?? companyString))
+            return
+        }
+
         if config.debugEnabled {
             onDebug(languageManager.text(
                 "dbg_adv_full",
@@ -219,11 +227,27 @@ final class BLEScanner: NSObject, CBCentralManagerDelegate {
             deviceName: deviceName,
             rssi: rssi,
             companyIDHex: companyID.map { String(format: "0x%04X", $0) },
-            companyName: companyID.map { SmartGlassesHeuristics.companyName(for: $0, l10n: languageManager) } ?? languageManager.text("company_unknown_plain"),
+            companyName: companyName,
             manufacturerDataHex: manufacturerHex,
             detectionReason: reasonText.isEmpty ? languageManager.text("ios_detection_reason_none") : reasonText
         )
         onDetection(event)
+    }
+
+    private func isIgnored(companyID: Int?, deviceIdentifier: String, deviceName: String?, companyName: String, config: Configuration) -> Bool {
+        if let companyID, config.ignoredCompanyIDs.contains(companyID) {
+            return true
+        }
+        if config.ignoredTokens.isEmpty {
+            return false
+        }
+
+        let candidates = [deviceIdentifier, deviceName ?? "", companyName]
+            .filter { !$0.isEmpty }
+            .map { $0.lowercased() }
+        return config.ignoredTokens.contains { token in
+            candidates.contains { $0.contains(token) }
+        }
     }
 
     private static func companyID(from data: Data) -> Int? {
