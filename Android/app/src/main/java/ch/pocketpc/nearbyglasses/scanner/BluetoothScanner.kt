@@ -26,6 +26,8 @@ class BluetoothScanner(
     private val debugEnabled: Boolean,
     private val onDebugLog: ((String) -> Unit)?,
     private val debugCompanyIds: Set<Int>,
+    private val ignoredCompanyIds: Set<Int>,
+    private val ignoredTokens: Set<String>,
     private val onDeviceDetected: (DetectionEvent) -> Unit
 ) {
     
@@ -242,6 +244,13 @@ class BluetoothScanner(
             else -> reasonReal
         }
 
+        val companyName = companyId?.let { DetectionEvent.getCompanyName(context, it) }
+            ?: context.getString(R.string.company_unknown_plain)
+        if (isSmartGlasses && isIgnored(companyId, deviceAddress, deviceName, companyName)) {
+            d(context.getString(R.string.dbg_ignored_detection, deviceName ?: companySafe))
+            return
+        }
+
         if (debugEnabled) {
             /*Log.d(
                 TAG,
@@ -279,8 +288,7 @@ class BluetoothScanner(
                 rssi = result.rssi,
                 companyId = companyId?.let { "0x${String.format("%04X", it)}" },
                 //companyName = companyId?.let { DetectionEvent.getCompanyName(context,it) } ?: "Unknown",
-                companyName = companyId?.let { DetectionEvent.getCompanyName(context, it) }
-                    ?: context.getString(R.string.company_unknown_plain),
+                companyName = companyName,
                 manufacturerData = manufacturerDataHex,
                 detectionReason = reason
             )
@@ -288,6 +296,16 @@ class BluetoothScanner(
             //Log.d(TAG, "smart glasses detected: ${event.deviceName} (${event.rssi} dBm)")
             Log.d(TAG,context.getString(R.string.dbg_smart_glasses_detected,event.deviceName ?: context.getString(R.string.dbg_placeholder_unknown),event.rssi))
             onDeviceDetected(event)
+        }
+    }
+
+    private fun isIgnored(companyId: Int?, deviceAddress: String, deviceName: String?, companyName: String): Boolean {
+        if (companyId != null && ignoredCompanyIds.contains(companyId)) return true
+        if (ignoredTokens.isEmpty()) return false
+
+        val candidates = listOfNotNull(deviceAddress, deviceName, companyName).map { it.lowercase() }
+        return ignoredTokens.any { token ->
+            candidates.any { candidate -> candidate.contains(token) }
         }
     }
     

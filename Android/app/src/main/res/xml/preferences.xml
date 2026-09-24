@@ -22,6 +22,14 @@
             app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="false" />
 
+        <EditTextPreference
+            android:defaultValue=""
+            android:key="ignored_detections"
+            android:summary="@string/summaryIgnoredDetections"
+            android:title="@string/titleIgnoredDetections"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="false" />
+
         <ListPreference
             android:key="app_language"
             android:title="@string/pref_language_title"

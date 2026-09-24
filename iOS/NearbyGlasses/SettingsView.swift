@@ -38,6 +38,20 @@ struct SettingsView: View {
                         }
                     }
 
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text(l10n.text("titleIgnoredDetections"))
+                        TextField("0x058E, Meta, Ray-Ban", text: $settings.ignoredDetectionsText, axis: .vertical)
+                            .textInputAutocapitalization(.never)
+                            .autocorrectionDisabled()
+                            .font(.body.monospaced())
+                        Text(l10n.text(
+                            "summaryIgnoredDetections",
+                            settings.ignoredDetectionsText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? l10n.text("none_in_parentheses") : settings.ignoredDetectionsText
+                        ))
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                    }
+
                     Picker(l10n.text("pref_language_title"), selection: $settings.selectedLanguageRaw) {
                         ForEach(AppLanguage.allCases) { language in
                             Text(language.displayName).tag(language.rawValue)
