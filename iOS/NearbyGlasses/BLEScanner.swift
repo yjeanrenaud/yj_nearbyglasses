@@ -32,6 +32,8 @@ struct SmartGlassesHeuristics {
             if name.contains("rayban") { reasons.append(l10n.text("reason_name_contains", "rayban")) }
             if name.contains("ray-ban") { reasons.append(l10n.text("reason_name_contains", "ray-ban")) }
             if name.contains("ray ban") { reasons.append(l10n.text("reason_name_contains", "ray ban")) }
+            if name.contains("heycyan") { reasons.append(l10n.text("reason_name_contains", "HeyCyan")) }
+            if name.contains("oakley") { reasons.append(l10n.text("reason_name_contains", "Oakley")) } // Oakley HSTN Meta (e.g. "Oakley Meta 099H")
         }
 
         return reasons
