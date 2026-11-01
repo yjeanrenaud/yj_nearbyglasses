@@ -16,7 +16,7 @@ attempting to detect smart glasses nearby and warn you.
 # Nearby Glasses 
 The app, called *Nearby Glasses*, has one sole purpose: Look for smart glasses nearby and warn you.
 
-<a href="https://play.google.com/store/apps/details?id=ch.pocketpc.nearbyglasses" target="_blank"><img width="239" height="71" alt="Get It On Google Play" src="https://github.com/user-attachments/assets/0feb46d1-969e-4f83-8fc7-c18d1bbed8ad" /></a> <a href="https://apt.izzysoft.de/packages/ch.pocketpc.nearbyglasses" taget="_blank"><img height="71" src="https://github.com/user-attachments/assets/9a711c51-6bce-43b3-af4f-4f198a94970f" alt="Get it at IzzyOnDroid" /></a> <a href="https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/https://github.com/yjeanrenaud/yj_nearbyglasses/"><img width="239" height="71" alt="Get it on Obtainium" src="./img/Download_with_Obtainium.png"/></a> <a href="https://f-droid.org/en/packages/ch.pocketpc.nearbyglasses/"><img src="https://github.com/yjeanrenaud/yj_nearbyglasses/blob/main/img/get-it-on-fdroid.png?raw=true" alt="Get it on F-Droid" width="213" /></a> <a href="https://apps.apple.com/us/app/nearby-glasses-original/id6761056896"><img width="213" height="71" alt="Download on the App Store" src="https://github.com/user-attachments/assets/c82c0c5b-c775-4754-8946-b76722c9e7cf" /></a>
+<a href="https://play.google.com/store/apps/details?id=ch.pocketpc.nearbyglasses" target="_blank"><img width="239" height="71" alt="Get It On Google Play" src="./img/get-it-on-google-play.png" /></a> <a href="https://apt.izzysoft.de/packages/ch.pocketpc.nearbyglasses" target="_blank"><img height="71" src="./img/get-it-on-izzyOnDroid.png" alt="Get it at IzzyOnDroid" /></a> <a href="https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/https://github.com/yjeanrenaud/yj_nearbyglasses/"><img width="239" height="71" alt="Get it on Obtainium" src="./img/Download_with_Obtainium.png"/></a> <a href="https://f-droid.org/en/packages/ch.pocketpc.nearbyglasses/" target="_blank"><img src="./img/get-it-on-fdroid.png" alt="Get it on F-Droid" height="71" /></a> <a href="https://apps.apple.com/us/app/nearby-glasses-original/id6761056896" target="_blank"><img width="213" height="71" alt="Download on the App Store" src="./img/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.png" /></a>
 
 
 # Table of contents
@@ -139,7 +139,7 @@ RSSI drops roughly according to<br/>
 
 ## Usage
 
-- See [Releases](https://github.com/yjeanrenaud/yj_nearbyglasses/releases) for APK to download or use Google Play Store. F-Droid and/or Accrescent may follow.
+- See [Releases](https://github.com/yjeanrenaud/yj_nearbyglasses/releases) for APK to download or use Google Play Store. F-Droid and/or Accrescent etc. It' also available [for iOS via App Store](https://apps.apple.com/us/app/nearby-glasses-original/id6761056896).
 <img width="135" height="300" align ="right" alt="Screenshot Nearby Glasses: Settings" src="img/Screenshot%20Nearby%20Glasses%20(4).png" />
 
 <a href="https://play.google.com/store/apps/details?id=ch.pocketpc.nearbyglasses" target="_blank"><img width="239" height="71" alt="Get It On Google Play" src="https://github.com/user-attachments/assets/0feb46d1-969e-4f83-8fc7-c18d1bbed8ad" /></a> <a href="https://apps.apple.com/us/app/nearby-glasses-original/id6761056896"><img width="213" height="71" alt="Download on the App Store" src="https://github.com/user-attachments/assets/c82c0c5b-c775-4754-8946-b76722c9e7cf" /></a>
@@ -162,19 +162,21 @@ RSSI drops roughly according to<br/>
    11. Every setting is saved and effective immediately. To go back, use your back button or gesture
 8. The export function enables you to share a text-file of the app's log. For nerds like me
 9. You may also copy&paste the log by tapping on the log display frame
-
-## ToDos
+10. There is now an **option to add devices to an ignore-list** (aka whitelisting). This means, these devices won't trigger a notification (or the canary to hide). You find this in the settings menu and, when in classic or debug mode, the notifications now have a dedicated **button to add a device** easily to that list
 - **It's now working in the wild!** I managed to get some people testing it with verified smart glasses around them. Special thanks to Lena!
+- 
+## ToDos
+
 - See [Releases](https://github.com/yjeanrenaud/yj_nearbyglasses/releases) for APK to download. 
-- I pushed [*Nearby Glasses* to Google Play](https://play.google.com/store/apps/details?id=ch.pocketpc.nearbyglasses), too. However, I will always publish [releases here on GitHub](https://github.com/yjeanrenaud/yj_nearbyglasses/releases) and [elsewhere](https://yves.app/nearbyglasses/latest.apk), for those that avoid the Google Play.
+- I pushed [*Nearby Glasses* to Google Play](https://play.google.com/store/apps/details?id=ch.pocketpc.nearbyglasses), too. It's also been submitted to [F-Droid](https://f-droid.org/en/packages/ch.pocketpc.nearbyglasses/) and [Apple App Store](https://apps.apple.com/us/app/nearby-glasses-original/id6761056896).
+- However, I will always publish [releases here on GitHub](https://github.com/yjeanrenaud/yj_nearbyglasses/releases) and [elsewhere](https://yves.app/nearbyglasses/latest.apk), for those that avoid the Google Play.
 
 ---
 
-- Add an option to set false positives to an ignore list. Maybe in the notification?
 - I am no BT or Android expert at all. For what I've learned, one could also dig deeper into the communication of the smart glasses by sniffing the BLE traffic. By doing so, we would likely not need to rely on the device behaving according to the BT specifications but could also use heuristics on the encrypted traffic transmissions without much false positives. But I haven't looked into BT traffic packets for more than ten years. I'm glad I remembered ADV frames... So if anybody could help on this, that'd be greatly appreciated!
 ---
 - Add **more manufacturers IDs** of smart glasses. Right now, it's Meta, Oakley and Snap. A list of smart glasses with cameras available would help, too. I opened an [ISSUE for this](https://github.com/yjeanrenaud/yj_nearbyglasses/issues/56), so people might **assist** by sending in their logs (which are perfectly safe, imho) when encoutering other recording smart glasses
-- as of March 24, 2026, the iOS version is available, too.
+- Since March 24 2026, the [iOS version](https://apps.apple.com/us/app/nearby-glasses-original/id6761056896) is available, too. Hence, there is no need to pay for counterfeit apps.
 - There **layout issue** with **Google Pixel devices** seems to be fixed as of Version 1.0.3. If you still can't reach the menu as it's mixed with the status bar somehow. Will look into that asap. Meanwhile, try to put your screen to landscape mode and rotate *clockwise (to the right)*. 
 
 ## Tech-Solutionism?
