@@ -139,7 +139,7 @@ RSSI drops roughly according to<br/>
 
 ## Usage
 
-- See [Releases](https://github.com/yjeanrenaud/yj_nearbyglasses/releases) for APK to download or use Google Play Store. F-Droid and/or Accrescent etc. It' also available [for iOS via App Store](https://apps.apple.com/us/app/nearby-glasses-original/id6761056896).
+- See [Releases](https://github.com/yjeanrenaud/yj_nearbyglasses/releases) for APK to download or use Google Play Store. [F-Droid and/or Accrescent etc.](#top) It' also available [for iOS via App Store](https://apps.apple.com/us/app/nearby-glasses-original/id6761056896).
 <img width="135" height="300" align ="right" alt="Screenshot Nearby Glasses: Settings" src="img/Screenshot%20Nearby%20Glasses%20(4).png" />
 
 <a href="https://play.google.com/store/apps/details?id=ch.pocketpc.nearbyglasses" target="_blank"><img width="239" height="71" alt="Get It On Google Play" src="https://github.com/user-attachments/assets/0feb46d1-969e-4f83-8fc7-c18d1bbed8ad" /></a> <a href="https://apps.apple.com/us/app/nearby-glasses-original/id6761056896"><img width="213" height="71" alt="Download on the App Store" src="https://github.com/user-attachments/assets/c82c0c5b-c775-4754-8946-b76722c9e7cf" /></a>
@@ -170,6 +170,7 @@ RSSI drops roughly according to<br/>
 - See [Releases](https://github.com/yjeanrenaud/yj_nearbyglasses/releases) for APK to download. 
 - I pushed [*Nearby Glasses* to Google Play](https://play.google.com/store/apps/details?id=ch.pocketpc.nearbyglasses), too. It's also been submitted to [F-Droid](https://f-droid.org/en/packages/ch.pocketpc.nearbyglasses/) and [Apple App Store](https://apps.apple.com/us/app/nearby-glasses-original/id6761056896).
 - However, I will always publish [releases here on GitHub](https://github.com/yjeanrenaud/yj_nearbyglasses/releases) and [elsewhere](https://yves.app/nearbyglasses/latest.apk), for those that avoid the Google Play.
+- Here, you may find the SHA digests to verify the APK built against: [https://yves.app/nearbyglasses/app-signing-fingerprint.txt](https://yves.app/nearbyglasses/app-signing-fingerprint.txt). The file is also available in this repo and F-Droid builtds against the very same signature, too.
 
 ---
 
