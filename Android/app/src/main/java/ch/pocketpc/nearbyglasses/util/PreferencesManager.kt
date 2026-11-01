@@ -32,8 +32,27 @@ class PreferencesManager(context: Context) {
         private const val DEFAULT_DEBUG_ADVONLY = true
         private const val KEY_CANARY_MODE = "canary_mode"
         private const val DEFAULT_CANARY_MODE = true
-    }
+        private const val KEY_IGNORED_MACS = "ignored_macs"
 
+        private val MAC_REGEX =
+            Regex("^(?:[0-9A-F]{2}:){5}[0-9A-F]{2}$")
+
+        fun normaliseMac(address: String): String? {
+            val normalised = address.trim().uppercase(Locale.ROOT)
+            return normalised.takeIf { MAC_REGEX.matches(it) }
+        }
+
+        // Validate, normalise and remove duplicates from the CSV
+        fun normaliseIgnoredCsv(value: String): String? {
+            if (value.isBlank()) return ""
+
+            val addresses = value.split(',').map { token ->
+                normaliseMac(token) ?: return null
+            }
+
+            return addresses.distinct().joinToString(", ")
+        }
+    }
     var canaryModeEnabled: Boolean
         get() = prefs.getBoolean(KEY_CANARY_MODE, DEFAULT_CANARY_MODE)
         set(value) = prefs.edit().putBoolean(KEY_CANARY_MODE, value).apply()
@@ -103,6 +122,43 @@ class PreferencesManager(context: Context) {
                 }
                 .toSet()
         }
+
+
+    // Read the CSV as a Set of MAC addresses.
+    val ignoredMacs: Set<String>
+        get() = prefs.getString(KEY_IGNORED_MACS, "")
+            .orEmpty()
+            .split(',')
+            .mapNotNull(::normaliseMac)
+            .toSet()
+
+    // Current list of MACs to be ignored as a comma-separated string.
+    val ignoredCsv: String
+        get() = ignoredMacs.joinToString(", ")
+
+    // Check a detected Bluetooth address.
+    fun isIgnoredMac(address: String): Boolean =
+        normaliseMac(address)?.let {
+            it in ignoredMacs
+        } == true
+
+    // Add a new address to the ignoring list.
+    fun addIgnoredMac(address: String): Boolean {
+        val mac = normaliseMac(address) ?: return false
+
+        val addresses = ignoredMacs.toMutableSet()
+
+        if (!addresses.add(mac)) return false
+
+        prefs.edit()
+            .putString(
+                KEY_IGNORED_MACS,
+                addresses.joinToString(", ")
+            )
+            .apply()
+
+        return true
+    }
 
     fun registerListener(listener: SharedPreferences.OnSharedPreferenceChangeListener) {
         prefs.registerOnSharedPreferenceChangeListener(listener)

@@ -30,6 +30,12 @@
     <string name="summaryForeground">Esegui la scansione come servizio in primo piano per evitare che venga interrotta dal sistema.</string>
     <string name="titleCooldown">Intervallo notifiche/Canary (ms)</string>
     <string name="summaryCooldown">Attuale: %1$s ms. Tempo minimo tra notifiche o cambi indicatore/Canary in millisecondi (default: 10000ms = 10s)</string>
+	<string name="titleIgnoredBtMacs">Indirizzi MAC ignorati (CSV)</string>
+    <string name="summaryIgnoredBtMacs">Indirizzi MAC Bluetooth da ignorare per il canary e le notifiche, separati da virgola (ad es. AA:BB:CC:DD:EE:FF, 11:22:33:44:55:66)</string>
+	<string name="addToIgnore">Aggiungere %1$s all\'elenco degli indirizzi da ignorare? \nQuesto dispositivo continuerà a essere registrato, ma non attiverà avvisi né l\'indicatore canary.</string>
+    <string name="tapToAdd">Tap to ignore</string>
+	<string name="btnIgnore">Ignora questo dispositivo</string>
+    <string name="ignoreTitle">Ignorare un falso positivo?</string>
     <string name="titleThreshold">Soglia RSSI (dBm)</string>
     <string name="summaryThreshold">Attuale: %1$s dBm. Rileva solo dispositivi con RSSI sopra questa soglia (default: -75 dBm, ~3-10 m)</string>
     <string name="titleCategoryNotifications">Impostazioni notifiche</string>

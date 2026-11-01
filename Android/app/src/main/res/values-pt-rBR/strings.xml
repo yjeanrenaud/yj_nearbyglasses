@@ -30,6 +30,12 @@
     <string name="summaryForeground">Executar varredura como um serviço em primeiro plano para evitar ser interrompido pelo sistema.</string>
     <string name="titleCooldown">Intervalo de Notificação/Canário (ms)</string>
     <string name="summaryCooldown">Atualmente: %1$s ms. Tempo mínimo entre notificações ou mudanças no Canário em milissegundos (padrão: 10000ms = 10s)</string>
+	<string name="titleIgnoredBtMacs">Endereços MAC ignorados (CSV)</string>
+    <string name="summaryIgnoredBtMacs">Endereços MAC de Bluetooth a serem ignorados para o canário e notificações, separados por vírgula (por exemplo: AA:BB:CC:DD:EE:FF, 11:22:33:44:55:66)</string>
+	<string name="addToIgnore">Adicionar %1$s à lista de ignorados? \nEste dispositivo continuará sendo registrado, mas não acionará alertas nem o indicador canário.</string>
+    <string name="tapToAdd">Tap to ignore</string>
+	<string name="btnIgnore">Ignorar este dispositivo</string>
+    <string name="ignoreTitle">Ignorar um falso positivo?</string>
     <string name="titleThreshold">Limite de RSSI (dBm)</string>
     <string name="summaryThreshold">Atualmente: %1$s dBm. Detectar apenas dispositivos com RSSI acima deste limite (padrão: -75 dBm, ~3-10 m)</string>
     <string name="titleCategoryNotifications">Configurações de Notificação</string>

@@ -32,6 +32,12 @@
 	<string name="summaryCooldown">Actuellement: %1$s ms. Délai minimum entre les notifications/modification du Canari en millisecondes (par défaut: 10000 ms = 10 s)</string>
 	<string name="titleThreshold">Seuil RSSI (dBm)</string>
 	<string name="summaryThreshold">Actuellement: %1$s dBm. Détecter uniquement les appareils dont le RSSI est supérieur à ce seuil (par défaut: -75 dBm, ~3-10 m)</string>
+	<string name="titleIgnoredBtMacs">Adresses MAC ignorées (CSV)</string>
+    <string name="summaryIgnoredBtMacs">Adresses MAC Bluetooth à ignorer pour le canari et les notifications, séparées par des virgules (par ex. AA:BB:CC:DD:EE:FF, 11:22:33:44:55:66)</string>
+	<string name="addToIgnore">Ajouter %1$s à la liste d\'ignorance ? \nCet appareil continuera d\'être enregistré, mais ne déclenchera ni alerte ni indicateur  canary</string>
+    <string name="tapToAdd">Tap to ignore</string>
+	<string name="btnIgnore">Ignorer cet appareil</string>
+    <string name="ignoreTitle">Ignorer un faux positif ?</string>
 	<string name="titleCategoryNotifications">Paramètres de notification</string>
 	<string name="titleNotifications">Activer les notifications</string>
 	<string name="summaryNotifications">Afficher les notifications lorsque des appareils à lunettes intelligentes sont détectés</string>

@@ -30,6 +30,12 @@
     <string name="summaryForeground">Ejecuta el escaneo como un servicio en primer plano para evitar que el sistema lo detenga.</string>
     <string name="titleCooldown">Tiempo de espera de notificación/Canario (ms)</string>
     <string name="summaryCooldown">Actualmente: %1$s ms. Tiempo mínimo entre notificaciones/cambios en la Canario en milisegundos (predeterminado: 10000 ms = 10 s)</string>
+	<string name="titleIgnoredBtMacs">Direcciones MAC ignoradas (CSV)</string>
+    <string name="summaryIgnoredBtMacs">Direcciones MAC de Bluetooth que se deben ignorar para el canario y las notificaciones, separadas por comas (p. ej., AA:BB:CC:DD:EE:FF, 11:22:33:44:55:66)</string>
+<string name="addToIgnore">¿Añadir %1$s a la lista de ignorados? \nEste dispositivo seguirá registrándose, pero no activará alertas ni el canario.</string>
+    <string name="tapToAdd">Tap to ignore</string>
+	<string name="btnIgnore">Ignorar este dispositivo</string>
+    <string name="ignoreTitle">¿Ignorar un falso positivo?</string>
     <string name="titleThreshold">Umbral RSSI (dBm)</string>
     <string name="summaryThreshold">Actualmente: %1$s dBm. Solo detecta dispositivos con RSSI por encima de este umbral (predeterminado: -75 dBm, ~3-10 m)</string>
     <string name="titleCategoryNotifications">Configuración de notificaciones</string>

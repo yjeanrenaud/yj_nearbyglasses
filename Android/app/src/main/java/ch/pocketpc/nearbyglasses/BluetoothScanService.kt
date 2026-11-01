@@ -27,7 +27,8 @@ class BluetoothScanService : Service() {
     private var bluetoothScanner: BluetoothScanner? = null
     
     private val detectionListeners = mutableListOf<(DetectionEvent) -> Unit>()
-    private var lastNotificationTime = 0L
+    //private var lastNotificationTime = 0L
+    private val lastNotificationTimeByMac = mutableMapOf<String, Long>()
     
     inner class LocalBinder : Binder() {
         fun getService(): BluetoothScanService = this@BluetoothScanService
@@ -151,26 +152,54 @@ class BluetoothScanService : Service() {
         stopForeground(STOP_FOREGROUND_REMOVE)
         stopSelf()
     }
-    
+
+
     private fun handleDetection(event: DetectionEvent) {
-        // Notify all listeners
+
+        // Always forward detections, including ignored devices.
+        // MainActivity handles logging and the canary indicator.
         detectionListeners.forEach { it(event) }
-        
-        // Check cooldown and show notification
-        val currentTime = System.currentTimeMillis()
+
+        // Ignored devices must not trigger notifications.
+        if (preferencesManager.isIgnoredMac(event.deviceAddress)) {
+            return
+        }
+
+        // Canary Mode must never trigger detection notifications.
+        if (preferencesManager.canaryModeEnabled) {
+            return
+        }
+
+        // Respect the Notifications setting.
+        if (!preferencesManager.notificationsEnabled) {
+            return
+        }
+
+        // Per-device notification cooldown.
+        val mac = event.deviceAddress.uppercase(java.util.Locale.ROOT)
+        val currentTime = android.os.SystemClock.elapsedRealtime()
         val cooldown = preferencesManager.cooldownMs
-        
-        if (currentTime - lastNotificationTime >= cooldown) {
-            if (preferencesManager.notificationsEnabled) {
-                notificationHelper.showDetectionNotification(event)
-            }
-            lastNotificationTime = currentTime
+
+        val lastTime = lastNotificationTimeByMac[mac]
+
+        if (lastTime == null || currentTime - lastTime >= cooldown) {
+
+            notificationHelper.showDetectionNotification(
+                event,
+                offerIgnored = preferencesManager.debugEnabled
+            )
+
+            lastNotificationTimeByMac[mac] = currentTime
+
         } else {
-            //Log.d(TAG, "Detection within cooldown period, notification suppressed")
-            Log.d(TAG, getString(R.string.log_notification_suppressed))
+            Log.d(
+                TAG,
+                getString(R.string.log_notification_suppressed)
+            )
         }
     }
-    
+
+
     fun addDetectionListener(listener: (DetectionEvent) -> Unit) {
         detectionListeners.add(listener)
     }

@@ -29,6 +29,12 @@
     <string name="summaryForeground">Запускать сканирование как службу переднего плана, чтобы система не остановила его.</string>
     <string name="titleCooldown">Задержка уведомления/канарейки (мс)</string>
     <string name="summaryCooldown">Сейчас: %1$s мс. Минимальное время между уведомлениями или изменениями канарейки в миллисекундах (по умолчанию: 10000 мс = 10 с)</string>
+	<string name="titleIgnoredBtMacs">Ignored MAC addresses (CSV)</string>
+	<string name="summaryIgnoredBtMacs">Bluetooth MACs to be ignored for canary and notification, separated by comma (e.g. AA:BB:CC:DD:EE:FF, 11:22:33:44:55:66)</string>
+	<string name="addToIgnore">Add %1$s to the ignore list? \nThis device will still be logged, but will not trigger alerts or the canary indicator.</string>
+	<string name="tapToAdd">Tap to ignore</string>
+	<string name="btnIgnore">Ignore this device</string>
+	<string name="ignoreTitle">Ignore a false positive?</string>
     <string name="titleThreshold">Порог RSSI (dBm)</string>
     <string name="summaryThreshold">Сейчас: %1$s dBm. Обнаруживать только устройства с RSSI выше этого порога (по умолчанию: -75 dBm, ~3-10 м)</string>
     <string name="titleCategoryNotifications">Настройки уведомлений</string>

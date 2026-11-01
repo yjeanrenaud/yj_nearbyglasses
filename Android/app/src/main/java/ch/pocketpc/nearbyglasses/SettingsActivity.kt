@@ -13,6 +13,8 @@ import android.os.Handler
 import android.os.Looper
 import androidx.preference.PreferenceManager
 import androidx.preference.SwitchPreferenceCompat
+import android.widget.Toast
+import ch.pocketpc.nearbyglasses.util.PreferencesManager
 
 class SettingsActivity : AppCompatActivity() {
     
@@ -48,6 +50,7 @@ class SettingsActivity : AppCompatActivity() {
             val loggingPref = findPreference<SwitchPreferenceCompat>("logging_enabled")
             val debugPref = findPreference<SwitchPreferenceCompat>("debug_enabled")
             val debugAdvOnlyPref = findPreference<SwitchPreferenceCompat>("debug_advonly")
+            val ignoredPref = findPreference<EditTextPreference>("ignored_macs")
 
             fun refreshSummaries() {
                 cooldownPref?.summary = getString(
@@ -63,6 +66,11 @@ class SettingsActivity : AppCompatActivity() {
                     debugMaxLinesPref?.text ?: "200"
                 )
 
+                ignoredPref?.summary =
+                    ignoredPref?.text?.ifBlank {
+                        getString(R.string.none_in_parentheses)
+                    } ?: getString(R.string.none_in_parentheses)
+
                 val ids = debugIdsPref?.text?.trim().orEmpty()
                 debugIdsPref?.summary = getString(
                     R.string.summaryDebugCompanyIds,
@@ -70,10 +78,17 @@ class SettingsActivity : AppCompatActivity() {
                     if (ids.isBlank()) getString(R.string.none_in_parentheses) else ids
                 )
             }
+
             fun refreshCanaryLocks(
                 canaryOn: Boolean = canaryPref?.isChecked == true,
                 debugOn: Boolean = debugPref?.isChecked == true
             ) {
+                // Automatically disable notifications when Canary Mode is ON
+                if (canaryOn) {
+                    notificationsPref?.isChecked = false
+                }
+
+                // Lock settings while Canary Mode is active
                 notificationsPref?.isEnabled = !canaryOn
                 loggingPref?.isEnabled = !canaryOn
                 debugPref?.isEnabled = !canaryOn
@@ -106,6 +121,17 @@ class SettingsActivity : AppCompatActivity() {
                 editText.setSingleLine(true)
                 editText.post {editText.setSelection(editText.text.length)}
             }
+            ignoredPref?.setOnBindEditTextListener { editText ->
+                editText.hint =
+                    "AA:BB:CC:DD:EE:FF, 11:22:33:44:55:66"
+
+                editText.setSingleLine(false)
+
+                editText.post {
+                    editText.setSelection(editText.text.length)
+                }
+            }
+
 
             // validation + live summary update
             canaryPref?.setOnPreferenceChangeListener { _, newValue ->
@@ -161,12 +187,38 @@ class SettingsActivity : AppCompatActivity() {
                 )
                 true
             }
+
+            ignoredPref?.setOnPreferenceChangeListener { pref, newValue ->
+
+                val normalised = PreferencesManager.normaliseIgnoredCsv(
+                    (newValue as? String).orEmpty()
+                )
+
+                if (normalised == null) {
+                    Toast.makeText(
+                        requireContext(),
+                        "Invalid MAC address. Use AA:BB:CC:DD:EE:FF, comma-separated.",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    false
+                } else {
+                    // EditTextPreference persists the normalised value
+                    (pref as EditTextPreference).text = normalised
+
+                    pref.summary = normalised.ifBlank {
+                        getString(R.string.none_in_parentheses)
+                    }
+                    // Already saved the normalised value
+                    false
+                }
+            }
+
             // now get current language
             val languagePref = findPreference<ListPreference>("app_language")
             //val currentLang = AppCompatDelegate.getApplicationLocales().toLanguageTags() // Get current app language
             val tags = AppCompatDelegate.getApplicationLocales().toLanguageTags()
-            val normalized = if (tags.isBlank()) "" else tags.toString() // tags.substringBefore(',').substringBefore('-')  // "fr-FR" -> "fr"; make sure there is ""
-            languagePref?.value = normalized //= currentLang // Set selected value, if emtpy, sets to system default)
+            val normalised = if (tags.isBlank()) "" else tags.toString() // tags.substringBefore(',').substringBefore('-')  // "fr-FR" -> "fr"; make sure there is ""
+            languagePref?.value = normalised //= currentLang // Set selected value, if emtpy, sets to system default)
 
 //            languagePref?.setOnPreferenceChangeListener { _, newValue ->
 //                val langTag = newValue as String
@@ -190,6 +242,24 @@ class SettingsActivity : AppCompatActivity() {
             refreshSummaries()
             // set the locks for settings disabled by canary mode
             refreshCanaryLocks()
+        }
+
+
+        override fun onResume() {
+            super.onResume()
+
+            findPreference<EditTextPreference>("ignored_macs")?.let { pref ->
+                val current =
+                    PreferencesManager(requireContext()).ignoredCsv
+
+                if (pref.text != current) {
+                    pref.text = current
+                }
+
+                pref.summary = current.ifBlank {
+                    getString(R.string.none_in_parentheses)
+                }
+            }
         }
 
         private fun applyAppLanguage(tag: String) {

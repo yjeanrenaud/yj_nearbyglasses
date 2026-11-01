@@ -18,6 +18,8 @@ import kotlinx.coroutines.flow.StateFlow
 import android.Manifest
 import android.content.pm.PackageManager
 import androidx.core.content.ContextCompat
+import android.os.ParcelUuid
+
 import ch.pocketpc.nearbyglasses.model.DetectionEvent.Companion.PRIMARY_SERVICE_UUID_STRING
 
 class BluetoothScanner(
@@ -226,8 +228,19 @@ class BluetoothScanner(
         val hasPrimaryService =
             uuidInServiceList || uuidInServiceData
 
+        // Da Echo: UUID 0xFEA8 appears in service data.
+        val daEchoServiceData = scanRecord?.getServiceData(
+            ParcelUuid(DetectionEvent.DA_ECHO_SERVICE_UUID)
+        )
+
+        val hasDaEchoSignature = DetectionEvent.matchesDaEchoAdvertisement(
+            companyId = companyId,
+            fea8ServiceData = daEchoServiceData
+        )
+
+
         // for to check if this is a smart glasses device (including our debug override)
-        val (isSmartGlassesReal, reasonReal) = DetectionEvent.isSmartGlasses(context,companyId, deviceName, hasPrimaryService)
+        val (isSmartGlassesReal, reasonReal) = DetectionEvent.isSmartGlasses(context,companyId, deviceName, hasPrimaryService, hasDaEchoSignature)
         //val overrideMatch = companyId != null && debugCompanyIds.contains(companyId)
         //only when debug is on AND company IDs are entered
         val overrideMatch = debugEnabled && companyId != null && debugCompanyIds.contains(companyId)
@@ -269,6 +282,19 @@ class BluetoothScanner(
                     "UUID=$PRIMARY_SERVICE_UUID_STRING, address=$deviceAddress"
                 )
             }
+
+            if (daEchoServiceData != null) {
+                val fea8Hex = daEchoServiceData.joinToString("") {
+                    "%02X".format(it)
+                }
+
+                Log.d(
+                    TAG,
+                    "UUID contains 0xFEA8, serviceData=$fea8Hex, " +
+                            "address=$deviceAddress, daEcho=$hasDaEchoSignature"
+                )
+            }
+
         }
 
         if (isSmartGlasses) {

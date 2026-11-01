@@ -30,6 +30,12 @@
     <string name="summaryForeground">Run scanning as a foreground service to prevent being stopped by the system.</string>
     <string name="titleCooldown">Notification/Canary Cooldown (ms)</string>
     <string name="summaryCooldown">Currently: %1$s ms. Minimum time between notifications or Canary changes in milliseconds (default: 10000ms = 10s)</string>
+	<string name="titleIgnoredBtMacs">Ignored MAC addresses (CSV)</string>
+	<string name="summaryIgnoredBtMacs">Bluetooth MACs to be ignored for canary and notification, separated by comma (e.g. AA:BB:CC:DD:EE:FF, 11:22:33:44:55:66)</string>
+	<string name="addToIgnore">Add %1$s to the ignore list? \nThis device will still be logged, but will not trigger alerts or the canary indicator.</string>
+	<string name="tapToAdd">Tap to ignore</string>
+	<string name="btnIgnore">Ignore this device</string>
+	<string name="ignoreTitle">Ignore a false positive?</string>
     <string name="titleThreshold">RSSI Threshold (dBm)</string>
     <string name="summaryThreshold">Currently: %1$s dBm. Only detect devices with RSSI above this threshold (default: -75 dBm, ~3-10 m)</string>
     <string name="titleCategoryNotifications">Notification Settings</string>

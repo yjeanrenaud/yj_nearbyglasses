@@ -30,6 +30,12 @@
     <string name="summaryForeground">Tarama işlemini ön plan hizmeti olarak çalıştırarak sistem tarafından durdurulmasını engeller.</string>
     <string name="titleCooldown">Bildirim/Kanarya Bekleme Süresi (ms)</string>
     <string name="summaryCooldown">Şu anki: %1$s ms. Bildirimler/kanarya değişimi arasındaki minimum süre (milisaniye cinsinden, varsayılan: 10000 ms = 10 s)</string>
+	<string name="titleIgnoredBtMacs">Ignored MAC addresses (CSV)</string>
+	<string name="summaryIgnoredBtMacs">Bluetooth MACs to be ignored for canary and notification, separated by comma (e.g. AA:BB:CC:DD:EE:FF, 11:22:33:44:55:66)</string>
+	<string name="addToIgnore">Add %1$s to the ignore list? \nThis device will still be logged, but will not trigger alerts or the canary indicator.</string>
+	<string name="tapToAdd">Tap to ignore</string>
+	<string name="btnIgnore">Ignore this device</string>
+	<string name="ignoreTitle">Ignore a false positive?</string>
     <string name="titleThreshold">RSSI Eşiği (dBm)</string>
     <string name="summaryThreshold">Şu anki: %1$s dBm. Yalnızca RSSI değeri bu eşiğin üzerinde olan cihazları algıla (varsayılan: -75 dBm, ~3–10 m)</string>
     <string name="titleCategoryNotifications">Bildirim Ayarları</string>

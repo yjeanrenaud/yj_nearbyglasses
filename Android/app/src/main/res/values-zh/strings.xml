@@ -30,7 +30,13 @@
     <string name="summaryForeground">以前台服务形式运行扫描防止扫描被系统停止</string>
     <string name="titleCooldown">通知/金丝雀图标间隔 （毫秒）</string>
     <string name="summaryCooldown">当前： %1$s 毫秒。通知或金丝雀图标更改相隔的最短时间。（默认： 10000毫秒 = 10秒）</string>
-    <string name="titleThreshold">RSSI 阈值 (dBm)</string>
+    <string name="titleIgnoredBtMacs">Ignored MAC addresses (CSV)</string>
+	<string name="summaryIgnoredBtMacs">Bluetooth MACs to be ignored for canary and notification, separated by comma (e.g. AA:BB:CC:DD:EE:FF, 11:22:33:44:55:66)</string>
+	<string name="addToIgnore">Add %1$s to the ignore list? \nThis device will still be logged, but will not trigger alerts or the canary indicator.</string>
+	<string name="tapToAdd">Tap to ignore</string>
+	<string name="btnIgnore">Ignore this device</string>
+	<string name="ignoreTitle">Ignore a false positive?</string>
+	<string name="titleThreshold">RSSI 阈值 (dBm)</string>
     <string name="summaryThreshold">目前：%1$s dBm。只检测 RSSI 高于该阈值的设备。 (默认： -75 dBm, ~3-10 m)</string>
     <string name="titleCategoryNotifications">通知设置</string>
     <string name="titleNotifications">启用通知</string>

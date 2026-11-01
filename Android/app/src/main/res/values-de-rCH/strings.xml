@@ -3,7 +3,7 @@
     <!-- for menu, settings, buttons -->
     <string name="app_name">Nearby Glasses</string>
     <string name="settings">Iischtellige</string>
-    <string name="notLogging">Protokoll deaktiviert. Numme Benochrichtigunge wärde aazeigt, wenn öbbis entdeckt isch worde.</string>
+    <string name="notLogging">Protokoll deaktiviert. Numme Benochrichtige wärde aazeigt, wenn öbbis entdeckt isch worde.</string>
     <string name="startScanning">Scanne schtarte</string>
     <string name="stopScanning">Scanne schtoppe</string>
     <string name="notScanning">Scannt nid</string>
@@ -29,7 +29,12 @@
     <string name="titleForeground">Aktiviere Vordergrunddienscht</string>
     <string name="summaryForeground">Fiert s Scanne als Vordergrunddienscht uus, zum z vrhinerde, as es vom Syschtem anghalte wird.</string>
     <string name="titleCooldown">Binochrichtigungs/Kanarievogel-Cooldown (ms)</string>
-    <string name="summaryCooldown"> Derzyt: %1$s ms. Mindeschtzyt zwüsche Benochrichtigunge/Kanarievogel-Wächsel in Millisekunde (Standard: 10000 ms = 10 s)</string>
+    <string name="summaryCooldown"> Derzyt: %1$s ms. Mindeschtzyt zwüsche Benochrichtige/Kanarievogel-Wächsel in Millisekunde (Standard: 10000 ms = 10 s)</string>
+	<string name="titleIgnoredBtMacs">Ignorierti MAC-Adrässe (CSV)</string>
+	<string name="summaryIgnoredBtMacs">Bluetooth MACs, wo ignoriert wärde füre Kanarievogel und Benochrichtige, trennt durch Kommata (z. B. AA:BB:CC:DD:EE:FF, 11:22:33:44:55:66)</string>
+	<string name="addToIgnore">%1$s zur Ignoriere-Liste? \nDas Grät wird witer protokolliert aber kei Benochrichtige oder Kanarievogel-Wächsel uslöse.</string>
+	<string name="tapToAdd">Tap to ignore</string>
+	<string name="btnIgnore">Ignoriere das Grät</string>
     <string name="titleThreshold">RSSI-Schwellewärt (dBm)</string>
     <string name="summaryThreshold"> Derzyt: %1$s dBm. Numme Grät mit emne RSSI-Wärt über däm Schwellenwärt erkenne (Standard: -75 dBm, ~3–10 m)</string>
     <string name="titleCategoryNotifications">Binochrichtigungsinstellige</string>

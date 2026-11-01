@@ -57,6 +57,15 @@
             android:title="@string/titleCooldown"
             app:iconSpaceReserved="false"
             app:useSimpleSummaryProvider="false" />
+			
+		<EditTextPreference
+			app:key="ignored_macs"
+			app:title="@string/titleIgnoredBtMacs"
+			app:dialogTitle="@string/titleIgnoredBtMacs"
+			app:dialogMessage="@string/summaryIgnoredBtMacs"
+			app:defaultValue=""
+			app:summary="@string/none_in_parentheses"
+            app:iconSpaceReserved="false" />
 
     </PreferenceCategory>
 

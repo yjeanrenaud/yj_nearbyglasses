@@ -68,6 +68,23 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
 
     private val mainHandler = Handler(Looper.getMainLooper())
 
+    private var logRefreshScheduled = false
+
+    private val logRefreshRunnable = Runnable {
+        logRefreshScheduled = false
+        updateLogDisplay()
+    }
+
+    private fun scheduleLogRefresh() {
+        // Avoid scheduling multiple UI updates
+        if (logRefreshScheduled) return
+
+        logRefreshScheduled = true
+
+        // Update the UI once after 1000 ms, regardless of the polling interval
+        mainHandler.postDelayed(logRefreshRunnable, 1000L)
+    }
+
     private val canaryResetRunnable = Runnable {
         canaryDetected = false
         renderCanaryCanvas()
@@ -218,7 +235,12 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
 
     private val detectionListener: (DetectionEvent) -> Unit = { event ->
         runOnUiThread {
-            if (preferencesManager.canaryModeEnabled) {
+
+            if (preferencesManager.isIgnoredMac(event.deviceAddress)) {
+                // Log it, but do not activate the canary
+                addLogEntry(event, ignored = true)
+
+            } else if (preferencesManager.canaryModeEnabled) {
                 canaryDetected = true
                 renderCanaryCanvas()
                 scheduleCanaryReset()
@@ -327,8 +349,64 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         updateUI()
         updateLogDisplay()
         invalidateOptionsMenu()
+        //handleIgnoredNotificationIntent(intent)
     }
-    
+
+//    override fun onNewIntent(intent: Intent) {
+//        super.onNewIntent(intent)
+//        setIntent(intent)
+//        handleIgnoredNotificationIntent(intent)
+//    }
+
+//    private fun handleIgnoredNotificationIntent(source: Intent?) {
+//
+//        val rawAddress =
+//            source?.getStringExtra(EXTRA_IGNORED_MAC) ?: return
+//
+//        // Prevent repeated prompts when Activity is recreated
+//        source.removeExtra(EXTRA_IGNORED_MAC)
+//
+//        // Only allow notification-based ignored list in debug mode
+//        if (!preferencesManager.debugEnabled) return
+//
+//        val mac = PreferencesManager.normaliseMac(rawAddress)
+//            ?: return
+//
+//        if (preferencesManager.isIgnoredMac(mac)) {
+//            Toast.makeText(
+//                this,
+//                "$mac is already ignored",
+//                Toast.LENGTH_SHORT
+//            ).show()
+//            return
+//        }
+//
+//        /*
+//        //offer detection added to ignore list. might be blocking due to polling interval
+//        AlertDialog.Builder(this)
+//            .setTitle(getString(R.string.ignoreTitle))
+//            .setMessage(getString(R.string.addToIgnore, mac))
+//            .setPositiveButton(getString(R.string.btnIgnore)) { _, _ ->
+//
+//                if (preferencesManager.addIgnoredMac(mac)) {
+//                    Toast.makeText(
+//                        this,
+//                        "$mac added to ignore list",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                } else {
+//                    Toast.makeText(
+//                        this,
+//                        "$mac is already ignored",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                }
+//            }
+//            .setNegativeButton(android.R.string.cancel, null)
+//            .show()
+//            */
+//    }
+
     private fun setupToolbar() {
         setSupportActionBar(binding.toolbar)
     }
@@ -405,12 +483,12 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         // Export button in menu
     }
     
-    private fun addLogEntry(event: DetectionEvent) {
+    private fun addLogEntry(event: DetectionEvent, ignored: Boolean = false) {
         // Add to log list
         detectionLog.add(event)
         
         // Update text log if logging is enabled
-        if (!preferencesManager.loggingEnabled) return
+        if (!ignored && !preferencesManager.loggingEnabled) return
 
         val timestamp = dateFormat.format(Date(event.timestamp))
         //val line = "[$timestamp] ${event.deviceName ?: "Unknown"} (${event.rssi} dBm) - ${event.detectionReason}"
@@ -422,8 +500,14 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
             event.rssi,
             event.detectionReason
         )
-        appendLine(line)
-        updateLogDisplay()
+        appendLine(
+            if (ignored) {
+                "$line [IGNORED MAC: ${event.deviceAddress}]"
+            } else {
+                line
+            }
+        )
+        scheduleLogRefresh()
 
         /*
         if (preferencesManager.loggingEnabled) {
@@ -465,7 +549,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
                 logTextBuffer.append(lines.takeLast(maxLines).joinToString("\n"))
             }
             */
-            updateLogDisplay()
+            scheduleLogRefresh() // instead of directly calling updateLogDisplay()
         }
     }
 
@@ -496,7 +580,9 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         binding.scrollView.visibility = View.VISIBLE
         binding.canaryCanvas.visibility = View.GONE
 
-        val show = preferencesManager.loggingEnabled || preferencesManager.debugEnabled
+        //val show = preferencesManager.loggingEnabled || preferencesManager.debugEnabled
+        val show = preferencesManager.loggingEnabled || preferencesManager.debugEnabled || logLines.any { it.contains("[IGNORED MAC:") }
+
         if (show) {
             binding.textLog.isEnabled = true
             binding.textLog.text = buildLogText()
@@ -842,14 +928,18 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         preferencesManager.unregisterListener(this)
         mainHandler.removeCallbacks(canaryResetRunnable)
         mainHandler.removeCallbacks(canaryFlipRunnable)
+        mainHandler.removeCallbacks(logRefreshRunnable)
+        logRefreshScheduled = false
         if (serviceBound) {
             scanService?.removeDetectionListener(detectionListener)
             scanService?.removeDebugListener(debugListener)
             unbindService(serviceConnection)
         }
     }
-    
+
+
     companion object {
         private const val TAG = "MainActivity"
+        //const val EXTRA_IGNORED_MAC = "ch.pocketpc.nearbyglasses.EXTRA_IGNORED_MAC"
     }
 }

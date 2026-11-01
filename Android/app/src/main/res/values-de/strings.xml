@@ -30,6 +30,12 @@
     <string name="summaryForeground">Führt das Scannen als Vordergrunddienst aus, um zu verhindern, dass es vom System angehalten wird.</string>
     <string name="titleCooldown">Benachrichtigungs-/Kanarienvogel-Cooldown (ms)</string>
     <string name="summaryCooldown">Derzeit: %1$s ms. Mindestzeit zwischen Benachrichtigungen/Kanarienvogel-Wechsel in Millisekunden (Standard: 10000 ms = 10 s)</string>
+	<string name="titleIgnoredBtMacs">Ignorierte MAC-Adressen (CSV)</string>
+	<string name="summaryIgnoredBtMacs">Bluetooth MACs, die ignoriert werden für den Kanarienvogel und Benachrichtigungen, getrennt durch Kommata (z. B. AA:BB:CC:DD:EE:FF, 11:22:33:44:55:66)</string>
+	<string name="addToIgnore">%1$s zur Ignorieren-Liste hinzufügen? \nDas Gerät wird weiter protokolliert aber keine Beanchrichtigung oder Kanarienvogel-Wechsel.</string>
+	<string name="tapToAdd">Tap to ignore</string>
+	<string name="btnIgnore">Dieses Gerät ignorieren</string>
+	<string name="ignoreTitle">Fehlalarm ignorieren?</string>
     <string name="titleThreshold">RSSI-Schwellenwert (dBm)</string>
     <string name="summaryThreshold">Derzeit: %1$s dBm. Nur Geräte mit einem RSSI-Wert über diesem Schwellenwert erkennen (Standard: -75 dBm, ~3–10 m)</string>
     <string name="titleCategoryNotifications">Benachrichtigungseinstellungen</string>

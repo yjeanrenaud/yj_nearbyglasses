@@ -60,7 +60,33 @@ data class DetectionEvent(
         const val PRIMARY_SERVICE_UUID_STRING = "7905FFF0-B5CE-4E99-A40F-4B1E122D00D0"
         val PRIMARY_SERVICE_UUID: UUID = UUID.fromString(PRIMARY_SERVICE_UUID_STRING)
 
-        fun isSmartGlasses(context: Context, companyId: Int?,deviceName: String?, hasPrimaryService: Boolean = false): Pair<Boolean, String>
+
+        // Da Echo smart glasses
+        // UUID 0xFEA8 is not unique to these glasses.
+        const val DA_ECHO_SERVICE_UUID_STRING =
+            "0000FEA8-0000-1000-8000-00805F9B34FB"
+
+        val DA_ECHO_SERVICE_UUID: UUID =
+            UUID.fromString(DA_ECHO_SERVICE_UUID_STRING)
+
+        const val DA_ECHO_MANUFACTURER_ID = 0xF0EF
+
+        private val DA_ECHO_SERVICE_DATA =
+            byteArrayOf(
+                0x41, 0x31, 0x49, 0x01, 0x00, 0x00
+            )
+
+        fun matchesDaEchoAdvertisement(
+            companyId: Int?,
+            fea8ServiceData: ByteArray?
+        ): Boolean {
+            return companyId == DA_ECHO_MANUFACTURER_ID &&
+                    fea8ServiceData?.contentEquals(
+                        DA_ECHO_SERVICE_DATA
+                    ) == true
+        }
+
+        fun isSmartGlasses(context: Context, companyId: Int?,deviceName: String?, hasPrimaryService: Boolean = false, hasDaEchoSignature: Boolean = false): Pair<Boolean, String>
         {
             val reasons = mutableListOf<String>()
 
@@ -106,6 +132,13 @@ data class DetectionEvent(
                     )
                 )
             }
+            // Da Echo recognition
+            if (hasDaEchoSignature) {
+                reasons.add(
+                    "Da Echo UUID and payload"
+                )
+            }
+
             // Check device name
             deviceName?.let { name ->
                 val nameLower = name.lowercase()
