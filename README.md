@@ -45,10 +45,10 @@ If you choose to store (export) the logfile, that is completely up to you and yo
 Please do not act rashly. **Think before you act upon any messages** (not only from this app).<br/>
 <br/>
 ## Why?
-- Because I consider smart glasses an intolerable intrusion, consent neglecting, horrible piece of tech that is already used for making various and tons of equally truely disgusting 'content'. [1](https://www.404media.co/border-patrol-agent-recorded-raid-with-metas-ray-ban-smart-glasses/), [2](https://www.404media.co/metas-ray-ban-glasses-users-film-and-harass-massage-parlor-workers/)
+- Because I consider smart glasses an intolerable intrusion, consent neglecting, horrible piece of tech that is already used for making various and tons of equally truly disgusting 'content'. [1](https://www.404media.co/border-patrol-agent-recorded-raid-with-metas-ray-ban-smart-glasses/), [2](https://www.404media.co/metas-ray-ban-glasses-users-film-and-harass-massage-parlor-workers/)
 - Some smart glasses feature small LED signifying a recording is going on. But this is easily disabled, whilst manufacturers claim to prevent that and take no responsibility at all (tech tends to do that for decades now). [3](https://www.404media.co/how-to-disable-meta-rayban-led-light/)
 - Smart glasses have been used for instant facial recognition before [4](https://www.404media.co/someone-put-facial-recognition-tech-onto-metas-smart-glasses-to-instantly-dox-strangers/) and reportedly will be out of the box [5](https://www.nytimes.com/2026/02/13/technology/meta-facial-recognition-smart-glasses.html). This puts a lot of people in danger.
-- They data is used to train AI, which means, people will screen the recordings and see, liekly, most intimate, insights [6](https://www.svd.se/a/K8nrV4/metas-ai-smart-glasses-and-data-privacy-concerns-workers-say-we-see-everything)
+- They data is used to train AI, which means, people will screen the recordings and see, likely, most intimate, insights [6](https://www.svd.se/a/K8nrV4/metas-ai-smart-glasses-and-data-privacy-concerns-workers-say-we-see-everything)
 - I hope this app is useful for someone.
   
 ## How?
@@ -84,7 +84,7 @@ Service UUIDs:
   They are **immutable and mandatory**. Of course, Meta and other manufacturers also have other products that come with Bluetooth and therefore their ID, e.g. VR Headsets. Therefore, using these company ID codes for the app's scanning process is prone to false positives. But if you can't see someone wearing an Occulus Rift around you and there are no buildings where they could hide, chances are good that it's smart glasses instead.
 - During pairing, the smart glasses usually emit their product name, so we can scan for that, too. But it's rare we will see that in the field. People with the intention to use smart glasses in bars, pubs, on the street, and elsewhere usually prepare for that beforehand.
 - When the app recognised a Bluetooth Low Energy (BLE) device with a sufficient signal strength (see RSI below), it will push an alert message. This shall help you to act accordingly.
-- Furthermore, we scan for device names broadcasted, e.g. `rayban`, `ray-ban`, or `HeyCyan`. `HeyCyan` is [a famous SDK for smart glasses of various brands](https://github.com/ebowwa/HeyCyanSmartGlassesSDK). Among those *HeyCyan* devices, you may also find the Nilox Smart AI Glasses which are sold by ALDI and Hofer(in Austria). To harden this, we also look for the `primary_UUID`, a service identifier which is fixed to the software side of those glasses (`7905FFF0-B5CE-4E99-A40F-4B1E122D00D0`). While this could change in the future, it is unlikely as it would render older devices unusable, therefore we might just add more UUIDs to the scaning routine then.
+- Furthermore, we scan for device names broadcasted, e.g. `rayban`, `ray-ban`, or `HeyCyan`. `HeyCyan` is [a famous SDK for smart glasses of various brands](https://github.com/ebowwa/HeyCyanSmartGlassesSDK). Among those *HeyCyan* devices, you may also find the Nilox Smart AI Glasses which are sold by ALDI and Hofer(in Austria). To harden this, we also look for the `primary_UUID`, a service identifier which is fixed to the software side of those glasses (`7905FFF0-B5CE-4E99-A40F-4B1E122D00D0`). While this could change in the future, it is unlikely as it would render older devices unusable, therefore we might just add more UUIDs to the scanning routine then.
 ## Features
 - The app *Nearby Glasses* shows a notification when smart glasses are nearby (that means, a BLE device of one of those company IDs mentioned above)
 - **Nearby** means, the RSSI (signal strength) is less than or equal to a given value: -75 dBm by default. This default value corresponds to a medium distance and an ok-ish signal.
@@ -112,7 +112,7 @@ RSSI drops roughly according to<br/>
 - Under *Settings*, you may specify the log length, the debugging (display all scan items or only ADV frames).
 - You may also enter some **company IDs** as string of hex values, e.g. `0x01AB,0x058E,0x0D53`. This overrides the built-in detection, so your notification shows up for the new value(s).
 - For better persistence, it uses Android's *Foreground Service*. You may disable this under *Settings* if you don't need it.
-- The *Notification Cooldown* under *Settings* specifies how much time must pass between two warnings. Default is 10000 ms, which is 10 s. This also applies for the canary, e.g. 10s means, it will stay alert for 10s before it calms itsself again.
+- The *Notification Cooldown* under *Settings* specifies how much time must pass between two warnings. Default is 10000 ms, which is 10 s. This also applies for the canary, e.g. 10s means, it will stay alert for 10s before it calms itself again.
 - It is now a bit more localised: <img src="img/canary_hide.svg" align="right" alt="Drawing of a canary that hides underneath a wing" height="100" width="100">
    - English
    - German
@@ -133,7 +133,7 @@ RSSI drops roughly according to<br/>
 - I decided to waive the CLA. After some discussions with people who knew more than me about collaborative projects, I gained the insight that this was an unnecessary step.
 - it's now got a slightly different icon to adhere to AGPL 3.0 more strictly.
 ## iOS and Android
-- Finally, after three weeks, the iOS port is available. It should work on most iPhones and iPads; even older ones (back to iOS 16). [Source code and project files are provided](/iOS/), too. The code is ugly and unorthodox. Many approaches are quick and dirty (e.g. I re-use the json files from the android localisation), but it is working so far. *Nearby Glasses* is availale via the [Apple App Store](https://apps.apple.com/us/app/nearby-glasses-original/id6761056896). (It's called original to make it distinguishable from those copycats). A .ipa is available for sideloading under [releases](https://github.com/yjeanrenaud/yj_nearbyglasses/releases).
+- Finally, after three weeks, the iOS port is available. It should work on most iPhones and iPads; even older ones (back to iOS 16). [Source code and project files are provided](/iOS/), too. The code is ugly and unorthodox. Many approaches are quick and dirty (e.g. I re-use the json files from the android localisation), but it is working so far. *Nearby Glasses* is available via the [Apple App Store](https://apps.apple.com/us/app/nearby-glasses-original/id6761056896). (It's called original to make it distinguishable from those copycats). A .ipa is available for sideloading under [releases](https://github.com/yjeanrenaud/yj_nearbyglasses/releases).
   The iOS App is not working in the background, because I found no possibility to use something similar to `ForegroundServices` in order to permanently scan for BTLE ADV due to iOS restrictions. Hence, there's only a *Canary Mode* available in *Nearby Glasses* under iOS. If you know Swift and iOS better than me (which is likely), please contribute!
 - Because this repository holds both Android and iOS App code, I re-organised the folders. Hence, there is [/iOS](/iOS/) and [/Android](/Android/).
 
@@ -150,7 +150,7 @@ RSSI drops roughly according to<br/>
 5. You're all set! When smart glasses are detected nearby, a notification will appear. It does so until you hit *Stop Scanning* or terminate the app for good
 7. In the menu (top right, the cogwheel), you may make some *Settings*:
    1. *Enable Foreground Service*: By this, you prevent Android from pausing the app thus preventing it from alerting you. I recommend leaving this enabled
-   2. *RSSI threshold*: This negative number specifies how far away a device might be to be a reason for an alert by *Nearby Glasses*. Technically, it referes to how strong the signal is received. Closer to zero means better signal, hence fewer distance between your phone and the smart glasses. See [RSSI above for explanations and guidance](#how). I recommend leaving it on -75
+   2. *RSSI threshold*: This negative number specifies how far away a device might be to be a reason for an alert by *Nearby Glasses*. Technically, it refers to how strong the signal is received. Closer to zero means better signal, hence fewer distance between your phone and the smart glasses. See [RSSI above for explanations and guidance](#how). I recommend leaving it on -75
    3. *Enable Notifications*: You would not want to disable that 
    4. Canary Mode. This is the new default. With this, you will not get system notifications altering you of smart glasses nearby, but instead you will see a canary that indicates no smart glasses around. iOS app only has a canary mode due to technical constrains. <img src="img/canary.svg" alt="Drawing of a canary" width="100" height="100" alignt="left"> 
    5. *Notification/Canary Cooldown*: Here, you specify, how many notifications about found smart glasses nearby you want to get or how long the canary should hide. I chose 10 seconds (10000 ms) as default value. Like this, you won't miss the notification while at the same time won't be bothered by it too much or drain your battery too fast
@@ -176,13 +176,13 @@ RSSI drops roughly according to<br/>
 
 - I am no BT or Android expert at all. For what I've learned, one could also dig deeper into the communication of the smart glasses by sniffing the BLE traffic. By doing so, we would likely not need to rely on the device behaving according to the BT specifications but could also use heuristics on the encrypted traffic transmissions without much false positives. But I haven't looked into BT traffic packets for more than ten years. I'm glad I remembered ADV frames... So if anybody could help on this, that'd be greatly appreciated!
 ---
-- Add **more manufacturers IDs** of smart glasses. Right now, it's Meta, Oakley and Snap. A list of smart glasses with cameras available would help, too. I opened an [ISSUE for this](https://github.com/yjeanrenaud/yj_nearbyglasses/issues/56), so people might **assist** by sending in their logs (which are perfectly safe, imho) when encoutering other recording smart glasses
+- Add **more manufacturers IDs** of smart glasses. Right now, it's Meta, Oakley and Snap. A list of smart glasses with cameras available would help, too. I opened an [ISSUE for this](https://github.com/yjeanrenaud/yj_nearbyglasses/issues/56), so people might **assist** by sending in their logs (which are perfectly safe, imho) when encountering other recording smart glasses
 - Since March 24 2026, the [iOS version](https://apps.apple.com/us/app/nearby-glasses-original/id6761056896) is available, too. Hence, there is no need to pay for counterfeit apps.
 - There **layout issue** with **Google Pixel devices** seems to be fixed as of Version 1.0.3. If you still can't reach the menu as it's mixed with the status bar somehow. Will look into that asap. Meanwhile, try to put your screen to landscape mode and rotate *clockwise (to the right)*. 
 
 ## Tech-Solutionism?
-I know, this might be an odd place to do so, but just hear me out on this. I am aware this is a technical solution to a social problem, which is itsself amplified by tech.
-I do not want to promote techsolutionism nor do I want people to feel falsely secure. It's still an imperfect approach and propably always will be. It's not all good only because this app exists now. We need better solutions to curb on surveilance tech and privacy intrution.
+I know, this might be an odd place to do so, but just hear me out on this. I am aware this is a technical solution to a social problem, which is itself amplified by tech.
+I do not want to promote techsolutionism nor do I want people to feel falsely secure. It's still an imperfect approach and probably always will be. It's not all good only because this app exists now. We need better solutions to curb on surveillance tech and privacy intrution.
 
 ## Build from Source
 As *Nearby Glasses* is open source, you may also build the app yourself from the source code. This makes sure there are no other libraries included in the APK and you get what you want.

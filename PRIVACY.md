@@ -127,7 +127,7 @@ All processed information remains stored locally on the user's device and is sub
 ## 9. Data storage and deletion
 
 All information stored within the app remains locally on the device.
-When the app is uninstalled, all stored data is automatically deleted. Furthremore, the app contains a **delete function** which removes currently stored data imediately from the app.
+When the app is uninstalled, all stored data is automatically deleted. Furthermore, the app contains a **delete function** which removes currently stored data immediately from the app.
 
 
 ## 10. User rights
